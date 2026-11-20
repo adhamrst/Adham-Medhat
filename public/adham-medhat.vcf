@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Medhat;Adham;Ahmed;;
+FN:Adham Medhat (أدهم مدحت)
+NICKNAME:adhamrst
+ORG:RST Central
+TITLE:Medical Student (Horus University) & Founder
+PHOTO;VALUE=URI:https://adham.rstcentral.com/images/adham-medhat-portrait.jpg
+TEL;TYPE=WORK,VOICE:+12029780356
+URL:https://adham.rstcentral.com
+URL;TYPE=WORK:https://rstcentral.com
+X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/in/adhamrst
+X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/adhamrst
+X-SOCIALPROFILE;TYPE=telegram:https://t.me/adhamrst
+X-SOCIALPROFILE;TYPE=youtube:https://youtube.com/@adhamrst
+X-SOCIALPROFILE;TYPE=facebook:https://facebook.com/adhamrstt
+NOTE:Adham Ahmed Medhat (@adhamrst) — Medical Student at Horus University, Micro MBA, Founder of RST Central, and Visual Identity Designer. Business Concierge WhatsApp (RST Central Bot): +1 202 978 0356.
+END:VCARD

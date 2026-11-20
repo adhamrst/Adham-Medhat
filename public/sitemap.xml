@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://adham.rstcentral.com/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-portrait.jpg</image:loc>
+      <image:title>Adham Medhat (أدهم مدحت) — Official Editorial Portrait</image:title>
+      <image:caption>Adham Medhat (Adham Ahmed Medhat), Medical Student at Horus University and Founder of RST Central</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-og-cover.jpg</image:loc>
+      <image:title>Adham Medhat — Official Personal Entity Cover</image:title>
+      <image:caption>Official obsidian and champagne-gold editorial card for Adham Medhat (adham.rstcentral.com)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-micro-mba-horus-university.jpg</image:loc>
+      <image:title>Adham Medhat — Micro MBA in Strategic Management (Horus University)</image:title>
+      <image:caption>Executive Micro MBA credential awarded by Horus University to Adham Ahmed (Adham Medhat)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-graphic-design-certification.jpg</image:loc>
+      <image:title>Adham Medhat — Visual Identity &amp; Graphic Design Certification</image:title>
+      <image:caption>Professional Graphic Design and Visual Identity certification for Adham Medhat (@adhamrst)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-medical-studies-horus-university.jpg</image:loc>
+      <image:title>Adham Medhat — Faculty of Medicine at Horus University</image:title>
+      <image:caption>Academic medical studies record at Horus University, New Damietta, Egypt</image:caption>
+    </image:image>
+  </url>
+</urlset>
