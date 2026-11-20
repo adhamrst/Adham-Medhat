@@ -512,12 +512,46 @@ export const CREDENTIALS: CredentialItem[] = [
       en: [
         'CEFR C1 Advanced Overall Rating (Score: 68/100)',
         'CEFR C2 Proficient Listening Comprehension (76/100)',
-        'Full Global Commercial & Scientific Fluency',
+        'Official Verification: cert.efset.org/TerEUU',
       ],
       ar: [
         'تصنيف C1 Advanced وفق الإطار الأوروبي (النتيجة: 68/100)',
         'مستوى C2 Proficient في مهارات الاستماع (76/100)',
-        'إتقان كامل للتواصل التجاري والأكاديمي العالمي',
+        'رابط التحقق الرسمي المعتمد: cert.efset.org/TerEUU',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'alison-german-intermediate',
+    categoryId: 'business',
+    title: {
+      en: 'Intermediate German 202 (CPD Certified)',
+      ar: 'اللغة الألمانية للمستوى المتوسط 202 (اعتماد CPD الدولي)',
+    },
+    category: { en: 'CPD Certified Language Credential', ar: 'اعتماد لغوي مهني بمعايير CPD الدولية' },
+    issuer: { en: 'Alison · The CPD Certification Service', ar: 'منصة Alison وهيئة اعتماد التطوير المهني المستمر CPD' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.intermediateGermanAlison,
+    imageAlt: {
+      en: 'Alison Intermediate German 202 CPD Certified Certificate awarded to Adham Ahmed',
+      ar: 'شهادة اللغة الألمانية للمستوى المتوسط 202 المعتمدة من CPD باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Accredited language curriculum under the UK CPD Standards Office certifying proficiency in Intermediate German 202, covering contextual grammar, conversational fluency, and professional German correspondence.',
+      ar: 'منهاج لغوي معتمد دولياً من هيئة التطوير المهني المستمر البريطانية (CPD) يثبت إتقان المستوى المتوسط 202 في اللغة الألمانية، ويشمل القواعد المتقدمة، الطلاقة الحوارية، والمراسلات المهنية.',
+    },
+    highlights: {
+      en: [
+        'CPD Standards Office UK International Accreditation',
+        'Practical Grammar, Vocabulary & Work Fluency',
+        'Official Alison Verification: 33bb14e8fb',
+      ],
+      ar: [
+        'اعتماد دولي من هيئة معايير CPD بالمملكة المتحدة',
+        'تطبيق القواعد والمفردات للتواصل المهني الفعال',
+        'كود التحقق والاعتماد الرسمي: 33bb14e8fb',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
@@ -554,6 +588,40 @@ export const CREDENTIALS: CredentialItem[] = [
         'أسس وبنيات الذكاء الاصطناعي وأخلاقيات الاستخدام',
         'أتمتة الأعمال باستخدام أنظمة Copilot الحديثة',
         'كود الاعتماد الرسمي: 52562d8f11b1g597gga26ab02107da9c3',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'asean-ai-career',
+    categoryId: 'technology',
+    title: {
+      en: 'AI Career Readiness & Applied Competencies',
+      ar: 'الجاهزية المهنية وتطبيقات الذكاء الاصطناعي',
+    },
+    category: { en: 'ASEAN & LinkedIn AI Credential', ar: 'اعتماد مؤسسة آسيان ولينكد إن في الذكاء الاصطناعي' },
+    issuer: { en: 'ASEAN Foundation & LinkedIn', ar: 'مؤسسة آسيان (ASEAN Foundation) وشبكة LinkedIn' },
+    year: '2026',
+    issuedTo: 'Issued to: Adham Medhat',
+    image: ASSETS.certificates.aiCareerAsean,
+    imageAlt: {
+      en: 'ASEAN Foundation and LinkedIn Certificate of Completion for AI Career Readiness Training awarded to Adham Medhat',
+      ar: 'شهادة إتمام التدريب المهني في الذكاء الاصطناعي من مؤسسة آسيان ولينكد إن باسم أدهم مدحت',
+    },
+    description: {
+      en: 'Professional training program hosted by the ASEAN Foundation with LinkedIn support (ASEAN Ahead) focused on practical generative AI toolchains, workforce digital literacy, and applied AI competencies.',
+      ar: 'برنامج تدريبي مهني متقدم تنظمه مؤسسة آسيان (ASEAN Foundation) بدعم من LinkedIn (مبادرة ASEAN Ahead) يركز على أدوات الذكاء الاصطناعي التوليدي، تعزيز الكفاءة الرقمية، وتطبيقات الـ AI في بيئات العمل الحديثة.',
+    },
+    highlights: {
+      en: [
+        'Organised by ASEAN Foundation with LinkedIn Support',
+        'Certified by Executive Director Dr. Piti Srisangnam',
+        'Verified via ada.aseanfoundation.org',
+      ],
+      ar: [
+        'تنظيم مؤسسة آسيان (ASEAN) بدعم من شبكة LinkedIn',
+        'اعتماد المدير التنفيذي د. بيتي سريسانجنام',
+        'توثيق معتمد عبر بوابة ada.aseanfoundation.org',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
@@ -1036,6 +1104,40 @@ export const CREDENTIALS: CredentialItem[] = [
         'تصميم الأبحاث الطبية ومعايير التحكيم الدولي',
         'صياغة الأوراق العلمية وأخلاقيات النشر الطبي',
         'بإشراف العالم الجليل أ.د. أحمد شقير',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'horus-medical-2nd-annual',
+    categoryId: 'medical',
+    title: {
+      en: '2nd Annual Student Medical Conference (The Future Physician)',
+      ar: 'المؤتمر العلمي السنوي الثاني لطلاب طب جامعة حورس (The Future Physician)',
+    },
+    category: { en: 'Academic Conference Attendance', ar: 'حضور مؤتمر علمي طبي معتمد' },
+    issuer: { en: 'Horus University · Faculty of Medicine', ar: 'جامعة حورس · كلية الطب البشري' },
+    year: '2026',
+    issuedTo: 'Presented to: Adham Ahmed Medhat · أدهم أحمد مدحت',
+    image: ASSETS.certificates.medicalConference2ndHorus,
+    imageAlt: {
+      en: 'Horus University Faculty of Medicine 2nd Annual Conference Attendance certificate presented to Adham Ahmed Medhat',
+      ar: 'شهادة حضور المؤتمر السنوي الثاني لطلاب طب جامعة حورس باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Participation in the 2nd Annual Student Medical Conference "The Future Physician: Mind, Innovation and Responsible Care" organized by the Faculty of Medicine at Horus University Egypt, exploring future healthcare frameworks, clinical paradigms, and biomedical innovations.',
+      ar: 'المشاركة الفعالة في فعاليات المؤتمر العلمي السنوي الثاني لطلاب كلية الطب البشري بجامعة حورس: "The Future Physician: Mind, Innovation and Responsible Care"، لمناقشة أحدث التطورات الطبية والجراحية والابتكار المسؤول في الرعاية الصحية.',
+    },
+    highlights: {
+      en: [
+        'Theme: The Future Physician: Mind, Innovation & Care',
+        'Clinical Practice & Biomedical Advancements',
+        'Faculty of Medicine · Horus University (April 2026)',
+      ],
+      ar: [
+        'شعار المؤتمر: طبيب المستقبل، الابتكار والرعاية المسؤولة',
+        'تطورات الممارسة السريرية والبحث الطبي التطبيقي',
+        'كلية الطب البشري — جامعة حورس (أبريل 2026)',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
