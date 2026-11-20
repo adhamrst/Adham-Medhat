@@ -5,6 +5,7 @@ import { ASSETS, IDENTITY_METRICS, Language, UI_COPY } from '../data/profileData
 import { calculateTiltAngles, TiltResult } from '../utils/portfolioLogic';
 import { EDITORIAL_EASE, LineMaskReveal, StaggerGroup, StaggerItem } from './MotionPrimitives';
 import { ResilientImage } from './ResilientImage';
+import { AnimatedSignature } from './AnimatedSignature';
 
 interface HeroSectionProps {
   lang: Language;
@@ -380,16 +381,26 @@ export function HeroSection({
                     </span>
                   </div>
                 </div>
-
-                {/* Measured scrim caption at base (fades softly on desktop hover so fan breathes) */}
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#070709]/92 via-[#070709]/55 to-transparent px-4 sm:px-5 pt-10 pb-3.5 sm:pb-4 transition-opacity duration-300 lg:group-hover:opacity-0">
-                  <div className="flex items-center justify-between gap-3 text-[11px] sm:text-xs text-[#D5D3CC]">
-                    <span className="truncate font-medium">{UI_COPY.hero.portraitCaption[lang]}</span>
-                    <span className="shrink-0 font-medium text-[#D4A853]">adham.rstcentral.com</span>
-                  </div>
-                </figcaption>
               </figure>
             </div>
+
+            {/* Executive Hand-Drawn Signature Seal */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.42, ease: EDITORIAL_EASE }}
+              className="mt-3.5 flex items-center justify-between px-1.5"
+            >
+              <AnimatedSignature lang={lang} />
+              <div className="hidden sm:flex flex-col items-end text-right">
+                <span className="font-editorial text-sm font-semibold tracking-tight text-[#F4F3EF]">
+                  @adhamrst
+                </span>
+                <span className="text-[10px] tracking-wider text-[#D4A853]">
+                  {lang === 'ar' ? 'جامعة حورس · RST' : 'Horus Univ · RST'}
+                </span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
