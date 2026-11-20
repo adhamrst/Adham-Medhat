@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Check, Download, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Language, UI_COPY } from '../data/profileData';
@@ -12,13 +12,48 @@ interface NavbarProps {
 
 export function Navbar({ lang, vcardSaved, onDownloadVCard }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
 
   const navItems = [
-    { href: '#journey', label: UI_COPY.nav.journey[lang] },
-    { href: '#credentials', label: UI_COPY.nav.credentials[lang] },
-    { href: '#ventures', label: UI_COPY.nav.ventures[lang] },
-    { href: '#connect', label: UI_COPY.nav.connect[lang] },
+    { href: '#journey', id: 'journey', label: UI_COPY.nav.journey[lang] },
+    { href: '#credentials', id: 'credentials', label: UI_COPY.nav.credentials[lang] },
+    { href: '#ventures', id: 'ventures', label: UI_COPY.nav.ventures[lang] },
+    { href: '#connect', id: 'connect', label: UI_COPY.nav.connect[lang] },
   ];
+
+  useEffect(() => {
+    const sectionIds = ['journey', 'credentials', 'ventures', 'connect'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: 0,
+      },
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    const handleScroll = () => {
+      if (window.scrollY < 240) {
+        setActiveSection('');
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <motion.header
@@ -36,20 +71,32 @@ export function Navbar({ lang, vcardSaved, onDownloadVCard }: NavbarProps) {
           {lang === 'ar' ? 'أدهم مدحت' : 'Adham Medhat'}
         </a>
 
-        {/* Zone 2: 4 clean single-line text nav links */}
+        {/* Zone 2: Premium Segmented Navigation with spring layoutId gliding indicator */}
         <nav
           aria-label={lang === 'ar' ? 'التنقل الرئيسي' : 'Primary navigation'}
-          className="hidden md:flex items-center gap-8 text-sm font-medium text-[#9D9FA8]"
+          className="hidden md:flex items-center gap-1.5 rounded-full border border-[#242731]/80 bg-[#101218]/80 p-1 backdrop-blur-md"
         >
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="relative py-1 whitespace-nowrap shrink-0 transition-colors hover:text-[#F4F3EF] after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-[#D4A853] after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4A853]"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`relative px-4 py-1.5 text-xs font-semibold rounded-full whitespace-nowrap shrink-0 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A853] ${
+                  isActive ? 'text-[#F4F3EF]' : 'text-[#9D9FA8] hover:text-[#F4F3EF]'
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="navbar-active-pill"
+                    transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    className="absolute inset-0 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/40 shadow-[0_0_12px_rgba(212,168,83,0.12)]"
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
+              </a>
+            );
+          })}
         </nav>
 
         {/* Zone 3: 1 primary action (plus mobile menu button only below md) */}

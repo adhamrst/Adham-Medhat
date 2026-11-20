@@ -51,7 +51,6 @@ export const PUBLIC_MEDIA_ASSETS = {
     videoPremiereM3aarf: '/images/certificates/adham-medhat-adobe-premiere-video-editing-m3aarf.webp',
     imageGenGoogleCloud: '/images/certificates/adham-medhat-generative-ai-image-generation-google-cloud.webp',
     aiCareerAsean: '/images/certificates/adham-medhat-ai-career-readiness-asean-foundation.webp',
-    intermediateGermanAlison: '/images/certificates/adham-medhat-intermediate-german-alison-cpd.webp',
     medicalConference2ndHorus: '/images/certificates/adham-medhat-medical-conference-2nd-annual-horus-university.webp',
     elingeniumInternship: '/images/certificates/adham-medhat-creative-agency-internship-elingenium.webp',
   },

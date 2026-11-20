@@ -556,40 +556,6 @@ export const CREDENTIALS: CredentialItem[] = [
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
   },
-  {
-    id: 'alison-german-intermediate',
-    categoryId: 'business',
-    title: {
-      en: 'Intermediate German 202 (CPD Certified)',
-      ar: 'اللغة الألمانية للمستوى المتوسط 202 (اعتماد CPD الدولي)',
-    },
-    category: { en: 'CPD Certified Language Credential', ar: 'اعتماد لغوي مهني بمعايير CPD الدولية' },
-    issuer: { en: 'Alison · The CPD Certification Service', ar: 'منصة Alison وهيئة اعتماد التطوير المهني المستمر CPD' },
-    year: '2024',
-    issuedTo: 'Issued to: Adham Ahmed',
-    image: ASSETS.certificates.intermediateGermanAlison,
-    imageAlt: {
-      en: 'Alison Intermediate German 202 CPD Certified Certificate awarded to Adham Ahmed',
-      ar: 'شهادة اللغة الألمانية للمستوى المتوسط 202 المعتمدة من CPD باسم أدهم أحمد',
-    },
-    description: {
-      en: 'Accredited language curriculum under the UK CPD Standards Office certifying proficiency in Intermediate German 202, covering contextual grammar, conversational fluency, and professional German correspondence.',
-      ar: 'منهاج لغوي معتمد دولياً من هيئة التطوير المهني المستمر البريطانية (CPD) يثبت إتقان المستوى المتوسط 202 في اللغة الألمانية، ويشمل القواعد المتقدمة، الطلاقة الحوارية، والمراسلات المهنية.',
-    },
-    highlights: {
-      en: [
-        'CPD Standards Office UK International Accreditation',
-        'Practical Grammar, Vocabulary & Work Fluency',
-        'Official Alison Verification: 33bb14e8fb',
-      ],
-      ar: [
-        'اعتماد دولي من هيئة معايير CPD بالمملكة المتحدة',
-        'تطبيق القواعد والمفردات للتواصل المهني الفعال',
-        'كود التحقق والاعتماد الرسمي: 33bb14e8fb',
-      ],
-    },
-    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
-  },
 
   // --- AI & Engineering / Technology ---
   {

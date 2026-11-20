@@ -1,18 +1,37 @@
-import { useState } from 'react';
+import { useState, type MouseEvent } from 'react';
 import { ArrowUpRight, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { PUBLIC_MEDIA_ASSETS } from '../data/entityConfig';
 import { Language, UI_COPY, VENTURES } from '../data/profileData';
-import { RST_BOT_WHATSAPP_DIGITS } from '../utils/portfolioLogic';
+import { calculateTiltAngles, RST_BOT_WHATSAPP_DIGITS, TiltResult } from '../utils/portfolioLogic';
 import { EDITORIAL_EASE, EditorialReveal, LineMaskReveal } from './MotionPrimitives';
 
 interface VenturesSectionProps {
   lang: Language;
 }
 
+const DEFAULT_CARD_TILT: TiltResult = { rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 };
+
 export function VenturesSection({ lang }: VenturesSectionProps) {
   const [cardRevealed, setCardRevealed] = useState(false);
+  const [cardTilt, setCardTilt] = useState<TiltResult>(DEFAULT_CARD_TILT);
   const rstVenture = VENTURES.find((v) => v.size === 'featured') ?? VENTURES[0];
+
+  const handleCardMove = (event: MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const nextTilt = calculateTiltAngles(
+      event.clientX - rect.left,
+      event.clientY - rect.top,
+      rect.width,
+      rect.height,
+      7,
+    );
+    setCardTilt(nextTilt);
+  };
+
+  const handleCardLeave = () => {
+    setCardTilt(DEFAULT_CARD_TILT);
+  };
 
   const rstConciergeUrl = `https://wa.me/${RST_BOT_WHATSAPP_DIGITS}?text=${encodeURIComponent(
     lang === 'ar'
@@ -44,7 +63,11 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
         <EditorialReveal delay={0.12}>
           <article className="mt-8 sm:mt-12 grid grid-cols-1 items-center gap-8 rounded-2xl border border-[#242731] bg-[#101115] p-6 sm:p-8 lg:grid-cols-12 lg:gap-12 lg:p-12">
             {/* Interactive Obsidian & Gold Executive Business Card */}
-            <div className="flex flex-col items-center justify-center lg:col-span-5">
+            <div
+              onMouseMove={handleCardMove}
+              onMouseLeave={handleCardLeave}
+              className="flex flex-col items-center justify-center lg:col-span-5"
+            >
               <button
                 type="button"
                 dir="ltr"
@@ -55,11 +78,22 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
                     : 'Interactive RST Central executive business card — hover or tap to reveal'
                 }
                 onClick={() => setCardRevealed((prev) => !prev)}
+                style={{
+                  transform: `perspective(900px) rotateX(${cardTilt.rotateX}deg) rotateY(${cardTilt.rotateY}deg)`,
+                }}
                 className={`rst-biz-card cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4A853] ${
                   cardRevealed ? 'is-revealed' : ''
                 }`}
               >
                 <span aria-hidden="true" className="rst-biz-border" />
+
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(circle at ${cardTilt.glareX}% ${cardTilt.glareY}%, rgba(232, 196, 120, 0.22), transparent 58%)`,
+                  }}
+                />
 
                 <div className="rst-biz-content">
                   {PUBLIC_MEDIA_ASSETS.customRstLogoUrl ? (
@@ -139,6 +173,19 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
             {/* Directly Indexable RST Central Brief (No Hidden Modal Text) */}
             <div className="flex flex-col justify-between lg:col-span-7">
               <div>
+                {/* Active Platform Beacon Badge */}
+                <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-[#D4A853]/40 bg-[#D4A853]/10 px-3 py-1 text-[11px] font-medium text-[#E8C478]">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D4A853] opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D4A853]" />
+                  </span>
+                  <span>
+                    {lang === 'ar'
+                      ? 'منصة نشطة · التصنيع الرقمي والتجارة الإلكترونية الحديثة'
+                      : 'Active Platform · Digital Fabrication & E-Commerce'}
+                  </span>
+                </div>
+
                 <p className="text-xs font-medium text-[#D4A853]">{rstVenture.eyebrow[lang]}</p>
                 <h3 className="font-editorial mt-2 text-2xl sm:text-4xl font-semibold text-[#F4F3EF]">
                   {rstVenture.title[lang]}
@@ -154,17 +201,21 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
                   <h4 className="text-xs font-semibold text-[#D4A853]">
                     {UI_COPY.ventures.capabilitiesHeading[lang]}
                   </h4>
-                  <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
+                  <ul className="mt-3.5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {rstVenture.capabilities[lang].map((cap, idx) => (
-                      <li
+                      <motion.li
                         key={cap}
-                        className="flex items-baseline gap-2.5 border-b border-[#242731]/60 pb-2 text-xs sm:text-sm text-[#E2DFD7]"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2, ease: EDITORIAL_EASE }}
+                        className="group/cap flex items-center gap-3 rounded-xl border border-[#242731] bg-[#0C0D12] p-3 transition-colors hover:border-[#D4A853]/55 hover:bg-[#12141C]"
                       >
-                        <span className="font-editorial text-sm font-semibold text-[#D4A853] tabular-nums">
+                        <span className="font-editorial flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[#D4A853]/30 bg-[#D4A853]/10 text-xs font-semibold text-[#D4A853] tabular-nums transition-colors group-hover/cap:bg-[#D4A853] group-hover/cap:text-[#070709]">
                           0{idx + 1}
                         </span>
-                        <span>{cap}</span>
-                      </li>
+                        <span className="text-xs sm:text-sm font-medium text-[#E2DFD7] transition-colors group-hover/cap:text-[#F4F3EF]">
+                          {cap}
+                        </span>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>

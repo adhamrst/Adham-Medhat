@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Volume2 } from 'lucide-react';
+import { Check, Volume2 } from 'lucide-react';
 import { AnimatePresence, motion, MotionConfig, useScroll, useSpring } from 'motion/react';
 import { CredentialsCarousel } from './components/CredentialsCarousel';
+import { FastScrollThumb } from './components/FastScrollThumb';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { JourneySection } from './components/JourneySection';
@@ -148,6 +149,7 @@ export default function App() {
         />
 
         <Navbar lang={lang} vcardSaved={vcardSaved} onDownloadVCard={handleDownloadVCard} />
+        <FastScrollThumb />
         <main>
           <HeroSection
             lang={lang}
@@ -200,6 +202,35 @@ export default function App() {
             >
               <Volume2 className="h-4 w-4" aria-hidden="true" />
             </motion.button>
+          )}
+        </AnimatePresence>
+
+        {/* Luxury Toast Notification for vCard Download */}
+        <AnimatePresence>
+          {vcardSaved && (
+            <motion.aside
+              role="status"
+              aria-live="polite"
+              initial={{ opacity: 0, y: 24, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.94 }}
+              transition={{ duration: 0.35, ease: EDITORIAL_EASE }}
+              className="fixed bottom-5 start-4 sm:start-8 z-50 flex items-center gap-3.5 rounded-xl border border-[#D4A853]/55 bg-[#0C0D12]/96 px-4 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.85)] backdrop-blur-xl max-w-sm sm:max-w-md pointer-events-auto"
+            >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#D4A853]/15 text-[#D4A853] border border-[#D4A853]/30">
+                <Check className="h-4 w-4 stroke-[2.4]" aria-hidden="true" />
+              </div>
+              <div className="flex-1 text-xs">
+                <p className="font-semibold text-[#F4F3EF]">
+                  {lang === 'ar' ? 'تم تنزيل بطاقة الاتصال الرسمية (.vcf)' : 'Official Contact Saved (.vcf)'}
+                </p>
+                <p className="mt-0.5 text-[11px] text-[#9D9FA8]">
+                  {lang === 'ar'
+                    ? 'أدهم مدحت · جاهزة للإضافة المباشرة لجهات اتصال هاتفك'
+                    : 'Adham Medhat · Ready to import to your phone contacts'}
+                </p>
+              </div>
+            </motion.aside>
           )}
         </AnimatePresence>
       </div>

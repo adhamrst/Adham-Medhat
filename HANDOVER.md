@@ -54,13 +54,13 @@
   2. **3D Executive Carousel (`GalleryHorizontal`)**: 3D tilt perspective with mouse-tracking glare, jump-rail thumbnails, and autoplay controls.
 * **Interactive Lightbox Modal**: High-res inspection with 125% zoom toggle, keyboard arrow navigation, and ESC to dismiss.
 * **Categories Supported:**
-  * `Business & Finance` (Horus University ETC Micro MBA 90h Official Diploma, Micro MBA 12-Module Academic Transcript, Google/IAB Digital Marketing, HSBC Global Banking, Central Bank of Egypt EBI, HP LIFE Selling Online, HP LIFE Social Media, EF SET C1 Advanced, Alison Intermediate German 202 CPD Certified).
+  * `Business & Finance` (Horus University ETC Micro MBA 90h Official Diploma, Micro MBA 12-Module Academic Transcript, Google/IAB Digital Marketing, HSBC Global Banking, Central Bank of Egypt EBI, HP LIFE Selling Online, HP LIFE Social Media, EF SET C1 Advanced).
   * `AI & Engineering` (Microsoft & LinkedIn Generative AI, ASEAN Foundation & LinkedIn AI Career Readiness, HackerRank SQL CTO Certified, Google Cloud Image Gen, Edraak ICDL Base Specialization).
   * `Design & Media` (Visual Identity & Graphic Design, Elingenium Creative Agency Summer Internship Vol.3, M3aarf Adobe Premiere Pro, Brand Architecture).
   * `Ventures` (KKUx & Hsoub Freelancing, RST Central Leadership, E-Commerce & Precision Fabrication).
   * `Academic Studies (Medicine)` (Strictly placed at the END: Horus University Medical Conference Organizer & Letter of Commendation from Dean, Horus University 2nd Annual Medical Student Conference 2026, 1st Annual Attendance, Mansoura National University Scientific Conference, Prof. Ahmed Shokeir Research Methodology Workshop, and MBBS Current Undergraduate Track).
 * **Ingested & Optimized WebP Assets:**
-  * All 22 high-authority credentials converted to lightweight, ultra-crisp WebP under `/public/images/certificates/` (~35KB-160KB per cert).
+  * All 21 high-authority credentials converted to lightweight, ultra-crisp WebP under `/public/images/certificates/` (~35KB-160KB per cert).
   * Official Portrait converted to WebP (`/public/images/adham-medhat-portrait.webp`, ~51KB) and optimized progressive JPEG (~122KB, 93% bandwidth saving).
   * Official Micro MBA Certificate & Transcript with university seal, hologram, and accreditation from the Supreme Council of Universities.
   * Modern EF SET Certificate rendered from vector PDF showcasing sleek graphic breakdown (68/100, C2 Listening 76, B2 Reading 59, URL: `cert.efset.org/TerEUU`).
