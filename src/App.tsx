@@ -98,11 +98,50 @@ export default function App() {
     };
   }, []);
 
+  // Gracefully fade in calm ambient jazz upon first interaction if not explicitly muted
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (sessionStorage.getItem('adham_ambient_muted') === 'true') return;
+
+    const triggerOnFirstInteraction = async () => {
+      if (sessionStorage.getItem('adham_ambient_muted') === 'true') {
+        cleanup();
+        return;
+      }
+
+      if (!ambientAudio.getPlayingState()) {
+        const started = await ambientAudio.start();
+        if (started) {
+          setIsAmbientPlaying(true);
+        }
+      }
+      cleanup();
+    };
+
+    const cleanup = () => {
+      window.removeEventListener('pointerdown', triggerOnFirstInteraction);
+      window.removeEventListener('keydown', triggerOnFirstInteraction);
+      window.removeEventListener('touchstart', triggerOnFirstInteraction);
+    };
+
+    window.addEventListener('pointerdown', triggerOnFirstInteraction, { once: true, passive: true });
+    window.addEventListener('keydown', triggerOnFirstInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', triggerOnFirstInteraction, { once: true, passive: true });
+
+    return cleanup;
+  }, []);
+
   const handleToggleAmbient = useCallback(async () => {
     if (ambientAudio.getPlayingState()) {
       ambientAudio.stop();
       setIsAmbientPlaying(false);
+      try {
+        sessionStorage.setItem('adham_ambient_muted', 'true');
+      } catch {}
     } else {
+      try {
+        sessionStorage.removeItem('adham_ambient_muted');
+      } catch {}
       const started = await ambientAudio.start();
       setIsAmbientPlaying(started);
     }

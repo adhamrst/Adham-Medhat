@@ -27,7 +27,7 @@ class AmbientSoundscapeEngine {
   private chordIndex = 0;
   private isPlaying = false;
   private isUsingFile = false;
-  private targetVolume = 0.20;
+  private targetVolume = 0.18;
 
   private initAudioElement(): HTMLAudioElement | null {
     if (typeof window === 'undefined') return null;
@@ -144,7 +144,7 @@ class AmbientSoundscapeEngine {
           window.clearInterval(this.fadeIntervalId);
         }
 
-        const step = 0.015;
+        const step = 0.005;
         this.fadeIntervalId = window.setInterval(() => {
           if (!this.audioElement || !this.isPlaying) {
             if (this.fadeIntervalId !== null) window.clearInterval(this.fadeIntervalId);

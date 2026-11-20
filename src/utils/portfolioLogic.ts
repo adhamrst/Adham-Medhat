@@ -144,11 +144,11 @@ export function getCarouselCardTransform(
   if (absOffset === 1) {
     return {
       offset,
-      translateXPercent: offset * 56 * directionMultiplier,
-      translateZPx: -80,
+      translateXPercent: offset * 62 * directionMultiplier,
+      translateZPx: -90,
       rotateYDeg: -offset * 7 * directionMultiplier,
-      scale: 0.90,
-      opacity: 0.52,
+      scale: 0.88,
+      opacity: 0.65,
       zIndex: 20,
       isActive: false,
       isVisible: true,

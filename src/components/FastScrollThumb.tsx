@@ -181,19 +181,19 @@ export function FastScrollThumb() {
               : 'opacity-0 pointer-events-none'
           }`}
         >
-          {/* Visual Luxury Gallery Pill */}
+          {/* Visual Dark Transparent Smoked-Glass Gallery Pill */}
           <div
             className={`flex flex-col items-center justify-center rounded-full transition-all duration-200 ${
               isDragging
-                ? 'w-2.5 h-12 bg-[#1A1C24] border border-[#E8C478] shadow-[0_0_14px_rgba(212,168,83,0.5)]'
-                : 'w-1.5 hover:w-2.5 h-11 bg-[#16181F]/90 backdrop-blur-md border border-[#D4A853]/40 hover:border-[#D4A853] shadow-[0_2px_10px_rgba(0,0,0,0.6)]'
+                ? 'w-2.5 h-12 bg-black/75 backdrop-blur-md border border-white/25 shadow-[0_4px_20px_rgba(0,0,0,0.8)]'
+                : 'w-1.5 hover:w-2.5 h-11 bg-black/45 backdrop-blur-md border border-white/10 hover:border-white/25 shadow-[0_2px_12px_rgba(0,0,0,0.6)]'
             }`}
           >
-            {/* Subtle inner grip accents */}
+            {/* Subtle neutral grip indicator without any other colors */}
             <div className="flex flex-col items-center gap-0.5">
               <span
                 className={`w-0.5 rounded-full transition-all ${
-                  isDragging ? 'h-3 bg-[#E8C478]' : 'h-2 bg-[#D4A853]/70'
+                  isDragging ? 'h-3 bg-white/35' : 'h-2 bg-white/15'
                 }`}
               />
             </div>

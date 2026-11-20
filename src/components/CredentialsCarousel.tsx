@@ -396,14 +396,14 @@ export function CredentialsCarousel({
                         setIsZoomed(false);
                       }}
                       aria-label={`${UI_COPY.credentials.inspectButton[lang]}: ${credential.title[lang]}`}
-                      className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-[#0A0B0F] cursor-pointer block text-start"
+                      className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-[#07080C] flex items-center justify-center p-2 cursor-pointer block text-start"
                     >
                       <ResilientImage
                         src={credential.image}
                         alt={credential.imageAlt[lang]}
                         fallbackLabel={credential.title.en}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-contain rounded-lg transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#070709]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -484,13 +484,13 @@ export function CredentialsCarousel({
                   aria-label={`${UI_COPY.credentials.inspectButton[lang]}: ${activeCredential.title[lang]}`}
                   className="group block w-full text-start cursor-pointer"
                 >
-                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#0A0B0F]">
+                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#07080C] flex items-center justify-center p-2">
                     <ResilientImage
                       src={activeCredential.image}
                       alt={activeCredential.imageAlt[lang]}
                       fallbackLabel={activeCredential.title.en}
                       loading="eager"
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain rounded-md"
                     />
                     <div className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-md border border-[#242731] bg-[#070709]/85 px-2.5 py-1.5 text-xs font-medium text-[#F4F3EF] backdrop-blur-sm">
                       <Maximize2 className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
@@ -562,7 +562,7 @@ export function CredentialsCarousel({
                     zIndex: cardTransform.zIndex,
                     pointerEvents: cardTransform.isVisible ? 'auto' : 'none',
                   }}
-                  className="carousel-card-3d absolute w-full max-w-[530px]"
+                  className="carousel-card-3d absolute w-full max-w-[460px] lg:max-w-[480px]"
                 >
                   <div
                     onMouseMove={isFront ? handleActiveCardMove : undefined}
@@ -580,13 +580,18 @@ export function CredentialsCarousel({
                         : 'border-[#242731] hover:border-[#3A3E4C]'
                     }`}
                   >
-                    {isFront && (
+                    {isFront ? (
                       <div
                         aria-hidden="true"
                         className="pointer-events-none absolute inset-0 z-10 opacity-70"
                         style={{
                           background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(212, 168, 83, 0.13), transparent 55%)`,
                         }}
+                      />
+                    ) : (
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 z-20 bg-[#0B0C10]/65 backdrop-blur-[1.5px] transition-opacity duration-300"
                       />
                     )}
 
@@ -608,13 +613,13 @@ export function CredentialsCarousel({
                       }
                       className="group block w-full text-start cursor-pointer focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#D4A853]"
                     >
-                      <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#0A0B0F]">
+                      <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#07080C] flex items-center justify-center p-2.5">
                         <ResilientImage
                           src={credential.image}
                           alt={credential.imageAlt[lang]}
                           fallbackLabel={credential.title.en}
                           loading={index === 0 ? 'eager' : 'lazy'}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          className="h-full w-full object-contain rounded-md transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                         {isFront && (
                           <div className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-md border border-[#242731] bg-[#070709]/85 px-2.5 py-1.5 text-xs font-medium text-[#F4F3EF] backdrop-blur-sm">
@@ -624,22 +629,22 @@ export function CredentialsCarousel({
                         )}
                       </div>
 
-                      <div className="p-6">
+                      <div className="p-5 sm:p-6">
                         <div className="flex flex-wrap items-center gap-2 text-xs text-[#9D9FA8]">
                           <span className="font-medium text-[#D4A853]">
                             {credential.category[lang]}
                           </span>
                           <span aria-hidden="true">·</span>
-                          <span>{credential.issuer[lang]}</span>
+                          <span className="truncate max-w-[200px]">{credential.issuer[lang]}</span>
                           <span aria-hidden="true">·</span>
                           <span className="tabular-nums">{credential.year}</span>
                         </div>
 
-                        <h3 className="font-editorial mt-2 text-2xl font-semibold text-[#F4F3EF]">
+                        <h3 className="font-editorial mt-2 text-xl sm:text-2xl font-semibold text-[#F4F3EF] line-clamp-2">
                           {credential.title[lang]}
                         </h3>
 
-                        <p className="mt-3 border-t border-[#242731] pt-3 text-xs font-medium text-[#C8C7C1]">
+                        <p className="mt-3 border-t border-[#242731] pt-3 text-xs font-medium text-[#C8C7C1] truncate">
                           {credential.issuedTo}
                         </p>
                       </div>

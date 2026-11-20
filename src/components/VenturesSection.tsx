@@ -173,19 +173,6 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
             {/* Directly Indexable RST Central Brief (No Hidden Modal Text) */}
             <div className="flex flex-col justify-between lg:col-span-7">
               <div>
-                {/* Active Platform Beacon Badge */}
-                <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-[#D4A853]/40 bg-[#D4A853]/10 px-3 py-1 text-[11px] font-medium text-[#E8C478]">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D4A853] opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D4A853]" />
-                  </span>
-                  <span>
-                    {lang === 'ar'
-                      ? 'منصة نشطة · التصنيع الرقمي والتجارة الإلكترونية الحديثة'
-                      : 'Active Platform · Digital Fabrication & E-Commerce'}
-                  </span>
-                </div>
-
                 <p className="text-xs font-medium text-[#D4A853]">{rstVenture.eyebrow[lang]}</p>
                 <h3 className="font-editorial mt-2 text-2xl sm:text-4xl font-semibold text-[#F4F3EF]">
                   {rstVenture.title[lang]}
