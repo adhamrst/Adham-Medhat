@@ -243,7 +243,7 @@ export function filterCredentialsByCategory<T extends { categoryId: string }>(
   return items.filter((item) => item.categoryId === categoryId);
 }
 
-export type UploadCredentialCategory = 'business' | 'medical' | 'design' | 'entrepreneurship';
+export type UploadCredentialCategory = 'business' | 'medical' | 'design' | 'entrepreneurship' | 'technology';
 
 export interface UploadCredentialInput {
   title: string;
@@ -273,6 +273,7 @@ export interface UploadedCredentialPayload {
 
 const CATEGORY_LABELS: Record<UploadCredentialCategory, { en: string; ar: string }> = {
   business: { en: 'Business & Executive Credential', ar: 'شهادة في إدارة الأعمال' },
+  technology: { en: 'AI & Engineering Credential', ar: 'شهادة في الذكاء الاصطناعي والتقنية' },
   medical: { en: 'Medical & Academic Credential', ar: 'شهادة طبية وأكاديمية' },
   design: { en: 'Design & Creative Credential', ar: 'شهادة تصميم وإبداع بصري' },
   entrepreneurship: { en: 'Entrepreneurship Credential', ar: 'شهادة ريادة أعمال ومشاريع' },

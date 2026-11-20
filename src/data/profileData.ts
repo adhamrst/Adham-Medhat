@@ -1,7 +1,7 @@
 import { PUBLIC_MEDIA_ASSETS } from './entityConfig';
 
 export type Language = 'en' | 'ar';
-export type CredentialCategoryId = 'all' | 'business' | 'medical' | 'design' | 'entrepreneurship';
+export type CredentialCategoryId = 'all' | 'business' | 'technology' | 'design' | 'entrepreneurship' | 'medical';
 
 export interface LocalizedText {
   en: string;
@@ -60,13 +60,15 @@ export interface SocialLinkItem {
 }
 
 export const ASSETS = {
-  portrait: PUBLIC_MEDIA_ASSETS.portrait,
+  portrait: PUBLIC_MEDIA_ASSETS.portraitWebp,
+  portraitJpg: PUBLIC_MEDIA_ASSETS.portrait,
   ogCover: PUBLIC_MEDIA_ASSETS.ogCover,
   certMicroMba: PUBLIC_MEDIA_ASSETS.certMicroMba,
   certGraphicDesign: PUBLIC_MEDIA_ASSETS.certGraphicDesign,
   certMedical: PUBLIC_MEDIA_ASSETS.certMedical,
   ventureRst: PUBLIC_MEDIA_ASSETS.ventureRst,
   ventureDesign: PUBLIC_MEDIA_ASSETS.ventureDesign,
+  certificates: PUBLIC_MEDIA_ASSETS.certificates,
 } as const;
 
 export const LINKEDIN_CERTIFICATIONS_URL =
@@ -77,8 +79,9 @@ export const CREDENTIAL_CATEGORIES: Array<{
   label: LocalizedText;
 }> = [
   { id: 'all', label: { en: 'All Credentials', ar: 'جميع الشهادات' } },
-  { id: 'business', label: { en: 'Business & MBA', ar: 'الأعمال والـ MBA' } },
-  { id: 'design', label: { en: 'Design & Identity', ar: 'التصميم والهوية' } },
+  { id: 'business', label: { en: 'Business & Finance', ar: 'الأعمال والمالية' } },
+  { id: 'technology', label: { en: 'AI & Engineering', ar: 'الذكاء الاصطناعي والتقنية' } },
+  { id: 'design', label: { en: 'Design & Media', ar: 'التصميم والميديا' } },
   { id: 'entrepreneurship', label: { en: 'Ventures', ar: 'ريادة الأعمال' } },
   { id: 'medical', label: { en: 'Academic Studies (Medicine)', ar: 'المسار الجامعي (الطب)' } },
 ];
@@ -246,6 +249,7 @@ export const JOURNEY_PILLARS: JourneyPillar[] = [
 ];
 
 export const CREDENTIALS: CredentialItem[] = [
+  // --- Business & Finance (Tier-1 Executive Credentials) ---
   {
     id: 'micro-mba',
     categoryId: 'business',
@@ -281,35 +285,103 @@ export const CREDENTIALS: CredentialItem[] = [
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
   },
   {
-    id: 'graphic-design',
-    categoryId: 'design',
+    id: 'google-digital-marketing',
+    categoryId: 'business',
     title: {
-      en: 'Visual Identity & Graphic Design Certification',
-      ar: 'شهادة احترافية في التصميم الجرافيكي والهوية البصرية',
+      en: 'The Fundamentals of Digital Marketing',
+      ar: 'أساسيات التسويق الرقمي المعتمدة',
     },
-    category: { en: 'Creative Direction Accreditation', ar: 'اعتماد الإبداع والتصميم البصري' },
-    issuer: { en: 'Verified on LinkedIn', ar: 'موثّقة على LinkedIn' },
-    year: '2024',
-    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
-    image: ASSETS.certGraphicDesign,
+    category: { en: 'Global Industry Credential', ar: 'اعتماد دولي معترف به عالمياً' },
+    issuer: { en: 'Google & IAB Europe', ar: 'جوجل والمجلس الأوروبي للإعلانات التفاعلية' },
+    year: '2023',
+    issuedTo: 'Issued to: Adham Ahmed Medhat · أدهم أحمد مدحت',
+    image: ASSETS.certificates.digitalMarketingGoogle,
     imageAlt: {
-      en: 'Visual Identity and Graphic Design Professional Certification awarded to Adham Ahmed (Adham Medhat)',
-      ar: 'شهادة التصميم الجرافيكي والهوية البصرية باسم أدهم أحمد (أدهم مدحت)',
+      en: 'Google and IAB Europe Fundamentals of Digital Marketing certification awarded to Adham Ahmed Medhat',
+      ar: 'شهادة أساسيات التسويق الرقمي المعتمدة من جوجل و IAB Europe باسم أدهم أحمد مدحت',
     },
     description: {
-      en: 'Specialized mastery in modernist grid architecture, brand mark construction, editorial typography, print production standards, and cohesive digital design systems.',
-      ar: 'تخصص متقدم في بناء الشبكات التصميمية، هندسة الشعارات والهويات البصرية، التايبوغرافي التحريري، ومعايير الطباعة والتصميم الرقمي المتكامل.',
+      en: 'Comprehensive 26-module professional certification accredited by Interactive Advertising Bureau (IAB Europe) covering search optimization, digital strategy, analytics, and omnichannel conversion funnels.',
+      ar: 'شهادة احترافية دولية معتمدة من Google و IAB Europe تتضمن 26 وحدة دراسية في تهيئة محركات البحث، استراتيجيات التسويق الرقمي، تحليلات البيانات، ومسارات التحويل متكاملة القنوات.',
     },
     highlights: {
       en: [
-        'Brand Identity Systems & Logo Geometry',
-        'Swiss Editorial Grid & Typographic Hierarchy',
-        'Commercial Packaging & Digital Art Direction',
+        'Search Engine Optimization & Paid Search Strategy',
+        'Omnichannel Marketing & Web Analytics',
+        'Verified Credential Code: GZ8 JJK ZNC',
       ],
       ar: [
-        'أنظمة الهويات البصرية وهندسة الشعارات',
-        'الشبكات التحريرية والتسلسل التايبوغرافي',
-        'تصميم التغليف والإخراج الفني الرقمي',
+        'تحسين محركات البحث واستراتيجيات الحملات الممولة',
+        'التسويق متعدد القنوات وتحليلات الويب',
+        'رقم تعريف الشهادة المعتمد: GZ8 JJK ZNC',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'hsbc-global-banking',
+    categoryId: 'business',
+    title: {
+      en: 'Global Banking & Markets Simulation',
+      ar: 'محاكاة أسواق المال والخدمات المصرفية العالمية',
+    },
+    category: { en: 'Institutional Finance Simulation', ar: 'محاكاة مصرفية وتمويل مؤسسي' },
+    issuer: { en: 'HSBC & Forage', ar: 'بنك HSBC ومؤسسة Forage الدولية' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.globalBankingHsbc,
+    imageAlt: {
+      en: 'HSBC Global Banking and Markets Job Simulation Certificate of Completion awarded to Adham Ahmed',
+      ar: 'شهادة محاكاة أسواق المال والمصارف العالمية من HSBC باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Practical institutional banking simulation analyzing debt financing opportunities, offshore expansion targets, debt capital markets updates, trade processing, and tailored corporate structuring.',
+      ar: 'محاكاة مهنية متقدمة لبنك HSBC العالمي لتحليل فرص تمويل الديون، أهداف التوسع الخارجي، أسواق رأس المال، تداول الأوراق المالية، وهيكلة الحلول التمويلية للشركات.',
+    },
+    highlights: {
+      en: [
+        'Debt Financing & Capital Markets Analysis',
+        'Offshore Corporate Expansion Targeting',
+        'Verification Code: daotNUk6ixtMSrNK',
+      ],
+      ar: [
+        'تحليل تمويل الديون وأسواق رأس المال',
+        'دراسة التوسع الخارجي واستراتيجيات التمويل',
+        'رمز التحقق الرسمي: daotNUk6ixtMSrNK',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'central-bank-egypt',
+    categoryId: 'business',
+    title: {
+      en: 'Banking & Financial Systems Leadership',
+      ar: 'المنظومة المصرفية والمالية الحديثة',
+    },
+    category: { en: 'Central Banking Credential', ar: 'اعتماد المعهد المصرفي المصري' },
+    issuer: { en: 'Central Bank of Egypt · EBI', ar: 'البنك المركزي المصري · المعهد المصرفي' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed · أدهم أحمد',
+    image: ASSETS.certificates.centralBankEgypt,
+    imageAlt: {
+      en: 'Egyptian Banking Institute Central Bank of Egypt financial credential awarded to Adham Ahmed',
+      ar: 'شهادة المعهد المصرفي المصري التابع للبنك المركزي المصري باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Executive training by the official training arm of the Central Bank of Egypt focusing on banking regulations, financial compliance, liquidity governance, and modern institutional finance.',
+      ar: 'برنامج معتمد من الذراع التدريبي الرسمي للبنك المركزي المصري يركز على السياسات المصرفية، الامتثال المالي، إدارة السيولة، وحوكمة التعاملات المالية المؤسسية.',
+    },
+    highlights: {
+      en: [
+        'Banking Frameworks & Monetary Governance',
+        'Institutional Risk Assessment & Compliance',
+        'Official EBI Central Bank Certification',
+      ],
+      ar: [
+        'السياسات المصرفية والحوكمة النقدية',
+        'إدارة المخاطر والامتثال المؤسسي',
+        'اعتماد رسمي من المعهد المصرفي المصري',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
@@ -349,6 +421,316 @@ export const CREDENTIALS: CredentialItem[] = [
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
   },
   {
+    id: 'hp-selling-online',
+    categoryId: 'business',
+    title: {
+      en: 'E-Commerce & Digital Sales Strategy',
+      ar: 'استراتيجيات البيع الرقمي والتجارة الإلكترونية',
+    },
+    category: { en: 'HP Foundation Credential', ar: 'اعتماد مؤسسة HP العالمية' },
+    issuer: { en: 'HP LIFE Foundation', ar: 'مؤسسة HP العالمية (HP LIFE)' },
+    year: '2022',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.sellingOnlineHp,
+    imageAlt: {
+      en: 'HP LIFE Foundation Selling Online Certificate of Completion awarded to Adham Ahmed',
+      ar: 'شهادة البيع عبر الإنترنت المعتمدة من مؤسسة HP باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Professional development curriculum on digital storefront architecture, product listing optimization, conversion-driven positioning, and client lifecycle management.',
+      ar: 'برنامج احترافي في هندسة المتاجر الرقمية، تحسين عروض المنتجات، استراتيجيات التسعير، وإدارة تجربة العميل لتحقيق معدلات تحويل مستدامة.',
+    },
+    highlights: {
+      en: [
+        'Online Sales Optimization & Product Placement',
+        'Customer Service & Post-Purchase Retention',
+        'HP Foundation Global Verification: 7dd78507',
+      ],
+      ar: [
+        'تحسين المبيعات وعرض المنتجات الرقمية',
+        'خدمة العملاء وبناء ولاء المستهلك',
+        'كود توثيق مؤسسة HP: 7dd78507',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'hp-social-media',
+    categoryId: 'business',
+    title: {
+      en: 'Social Media Strategy & Paid Acquisition',
+      ar: 'استراتيجيات التسويق والإعلانات عبر المنصات الرقمية',
+    },
+    category: { en: 'HP Foundation Credential', ar: 'اعتماد مؤسسة HP العالمية' },
+    issuer: { en: 'HP LIFE Foundation', ar: 'مؤسسة HP العالمية (HP LIFE)' },
+    year: '2022',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.socialMediaHp,
+    imageAlt: {
+      en: 'HP LIFE Foundation Social Media Marketing Certificate awarded to Adham Ahmed',
+      ar: 'شهادة التسويق عبر وسائل التواصل من مؤسسة HP باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Frameworks for multi-platform advertising campaigns, audience targeting, creative asset testing, and performance metrics calibration.',
+      ar: 'منهجية إدارة الحملات الإعلانية المدفوعة، الاستهداف الدقيق للجمهور، واختبار الأصول الإعلانية لتعظيم العائد على الإنفاق.',
+    },
+    highlights: {
+      en: [
+        'Targeted Multi-Channel Ad Campaigns',
+        'Creative Copywriting & Audience Persona Modeling',
+        'HP Foundation Verification: d5701ccb',
+      ],
+      ar: [
+        'إدارة الحملات الإعلانية الموجهة',
+        'صياغة الرسائل التسويقية وبناء شخصية العميل',
+        'كود توثيق مؤسسة HP: d5701ccb',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'efset-english',
+    categoryId: 'business',
+    title: {
+      en: 'EF SET English Certificate — C1 Advanced',
+      ar: 'شهادة إتقان اللغة الإنجليزية — C1 Advanced (EF SET)',
+    },
+    category: { en: 'CEFR Standardized Assessment', ar: 'تقييم معياري وفق الإطار الأوروبي CEFR' },
+    issuer: { en: 'EF Standard English Test (EF SET)', ar: 'مؤسسة EF الدولية لاختبارات اللغة' },
+    year: '2023',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.englishEfset,
+    imageAlt: {
+      en: 'EF SET English Certificate C1 Advanced (68/100) and C2 Proficient Listening awarded to Adham Ahmed',
+      ar: 'شهادة EF SET لإتقان اللغة الإنجليزية بمستوى C1 Advanced واستماع C2 باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Standardized assessment certifying an overall score of 68/100 (C1 Advanced) with Listening proficiency evaluated at 76/100 (C2 Proficient), demonstrating executive fluency across global commercial and scientific discourse.',
+      ar: 'تقييم دولي معتمد يثبت مستوى C1 Advanced بنتيجة إجمالية 68/100 مع تحقيق درجة C2 Proficient (76/100) في الاستماع والفهم، مما يضمن كفاءة تواصل تنفيذية وأكاديمية كاملة باللغة الإنجليزية.',
+    },
+    highlights: {
+      en: [
+        'CEFR C1 Advanced Overall Rating (Score: 68/100)',
+        'CEFR C2 Proficient Listening Comprehension (76/100)',
+        'Full Global Commercial & Scientific Fluency',
+      ],
+      ar: [
+        'تصنيف C1 Advanced وفق الإطار الأوروبي (النتيجة: 68/100)',
+        'مستوى C2 Proficient في مهارات الاستماع (76/100)',
+        'إتقان كامل للتواصل التجاري والأكاديمي العالمي',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+
+  // --- AI & Engineering / Technology ---
+  {
+    id: 'msft-genai-career',
+    categoryId: 'technology',
+    title: {
+      en: 'Career Essentials in Generative AI',
+      ar: 'المسار الاحترافي في الذكاء الاصطناعي التوليدي',
+    },
+    category: { en: 'Microsoft Certified Professional Path', ar: 'مسار احترافي معتمد من مايكروسوفت ولينكد إن' },
+    issuer: { en: 'Microsoft & LinkedIn Learning', ar: 'مايكروسوفت ولينكد إن للتعليم' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.generativeAiMicrosoft,
+    imageAlt: {
+      en: 'Microsoft and LinkedIn Learning Career Essentials in Generative AI credential awarded to Adham Ahmed',
+      ar: 'شهادة المسار الاحترافي في الذكاء الاصطناعي التوليدي من مايكروسوفت باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Comprehensive 5-hour professional curriculum curated by Microsoft and LinkedIn covering generative AI architectures, ethics, prompt engineering, search engine evolution, and enterprise copilots.',
+      ar: 'مسار احترافي شامل لمدة 5 ساعات من مايكروسوفت ولينكد إن يغطي بنيات نماذج الذكاء الاصطناعي التوليدي، أخلاقيات الـ AI، هندسة الأوامر (Prompting)، وتوظيف المساعدات الذكية في قطاع الأعمال.',
+    },
+    highlights: {
+      en: [
+        'Generative AI Foundations & Ethics Frameworks',
+        'Enterprise Copilot Workflows & Search Evolution',
+        'Credential ID: 52562d8f11b1g597gga26ab02107da9c3',
+      ],
+      ar: [
+        'أسس وبنيات الذكاء الاصطناعي وأخلاقيات الاستخدام',
+        'أتمتة الأعمال باستخدام أنظمة Copilot الحديثة',
+        'كود الاعتماد الرسمي: 52562d8f11b1g597gga26ab02107da9c3',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'hackerrank-sql',
+    categoryId: 'technology',
+    title: {
+      en: 'SQL Database Assessment & Query Logic',
+      ar: 'تقييم واستعلام قواعد البيانات العلائقية SQL',
+    },
+    category: { en: 'Standardized Technical Assessment', ar: 'تقييم كفاءة تقنية معتمد' },
+    issuer: { en: 'HackerRank (CTO Certified)', ar: 'منصة HackerRank العالمية' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.sqlHackerrank,
+    imageAlt: {
+      en: 'HackerRank SQL Basic Assessment Certificate awarded to Adham Ahmed signed by CTO Harishankaran K',
+      ar: 'شهادة تقييم قواعد البيانات SQL من HackerRank بتوقيع المدير التقني للمنصة باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Rigorously verified assessment evaluating relational database design, relational algebra, multi-table joins, subqueries, aggregation, and query optimization, signed by HackerRank CTO Harishankaran K.',
+      ar: 'تقييم عملي دقيق يثبت إتقان منطق قواعد البيانات العلائقية، ربط الجداول المعقد (Joins)، الاستعلامات الفرعية، وتجميع وتحليل البيانات الضخمة، بتوقيع المدير التقني لهكررانك.',
+    },
+    highlights: {
+      en: [
+        'Relational Data Modeling & Multi-Table Joins',
+        'Complex Aggregations & Query Optimization',
+        'Official HackerRank Verification ID: DAC14F46E741',
+      ],
+      ar: [
+        'نمذجة البيانات العلائقية والربط بين الجداول',
+        'الاستعلامات التجميعية المعقدة وتحسين الأداء',
+        'معرف التوثيق الرسمي: DAC14F46E741',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'google-image-gen',
+    categoryId: 'technology',
+    title: {
+      en: 'Introduction to Generative Image Models',
+      ar: 'مقدمة في نماذج توليد وتصميم الصور بالذكاء الاصطناعي',
+    },
+    category: { en: 'Google Cloud Course Certificate', ar: 'شهادة مسار Google Cloud' },
+    issuer: { en: 'Google Cloud & Simplilearn', ar: 'جوجل كلاود ومنصة Simplilearn' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed',
+    image: ASSETS.certificates.imageGenGoogleCloud,
+    imageAlt: {
+      en: 'Google Cloud and Simplilearn Introduction to Image Generation Certificate awarded to Adham Ahmed',
+      ar: 'شهادة نماذج توليد الصور من Google Cloud و Simplilearn باسم أدهم أحمد',
+    },
+    description: {
+      en: 'Deep-dive into generative diffusion models, latent space representations, image synthesis algorithms, and visual prompt engineering across cloud infrastructure.',
+      ar: 'دراسة تطبيقية لنماذج الانتشار (Diffusion Models)، الفضاء الكامن لتمثيل البيانات البصرية، وخوارزميات توليد وتحرير الصور وتوظيفها عبر السحابة.',
+    },
+    highlights: {
+      en: [
+        'Diffusion Architecture & Latent Space Logic',
+        'Visual Prompt Engineering & Model Alignment',
+        'Verification Code: 7338485',
+      ],
+      ar: [
+        'بنية نماذج الانتشار والتمثيل البصري الكامن',
+        'هندسة الأوامر البصرية وتوجيه النماذج',
+        'رمز التحقق: 7338485',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'icdl-base-specialization',
+    categoryId: 'technology',
+    title: {
+      en: 'International Computer Driving Licence (ICDL Base)',
+      ar: 'الرخصة الدولية لقيادة الحاسوب (ICDL Base المتكاملة)',
+    },
+    category: { en: 'Digital Literacy Specialization', ar: 'شهادة التخصص الشاملة المعتمدة' },
+    issuer: { en: 'Edraak (منصة إدراك)', ar: 'مؤسسة الملكة رانيا · منصة إدراك' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed Medhat · أدهم أحمد مدحت',
+    image: ASSETS.certificates.icdlEdraak,
+    imageAlt: {
+      en: 'Edraak ICDL Base Specialization Comprehensive Certificate awarded to Adham Ahmed Medhat',
+      ar: 'شهادة تخصص الرخصة الدولية لقيادة الحاسوب ICDL Base الشاملة باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Unified specialization credential consolidating full mastery in Computer Essentials, Word Processing, Advanced Excel Spreadsheets, and Internet & Secure Cloud Messaging.',
+      ar: 'شهادة تخصص مجمعة ومعتمدة تثبت الكفاءة الكاملة في أساسيات الحاسوب، معالجة النصوص، الجداول الإلكترونية المتقدمة Excel، وأساسيات الإنترنت والمراسلات السحابية الآمنة.',
+    },
+    highlights: {
+      en: [
+        'Consolidated 4-Track Comprehensive Specialization',
+        'Spreadsheet Data Analysis & Functions (Excel)',
+        'Awarded September 14, 2024',
+      ],
+      ar: [
+        'شهادة تخصص شاملة تضم 4 مسارات حاسوبية كاملة',
+        'تحليل البيانات والدوال الرياضية المعقدة (Excel)',
+        'تاريخ المنح: 14 سبتمبر 2024',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+
+  // --- Design & Visual Media ---
+  {
+    id: 'graphic-design',
+    categoryId: 'design',
+    title: {
+      en: 'Visual Identity & Graphic Design Certification',
+      ar: 'شهادة احترافية في التصميم الجرافيكي والهوية البصرية',
+    },
+    category: { en: 'Creative Direction Accreditation', ar: 'اعتماد الإبداع والتصميم البصري' },
+    issuer: { en: 'Verified on LinkedIn', ar: 'موثّقة على LinkedIn' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
+    image: ASSETS.certGraphicDesign,
+    imageAlt: {
+      en: 'Visual Identity and Graphic Design Professional Certification awarded to Adham Ahmed (Adham Medhat)',
+      ar: 'شهادة التصميم الجرافيكي والهوية البصرية باسم أدهم أحمد (أدهم مدحت)',
+    },
+    description: {
+      en: 'Specialized mastery in modernist grid architecture, brand mark construction, editorial typography, print production standards, and cohesive digital design systems.',
+      ar: 'تخصص متقدم في بناء الشبكات التصميمية، هندسة الشعارات والهويات البصرية، التايبوغرافي التحريري، ومعايير الطباعة والتصميم الرقمي المتكامل.',
+    },
+    highlights: {
+      en: [
+        'Brand Identity Systems & Logo Geometry',
+        'Swiss Editorial Grid & Typographic Hierarchy',
+        'Commercial Packaging & Digital Art Direction',
+      ],
+      ar: [
+        'أنظمة الهويات البصرية وهندسة الشعارات',
+        'الشبكات التحريرية والتسلسل التايبوغرافي',
+        'تصميم التغليف والإخراج الفني الرقمي',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'm3aarf-premiere',
+    categoryId: 'design',
+    title: {
+      en: 'Professional Video Editing & Motion Craft',
+      ar: 'المونتاج وصناعة المحتوى المرئي (Adobe Premiere Pro)',
+    },
+    category: { en: 'Video Production Accreditation', ar: 'اعتماد صناعة المونتاج الرقمي' },
+    issuer: { en: 'M3aarf Platform · Haytham Hassan', ar: 'منصة معارف بالتعاون مع هيثم حسن' },
+    year: '2022',
+    issuedTo: 'Issued to: Adham Ahmed Medhat · أدهم أحمد مدحت',
+    image: ASSETS.certificates.videoPremiereM3aarf,
+    imageAlt: {
+      en: 'M3aarf Adobe Premiere from beginning to professional certificate awarded to Adham Ahmed Medhat',
+      ar: 'شهادة احتراف أدوبي بريمير من البداية للاحتراف باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Professional training in non-linear editing, narrative pacing, color correction, audio mastering, and digital motion workflows using Adobe Premiere Pro.',
+      ar: 'تدريب احترافي في تقنيات المونتاج غير الخطي، ضبط إيقاع السرد البصري، تصحيح الألوان (Color Grading)، وهندسة الصوت باستخدام Adobe Premiere Pro.',
+    },
+    highlights: {
+      en: [
+        'Non-Linear Video Editing & Visual Pacing',
+        'Color Grading & Audio Master Engineering',
+        'Verification Serial: 876049833',
+      ],
+      ar: [
+        'المونتاج الرقمي المتقدم وإيقاع السرد',
+        'تصحيح ومعايرة الألوان وهندسة الصوت',
+        'كود التحقق والاعتماد: 876049833',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
     id: 'brand-monographs',
     categoryId: 'design',
     title: {
@@ -378,6 +760,42 @@ export const CREDENTIALS: CredentialItem[] = [
         'إعداد أدلة الهوية البصرية الشاملة',
         'التناغم بين الخطوط العربية والإنجليزية',
         'الإخراج الفني للمنتجات الرقمية والمطبوعة',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+
+  // --- Entrepreneurship & Ventures ---
+  {
+    id: 'kkux-freelancing',
+    categoryId: 'entrepreneurship',
+    title: {
+      en: 'Freelancing & Independent Venture Strategy',
+      ar: 'ريادة العمل الحر وإدارة المشاريع المستقلة',
+    },
+    category: { en: 'University & Enterprise Credential', ar: 'اعتماد جامعي وشراكة ريادية' },
+    issuer: { en: 'King Khalid University (KKUx) & Hsoub', ar: 'جامعة الملك خالد (KKUx) ومنصة حسوب' },
+    year: '2024',
+    issuedTo: 'Issued to: Adham Ahmed Medhat · أدهم أحمد مدحت',
+    image: ASSETS.certificates.freelancingKkux,
+    imageAlt: {
+      en: 'King Khalid University platform KKUx and Hsoub Freelancing Certificate awarded to Adham Ahmed Medhat',
+      ar: 'شهادة العمل الحر المعتمدة من منصة KKUx بجامعة الملك خالد وحسوب باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Strategic program developed by King Khalid University in partnership with Hsoub focusing on freelancing business operations, client contract negotiation, digital consulting, and micro-agency scaling.',
+      ar: 'برنامج استراتيجي من جامعة الملك خالد بالشراكة مع منصة حسوب لتأسيس وإدارة مشاريع العمل الحر، التفاوض وصياغة العقود الرقمية، وبناء مكاتب التصميم والاستشارات المستقلة.',
+    },
+    highlights: {
+      en: [
+        'Client Acquisition & High-Ticket Retainers',
+        'Digital Contract Structuring & Value Pricing',
+        'Official KKUx & Hsoub Joint Accreditation',
+      ],
+      ar: [
+        'استقطاب وإدارة العملاء وعقود العمل الحر',
+        'هيكلة العقود الرقمية والتسعير القائم على القيمة',
+        'اعتماد مشترك بين جامعة الملك خالد وحسوب',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
@@ -446,6 +864,178 @@ export const CREDENTIALS: CredentialItem[] = [
         'سلسلة متكاملة للتصنيع الرقمي الدقيق',
         'استراتيجية العلامة التجارية والتجارة الإلكترونية',
         'تنفيذ النماذج الأولية والإنتاج المخصص',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+
+  // --- Academic Studies & Clinical Track (STRICTLY AT THE END OF THE ARRAY) ---
+  {
+    id: 'horus-medical-organizer',
+    categoryId: 'medical',
+    title: {
+      en: 'Annual Medical Student Conference — Lead Organizer',
+      ar: 'تنظيم المؤتمر السنوي لطلاب كلية الطب البشري بجامعة حورس',
+    },
+    category: { en: 'Academic Medical Leadership & Organizing', ar: 'قيادة وتنظيم المؤتمرات الطبية الأكاديمية' },
+    issuer: { en: 'Horus University · Faculty of Medicine', ar: 'جامعة حورس · كلية الطب البشري' },
+    year: '2025',
+    issuedTo: 'Honoring: Adham Medhat · أدهم مدحت (Organizer)',
+    image: ASSETS.certificates.medicalOrganizerHorus,
+    imageAlt: {
+      en: 'Horus University Faculty of Medicine Certificate of Attendance as Organizer presented to Adham Medhat',
+      ar: 'شهادة تنظيم مؤتمر طلاب الطب بجامعة حورس باسم أدهم مدحت',
+    },
+    description: {
+      en: 'Official recognition for active leadership and organizing of the 1st Annual Medical Student Conference: "Innovation and Impact: Medical Students Leading the Change" at Horus University Faculty of Medicine, New Damietta.',
+      ar: 'تكريم رسمي للجهود القيادية والتنظيمية في إدارة وتنسيق المؤتمر السنوي الأول لطلاب كلية الطب البشري: "الابتكار والأثر: طلاب الطب يقودون التغيير" بجامعة حورس بدمياط الجديدة.',
+    },
+    highlights: {
+      en: [
+        'Conference Organization & Scientific Logistics',
+        'Medical Student Community Leadership',
+        'Held at Horus University Faculty of Medicine',
+      ],
+      ar: [
+        'تنظيم الفعاليات واللوجستيات العلمية للمؤتمر',
+        'القيادة والمشاركة الفعالة في المجتمع الطبي الطلابي',
+        'عُقد بكلية الطب البشري — جامعة حورس',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'horus-medical-honor',
+    categoryId: 'medical',
+    title: {
+      en: 'Letter of Commendation & Appreciation — Medical Leadership',
+      ar: 'شهادة شكر وتقدير للمساهمة القيادية والتنظيمية (طب جامعة حورس)',
+    },
+    category: { en: 'Dean & Leadership Commendation', ar: 'تكريم رسمي من عمادة الكلية وإدارة المؤتمر' },
+    issuer: { en: 'Horus University · Dean of Faculty of Medicine', ar: 'جامعة حورس · عمادة كلية الطب البشري' },
+    year: '2025',
+    issuedTo: 'Honoring: Adham Medhat · أدهم مدحت',
+    image: ASSETS.certificates.medicalHonorHorus,
+    imageAlt: {
+      en: 'Horus University Faculty of Medicine Certificate of Appreciation and Commendation awarded to Adham Medhat',
+      ar: 'شهادة شكر وتقدير من كلية الطب بجامعة حورس للطالب أدهم مدحت لمساهمته الفعالة في المؤتمر',
+    },
+    description: {
+      en: 'Official commendation from Dean Prof. Maha Maher and Vice Dean Prof. Amr El-Karef honoring Adham Medhat for outstanding dedication and impactful contributions to the scientific and organizational success of the 1st Annual Medical Student Conference.',
+      ar: 'شهادة شكر وتقدير رسمية موقعة من عميد الكلية أ.د. مها ماهر ووكيل الكلية لشئون التعليم والطلاب أ.د. عمرو الكارف تقديراً للمشاركة الفعالة في شتى جوانب المؤتمر التنظيمية والعلمية.',
+    },
+    highlights: {
+      en: [
+        'Commendation Signed by Dean Prof. Maha Maher',
+        'Scientific & Operational Execution Honors',
+        'Faculty of Medicine · Horus University (April 2025)',
+      ],
+      ar: [
+        'تكريم رسمي بتوقيع عميد الكلية أ.د. مها ماهر',
+        'تقدير للمساهمة الفعالة في الجوانب التنظيمية والعلمية',
+        'كلية الطب البشري — جامعة حورس (أبريل 2025)',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'horus-medical-attendance',
+    categoryId: 'medical',
+    title: {
+      en: 'Annual Medical Student Conference — Scientific Sessions',
+      ar: 'حضور الجلسات العلمية لمؤتمر طلاب الطب (جامعة حورس)',
+    },
+    category: { en: 'Academic Conference Attendance', ar: 'حضور مؤتمر علمي طبي معتمد' },
+    issuer: { en: 'Horus University · Faculty of Medicine', ar: 'جامعة حورس · كلية الطب البشري' },
+    year: '2025',
+    issuedTo: 'Presented to: Adham Ahmed Medhat · أدهم أحمد مدحت',
+    image: ASSETS.certificates.medicalAttendanceHorus,
+    imageAlt: {
+      en: 'Horus University Faculty of Medicine 1st Annual Conference Attendance certificate presented to Adham Ahmed Medhat',
+      ar: 'شهادة حضور المؤتمر السنوي الأول لطلاب طب جامعة حورس باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Participation in cutting-edge clinical discussions and medical research presentations during the 1st Annual Medical Student Conference at Horus University Egypt.',
+      ar: 'المشاركة الفعالة في الجلسات العلمية وحلقات النقاش السريرية والبحثية المتقدمة بالمؤتمر السنوي الأول لطلاب الطب بجامعة حورس.',
+    },
+    highlights: {
+      en: [
+        'Clinical Insights & Student Healthcare Initiatives',
+        'Medical Research Presentations & Case Reviews',
+        'Certified by Dean Prof. Al Said Abdel-Hady',
+      ],
+      ar: [
+        'الرؤى السريرية والمبادرات الصحية المبتكرة',
+        'استعراض الأبحاث الطبية والحالات السريرية',
+        'معتمدة من عميد الكلية أ.د. السعيد عبد الهادي',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'mansoura-future-medicine',
+    categoryId: 'medical',
+    title: {
+      en: 'The Future of Medicine & Healthcare: Scientific Conference',
+      ar: 'مؤتمر مستقبل الطب والرعاية الصحية (جامعة المنصورة الأهلية)',
+    },
+    category: { en: 'National Medical Conference Attendance', ar: 'حضور مؤتمر طبي علمي وطني' },
+    issuer: { en: 'Mansoura National University · Faculty of Medicine', ar: 'جامعة المنصورة الأهلية · كلية الطب' },
+    year: '2025',
+    issuedTo: 'Presented to: Adham Ahmed Madhat',
+    image: ASSETS.certificates.futureMedicineMansoura,
+    imageAlt: {
+      en: 'Faculty of Medicine Mansoura National University 2nd Annual Scientific Conference certificate awarded to Adham Ahmed Madhat',
+      ar: 'شهادة حضور المؤتمر العلمي السنوي الثاني لطب المنصورة الأهلية باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Participation in the 2nd Annual Scientific Conference "The Future of Medicine and Healthcare: Insights from Research" organized by the Faculty of Medicine, Mansoura National University, focusing on translational medicine, oncology research, and next-generation clinical therapies.',
+      ar: 'المشاركة في المؤتمر العلمي السنوي الثاني "مستقبل الطب والرعاية الصحية: رؤى من واقع البحث العلمي" الذي نظمته كلية الطب بجامعة المنصورة الأهلية لمناقشة أحدث التطورات الطبية والبحثية.',
+    },
+    highlights: {
+      en: [
+        'Translational Medical Insights & Clinical Innovation',
+        'Healthcare Advancements & Research Methodology',
+        'Organized by MNU Faculty of Medicine (April 2025)',
+      ],
+      ar: [
+        'أحدث مخرجات الأبحاث الطبية والسريرية التطبيقية',
+        'الابتكار في الرعاية الصحية ومنهجيات العلاج الحديث',
+        'تنظيم كلية الطب — جامعة المنصورة الأهلية',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'prof-shokeir-research',
+    categoryId: 'medical',
+    title: {
+      en: 'Medical Research Methodology & Editorial Ethics',
+      ar: 'منهجية وأخلاقيات البحث العلمي والنشر الطبي (أ.د. أحمد شقير)',
+    },
+    category: { en: 'Advanced Medical Research Workshop', ar: 'ورشة عمل بحثية طبية متقدمة' },
+    issuer: { en: 'Prof. Ahmed Shokeir · Arab Journal of Urology', ar: 'أ.د. أحمد شقير · المجلة العربية لجراحة المسالك' },
+    year: '2025',
+    issuedTo: 'Presented to: Adham Ahmed Madhat',
+    image: ASSETS.certificates.researchWorkshopShokeir,
+    imageAlt: {
+      en: 'Certificate of Attendance for workshop How to be a good researcher by Prof. Ahmed Shokeir awarded to Adham Ahmed Madhat',
+      ar: 'شهادة ورشة عمل منهجية البحث الطبي مع البروفيسور أحمد شقير باسم أدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Intensive workshop "Step by step from A to Z: How to be a good researcher, Advice from an editor" lectured by world-renowned Prof. Ahmed Shokeir (former Director of Mansoura Urology & Nephrology Center, Editor-in-Chief of the Arab Journal of Urology, Member of the Supreme Committee for Research Ethics).',
+      ar: 'ورشة عمل تدريبية مكثفة "خطوة بخطوة من الألف إلى الياء: كيف تكون باحثاً متميزاً — نصائح من رئيس التحرير" بإشراف العالم الجليل أ.د. أحمد شقير (مدير مركز الكلى والمسالك البولية بالمنصورة ورئيس تحرير المجلة العربية للمسالك البولية وعضو اللجنة العليا لأخلاقيات البحث العلمي).',
+    },
+    highlights: {
+      en: [
+        'Medical Research Design & Peer-Review Standards',
+        'Scientific Paper Structuring & Publication Ethics',
+        'Lectured by World-Renowned Prof. Ahmed Shokeir',
+      ],
+      ar: [
+        'تصميم الأبحاث الطبية ومعايير التحكيم الدولي',
+        'صياغة الأوراق العلمية وأخلاقيات النشر الطبي',
+        'بإشراف العالم الجليل أ.د. أحمد شقير',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,

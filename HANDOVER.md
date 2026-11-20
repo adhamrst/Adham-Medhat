@@ -53,25 +53,29 @@
   1. **Full Grid Gallery (`LayoutGrid`)**: Responsive 3-column cards with quick Lightbox zoom, discipline tags, and direct LinkedIn credential link.
   2. **3D Executive Carousel (`GalleryHorizontal`)**: 3D tilt perspective with mouse-tracking glare, jump-rail thumbnails, and autoplay controls.
 * **Interactive Lightbox Modal**: High-res inspection with 125% zoom toggle, keyboard arrow navigation, and ESC to dismiss.
-* **Certificate Ingestion Workflow (When User Uploads New Certificates):**
-  1. Save images to `/public/images/certificates/`.
-  2. Optimize/compress to `.webp` format.
-  3. Standardize file name: `adham-medhat-[certificate-name]-[issuer].webp`.
-  4. Add to `CREDENTIALS` array in `src/data/profileData.ts` with English & Arabic titles, issuer, year, description, and highlights.
-  5. Run `npm run build` and push to GitHub `main` via `push_files`.
+* **Categories Supported:**
+  * `Business & Finance` (Micro MBA, Google/IAB Digital Marketing, HSBC Global Banking, Central Bank of Egypt, HP LIFE, EF SET C1).
+  * `AI & Engineering` (Microsoft & LinkedIn Generative AI, HackerRank SQL CTO Certified, Google Cloud Image Gen, Edraak ICDL Base).
+  * `Design & Media` (Visual Identity & Graphic Design, M3aarf Adobe Premiere Pro, Brand Architecture).
+  * `Ventures` (KKUx & Hsoub Freelancing, RST Central Leadership, E-Commerce & Precision Fabrication).
+  * `Academic Studies (Medicine)` (Strictly placed at the END: Horus University Medical Conference Organizer & Letter of Commendation from Dean, Attendance, Mansoura National University Scientific Conference, Prof. Ahmed Shokeir Research Methodology Workshop, and MBBS Current Undergraduate Track).
+* **Ingested & Optimized WebP Assets:**
+  * All 17 credentials converted to lightweight, high-fidelity WebP under `/public/images/certificates/` (~35KB-100KB per cert).
+  * Official Portrait converted to WebP (`/public/images/adham-medhat-portrait.webp`, ~51KB) and optimized progressive JPEG (~122KB, 93% bandwidth saving).
 
 ---
 
 ## 4. Current File Structure
 * `index.html` — Rich SEO, Knowledge Graph Schema.org JSON-LD, FAQ Schema for AI search engines, noscript crawlers fallback.
-* `src/data/entityConfig.ts` — Drop-in image config & RST Central official branding.
-* `src/data/profileData.ts` — Unified bilingual dataset (Credentials, Ventures, Pillars, Copy).
-* `src/components/CredentialsCarousel.tsx` — Dual Grid / 3D Slider display engine with Lightbox.
-* `src/components/HeroSection.tsx` — Editorial hero with magnetic CTAs and portrait effects.
+* `src/data/entityConfig.ts` — Drop-in image config, WebP certificate asset map, & RST Central official branding.
+* `src/data/profileData.ts` — Unified bilingual dataset (Full Credentials portfolio, Ventures, Pillars, Copy).
+* `src/components/CredentialsCarousel.tsx` — Dual Grid / 3D Slider display engine with Lightbox and 6-discipline filter bar.
+* `src/components/HeroSection.tsx` — Editorial hero with magnetic CTAs, 3D tilt portrait effects, and social fan.
 * `src/components/Navbar.tsx` — 3-zone Top Bar Contract, audio controller, language switcher.
 * `src/components/VenturesSection.tsx` — RST Central flagship interactive spotlight.
 * `src/components/SocialHubSection.tsx` — Unified `@adhamrst` connection hub & US concierge WhatsApp bot composer.
 * `public/CNAME` — `adham.rstcentral.com`.
+* `public/images/certificates/` — Production-grade WebP certificates.
 
 ---
 
@@ -79,4 +83,3 @@
 1. **Interactive Magnetic Hover & Smooth Cursor Spotlight**: Subtle cursor follower glow reflecting off golden borders.
 2. **Kinetic Typography & Staggered Reveal**: Enhancing MotionPrimitives transitions for ultra-luxurious feel.
 3. **Sound Design**: Polished ambient soundscapes with smooth volume fade.
-4. **Certificate Batch Drop**: Ingesting user's real certificate files as soon as provided.
