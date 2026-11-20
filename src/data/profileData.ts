@@ -78,9 +78,9 @@ export const CREDENTIAL_CATEGORIES: Array<{
 }> = [
   { id: 'all', label: { en: 'All Credentials', ar: 'جميع الشهادات' } },
   { id: 'business', label: { en: 'Business & MBA', ar: 'الأعمال والـ MBA' } },
-  { id: 'medical', label: { en: 'Medicine', ar: 'الطب البشري' } },
   { id: 'design', label: { en: 'Design & Identity', ar: 'التصميم والهوية' } },
   { id: 'entrepreneurship', label: { en: 'Ventures', ar: 'ريادة الأعمال' } },
+  { id: 'medical', label: { en: 'Academic Studies (Medicine)', ar: 'المسار الجامعي (الطب)' } },
 ];
 
 export const IDENTITY_METRICS: Array<{
@@ -315,69 +315,35 @@ export const CREDENTIALS: CredentialItem[] = [
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
   },
   {
-    id: 'medical-studies',
-    categoryId: 'medical',
+    id: 'strategic-marketing',
+    categoryId: 'business',
     title: {
-      en: 'Faculty of Medicine — Academic Standing',
-      ar: 'كلية الطب البشري — الدراسات الأكاديمية والسريرية',
+      en: 'Strategic Marketing & Commercial Growth',
+      ar: 'التسويق الاستراتيجي وتطوير النمو التجاري',
     },
-    category: { en: 'Medical Sciences Degree Track', ar: 'المسار الأكاديمي للطب البشري' },
-    issuer: { en: 'Horus University (جامعة حورس)', ar: 'جامعة حورس' },
-    year: 'Ongoing',
+    category: { en: 'LinkedIn Verified Credential', ar: 'اعتماد موثّق عبر LinkedIn' },
+    issuer: { en: 'Horus University · Executive Track', ar: 'جامعة حورس · المسار التنفيذي' },
+    year: '2025',
     issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
-    image: ASSETS.certMedical,
+    image: ASSETS.certMicroMba,
     imageAlt: {
-      en: 'Faculty of Medicine Horus University academic folder and stethoscope representing Adham Medhat medical studies',
-      ar: 'ملف كلية الطب البشري بجامعة حورس الخاص بدراسة أدهم مدحت',
+      en: 'Strategic marketing and commercial growth credential awarded to Adham Ahmed (Adham Medhat)',
+      ar: 'شهادة التسويق الاستراتيجي والنمو التجاري لأدهم أحمد مدحت',
     },
     description: {
-      en: 'Pursuing the Bachelor of Medicine and Surgery (MBBS) at Horus University, integrating foundational biomedical sciences with clinical reasoning and healthcare innovation.',
-      ar: 'دراسة بكالوريوس الطب والجراحة بجامعة حورس، مع الدمج بين العلوم الطبية الأساسية والتفكير السريري والاهتمام بالابتكار الصحي.',
+      en: 'Applied frameworks for go-to-market positioning, audience segmentation, value-proposition engineering, and high-trust digital acquisition.',
+      ar: 'أطر عملية لخطط دخول السوق، تحليل الشرائح المستهدفة، صياغة القيمة التنافسية، وبناء قنوات استحواذ رقمية عالية الثقة.',
     },
     highlights: {
       en: [
-        'Biomedical Foundations & Pathophysiology',
-        'Clinical Diagnostic Methodology',
-        'Health-Tech & Medical Communication Interest',
+        'Go-to-Market Strategy & Positioning',
+        'Brand Trust & Funnel Conversion Design',
+        'Customer Retention & Lifetime Value',
       ],
       ar: [
-        'العلوم الطبية الحيوية والأسس التشخيصية',
-        'المنهجية السريرية المبنية على الدليل',
-        'تقاطع الطب مع التكنولوجيا والتواصل الصحي',
-      ],
-    },
-    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
-  },
-  {
-    id: 'rst-leadership',
-    categoryId: 'entrepreneurship',
-    title: {
-      en: 'RST Central — Founding & Fabrication Operations',
-      ar: 'تأسيس وقيادة عمليات التصنيع الرقمي — RST Central',
-    },
-    category: { en: 'Entrepreneurial Record', ar: 'سجل ريادة الأعمال والتأسيس' },
-    issuer: { en: 'RST Central Enterprise', ar: 'مؤسسة RST Central' },
-    year: 'Founder',
-    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
-    image: ASSETS.ventureRst,
-    imageAlt: {
-      en: 'RST Central precision digital fabrication and manufacturing studio led by Adham Medhat',
-      ar: 'استوديو التصنيع الرقمي الدقيق لمنصة RST Central التي أسسها أدهم مدحت',
-    },
-    description: {
-      en: 'End-to-end founding leadership of RST Central, bridging precision digital fabrication, product engineering workflows, and direct-to-client e-commerce.',
-      ar: 'قيادة تأسيس وتشغيل RST Central لربط تقنيات التصنيع الرقمي الدقيق وتطوير المنتجات بمنصة تجارة إلكترونية حديثة موجهة للعملاء.',
-    },
-    highlights: {
-      en: [
-        'End-to-End Digital Fabrication Pipeline',
-        'Brand Strategy & E-Commerce Fulfillment',
-        'Client Prototyping & Custom Production',
-      ],
-      ar: [
-        'سلسلة متكاملة للتصنيع الرقمي الدقيق',
-        'استراتيجية العلامة التجارية والتجارة الإلكترونية',
-        'تنفيذ النماذج الأولية والإنتاج المخصص',
+        'استراتيجيات دخول السوق والتموضع',
+        'تصميم مسارات التحويل وبناء الثقة',
+        'الاحتفاظ بالعملاء وتعظيم القيمة',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
@@ -417,74 +383,6 @@ export const CREDENTIALS: CredentialItem[] = [
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
   },
   {
-    id: 'strategic-marketing',
-    categoryId: 'business',
-    title: {
-      en: 'Strategic Marketing & Commercial Growth',
-      ar: 'التسويق الاستراتيجي وتطوير النمو التجاري',
-    },
-    category: { en: 'LinkedIn Verified Credential', ar: 'اعتماد موثّق عبر LinkedIn' },
-    issuer: { en: 'Horus University · Executive Track', ar: 'جامعة حورس · المسار التنفيذي' },
-    year: '2025',
-    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
-    image: ASSETS.certMicroMba,
-    imageAlt: {
-      en: 'Strategic marketing and commercial growth credential awarded to Adham Ahmed (Adham Medhat)',
-      ar: 'شهادة التسويق الاستراتيجي والنمو التجاري لأدهم أحمد مدحت',
-    },
-    description: {
-      en: 'Applied frameworks for go-to-market positioning, audience segmentation, value-proposition engineering, and high-trust digital acquisition.',
-      ar: 'أطر عملية لخطط دخول السوق، تحليل الشرائح المستهدفة، صياغة القيمة التنافسية، وبناء قنوات استحواذ رقمية عالية الثقة.',
-    },
-    highlights: {
-      en: [
-        'Go-to-Market Strategy & Positioning',
-        'Brand Trust & Funnel Conversion Design',
-        'Customer Retention & Lifetime Value',
-      ],
-      ar: [
-        'استراتيجيات دخول السوق والتموضع',
-        'تصميم مسارات التحويل وبناء الثقة',
-        'الاحتفاظ بالعملاء وتعظيم القيمة',
-      ],
-    },
-    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
-  },
-  {
-    id: 'clinical-research',
-    categoryId: 'medical',
-    title: {
-      en: 'Evidence-Based Medicine & Clinical Inquiry',
-      ar: 'الطب القائم على الدليل ومنهجية البحث السريري',
-    },
-    category: { en: 'Academic Medical Track', ar: 'المسار الأكاديمي الطبي' },
-    issuer: { en: 'Horus University · Faculty of Medicine', ar: 'كلية الطب البشري · جامعة حورس' },
-    year: '2025',
-    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
-    image: ASSETS.certMedical,
-    imageAlt: {
-      en: 'Evidence-based medicine and clinical inquiry credential for Adham Medhat',
-      ar: 'شهادة الطب القائم على الدليل والبحث السريري لأدهم مدحت',
-    },
-    description: {
-      en: 'Structured training in critical literature appraisal, clinical diagnostic frameworks, and ethical biomedical communication.',
-      ar: 'تدريب منهجي في تقييم الأبحاث الطبية، أطر التشخيص السريري المنظم، وأخلاقيات التواصل الطبي والعلمي.',
-    },
-    highlights: {
-      en: [
-        'Critical Appraisal of Clinical Literature',
-        'Structured Diagnostic Reasoning',
-        'Medical Ethics & Patient Communication',
-      ],
-      ar: [
-        'التقييم النقدي للأبحاث والمراجع الطبية',
-        'التفكير التشخيصي المنظم',
-        'أخلاقيات المهنة والتواصل الطبي',
-      ],
-    },
-    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
-  },
-  {
     id: 'ecommerce-fabrication',
     categoryId: 'entrepreneurship',
     title: {
@@ -514,6 +412,74 @@ export const CREDENTIALS: CredentialItem[] = [
         'أتمتة استقبال الطلبات وخدمة العملاء',
         'ضبط الجودة والإنتاج المخصص',
         'إدارة تجربة العميل حتى التسليم',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'rst-leadership',
+    categoryId: 'entrepreneurship',
+    title: {
+      en: 'RST Central — Founding & Fabrication Operations',
+      ar: 'تأسيس وقيادة عمليات التصنيع الرقمي — RST Central',
+    },
+    category: { en: 'Entrepreneurial Record', ar: 'سجل ريادة الأعمال والتأسيس' },
+    issuer: { en: 'RST Central Enterprise', ar: 'مؤسسة RST Central' },
+    year: 'Founder',
+    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
+    image: ASSETS.ventureRst,
+    imageAlt: {
+      en: 'RST Central precision digital fabrication and manufacturing studio led by Adham Medhat',
+      ar: 'استوديو التصنيع الرقمي الدقيق لمنصة RST Central التي أسسها أدهم مدحت',
+    },
+    description: {
+      en: 'End-to-end founding leadership of RST Central, bridging precision digital fabrication, product engineering workflows, and direct-to-client e-commerce.',
+      ar: 'قيادة تأسيس وتشغيل RST Central لربط تقنيات التصنيع الرقمي الدقيق وتطوير المنتجات بمنصة تجارة إلكترونية حديثة موجهة للعملاء.',
+    },
+    highlights: {
+      en: [
+        'End-to-End Digital Fabrication Pipeline',
+        'Brand Strategy & E-Commerce Fulfillment',
+        'Client Prototyping & Custom Production',
+      ],
+      ar: [
+        'سلسلة متكاملة للتصنيع الرقمي الدقيق',
+        'استراتيجية العلامة التجارية والتجارة الإلكترونية',
+        'تنفيذ النماذج الأولية والإنتاج المخصص',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'medical-studies',
+    categoryId: 'medical',
+    title: {
+      en: 'Faculty of Medicine — Undergraduate Academic Studies',
+      ar: 'كلية الطب البشري — قيد الدراسة الأكاديمية (طالب حالي)',
+    },
+    category: { en: 'Current Undergraduate Track (MBBS)', ar: 'طالب مقيد — كلية الطب البشري (قيد الدراسة)' },
+    issuer: { en: 'Horus University (جامعة حورس)', ar: 'جامعة حورس (دمياط الجديدة)' },
+    year: 'In Progress',
+    issuedTo: 'Enrolled Student: Adham Ahmed (Adham Medhat) · طالب مقيد',
+    image: ASSETS.certMedical,
+    imageAlt: {
+      en: 'Faculty of Medicine Horus University academic folder representing Adham Medhat undergraduate medical studies',
+      ar: 'ملف كلية الطب البشري بجامعة حورس الخاص بدراسة الطالب أدهم مدحت',
+    },
+    description: {
+      en: 'Currently enrolled undergraduate student in the Bachelor of Medicine and Surgery (MBBS) program at Horus University Faculty of Medicine. Representing foundational medical education, clinical inquiry, and evidence-based diagnostic methodology.',
+      ar: 'طالب مقيد حالياً لدراسة بكالوريوس الطب والجراحة (MBBS) بكلية الطب البشري بجامعة حورس بدمياط الجديدة. يوثّق هذا المسار مرحلة الدراسة والتدريب الأكاديمي والسريري الحالية وليس شهادة تخرج.',
+    },
+    highlights: {
+      en: [
+        'Biomedical Foundations & Pathophysiology',
+        'Clinical Diagnostic Methodology',
+        'Active Undergraduate Academic Standing',
+      ],
+      ar: [
+        'العلوم الطبية الحيوية والأسس التشخيصية',
+        'المنهجية السريرية المبنية على الدليل',
+        'قيد دراسي جامعي منتظم (طالب)',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,

@@ -11,6 +11,8 @@ import {
   ArrowUpRight,
   ChevronLeft,
   ChevronRight,
+  GalleryHorizontal,
+  LayoutGrid,
   Maximize2,
   Pause,
   Play,
@@ -58,6 +60,7 @@ export function CredentialsCarousel({
   onOpenOwnerStudio,
 }: CredentialsCarouselProps) {
   const [selectedCategory, setSelectedCategory] = useState<CredentialCategoryId>('all');
+  const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('grid');
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
   const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(true);
@@ -225,6 +228,40 @@ export function CredentialsCarousel({
           </div>
 
           <EditorialReveal delay={0.16} className="flex flex-wrap items-center gap-2.5 shrink-0">
+            {/* View Mode Switcher: Full Grid Gallery vs 3D Executive Carousel */}
+            <div
+              role="group"
+              aria-label={lang === 'ar' ? 'طريقة عرض الشهادات' : 'Credentials display mode'}
+              className="inline-flex items-center rounded-lg border border-[#242731] bg-[#101115] p-1"
+            >
+              <button
+                type="button"
+                onClick={() => setViewMode('grid')}
+                aria-pressed={viewMode === 'grid'}
+                className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+                  viewMode === 'grid'
+                    ? 'bg-[#D4A853] text-[#070709]'
+                    : 'text-[#9D9FA8] hover:text-[#F4F3EF]'
+                }`}
+              >
+                <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
+                <span>{lang === 'ar' ? 'معرض شامل' : 'Grid'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('carousel')}
+                aria-pressed={viewMode === 'carousel'}
+                className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+                  viewMode === 'carousel'
+                    ? 'bg-[#D4A853] text-[#070709]'
+                    : 'text-[#9D9FA8] hover:text-[#F4F3EF]'
+                }`}
+              >
+                <GalleryHorizontal className="h-3.5 w-3.5" aria-hidden="true" />
+                <span>{lang === 'ar' ? 'سلايدر 3D' : 'Carousel'}</span>
+              </button>
+            </div>
+
             {/* Only visible when private Owner Mode is explicitly unlocked */}
             {isOwnerMode && (
               <motion.button
@@ -239,51 +276,61 @@ export function CredentialsCarousel({
               </motion.button>
             )}
 
-            <button
-              type="button"
-              onClick={() => setIsAutoplayEnabled((prev) => !prev)}
-              aria-pressed={!isAutoplayEnabled}
-              aria-label={
-                isAutoplayEnabled
-                  ? UI_COPY.credentials.autoplayPause[lang]
-                  : UI_COPY.credentials.autoplayPlay[lang]
-              }
-              className="hidden sm:inline-flex h-11 items-center gap-2 rounded-lg border border-[#242731] bg-[#101115] px-3.5 text-xs font-medium text-[#D5D3CC] transition-colors hover:border-[#D4A853] hover:text-[#F4F3EF] whitespace-nowrap cursor-pointer"
-            >
-              {isAutoplayEnabled ? (
-                <Pause className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
-              ) : (
-                <Play className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
-              )}
-              <span>
-                {isAutoplayEnabled
-                  ? UI_COPY.credentials.autoplayPause[lang]
-                  : UI_COPY.credentials.autoplayPlay[lang]}
-              </span>
-            </button>
+            {viewMode === 'carousel' ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setIsAutoplayEnabled((prev) => !prev)}
+                  aria-pressed={!isAutoplayEnabled}
+                  aria-label={
+                    isAutoplayEnabled
+                      ? UI_COPY.credentials.autoplayPause[lang]
+                      : UI_COPY.credentials.autoplayPlay[lang]
+                  }
+                  className="hidden sm:inline-flex h-11 items-center gap-2 rounded-lg border border-[#242731] bg-[#101115] px-3.5 text-xs font-medium text-[#D5D3CC] transition-colors hover:border-[#D4A853] hover:text-[#F4F3EF] whitespace-nowrap cursor-pointer"
+                >
+                  {isAutoplayEnabled ? (
+                    <Pause className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
+                  ) : (
+                    <Play className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
+                  )}
+                  <span>
+                    {isAutoplayEnabled
+                      ? UI_COPY.credentials.autoplayPause[lang]
+                      : UI_COPY.credentials.autoplayPlay[lang]}
+                  </span>
+                </button>
 
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label={UI_COPY.credentials.prevLabel[lang]}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[#242731] bg-[#101115] text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
-              >
-                <ChevronLeft className={`h-5 w-5 ${isRtl ? 'rotate-180' : ''}`} aria-hidden="true" />
-              </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={goPrev}
+                    aria-label={UI_COPY.credentials.prevLabel[lang]}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[#242731] bg-[#101115] text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
+                  >
+                    <ChevronLeft className={`h-5 w-5 ${isRtl ? 'rotate-180' : ''}`} aria-hidden="true" />
+                  </button>
 
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label={UI_COPY.credentials.nextLabel[lang]}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[#242731] bg-[#101115] text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
-              >
-                <ChevronRight
-                  className={`h-5 w-5 ${isRtl ? 'rotate-180' : ''}`}
-                  aria-hidden="true"
-                />
-              </button>
-            </div>
+                  <button
+                    type="button"
+                    onClick={goNext}
+                    aria-label={UI_COPY.credentials.nextLabel[lang]}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[#242731] bg-[#101115] text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
+                  >
+                    <ChevronRight
+                      className={`h-5 w-5 ${isRtl ? 'rotate-180' : ''}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="hidden sm:inline-flex items-center px-3 py-1 rounded-lg border border-[#242731] bg-[#101115] text-xs font-medium text-[#D4A853]">
+                <span>
+                  {total} {lang === 'ar' ? 'اعتمادات معروضة' : 'Credentials'}
+                </span>
+              </div>
+            )}
           </EditorialReveal>
         </div>
 
@@ -328,8 +375,90 @@ export function CredentialsCarousel({
           </a>
         </EditorialReveal>
 
-        {/* MOBILE UNIFIED SHOWCASE (< md) */}
-        <EditorialReveal delay={0.2} className="mt-6 md:hidden">
+        {/* VIEW CONDITIONAL: GRID vs 3D CAROUSEL */}
+        {viewMode === 'grid' ? (
+          <EditorialReveal delay={0.2} className="mt-8">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {visibleCredentials.map((credential, idx) => (
+                <motion.div
+                  key={credential.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: idx * 0.05, ease: EDITORIAL_EASE }}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#242731] bg-[#101115] p-2.5 sm:p-3 transition-all duration-300 hover:border-[#D4A853]/60 hover:shadow-xl hover:shadow-[#D4A853]/5"
+                >
+                  <div>
+                    {/* Media Thumbnail with Quick Lightbox Trigger */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setLightboxId(credential.id);
+                        setIsZoomed(false);
+                      }}
+                      aria-label={`${UI_COPY.credentials.inspectButton[lang]}: ${credential.title[lang]}`}
+                      className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-[#0A0B0F] cursor-pointer block text-start"
+                    >
+                      <ResilientImage
+                        src={credential.image}
+                        alt={credential.imageAlt[lang]}
+                        fallbackLabel={credential.title.en}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#070709]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                      <div className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-md border border-[#242731] bg-[#070709]/85 px-2.5 py-1 text-xs font-medium text-[#F4F3EF] backdrop-blur-sm">
+                        <Maximize2 className="h-3 w-3 text-[#D4A853]" aria-hidden="true" />
+                        <span>{UI_COPY.credentials.inspectButton[lang]}</span>
+                      </div>
+
+                      <div className="absolute bottom-2.5 start-3 inline-flex items-center rounded-md bg-[#070709]/85 px-2 py-0.5 text-[10px] font-medium text-[#D4A853] backdrop-blur-sm border border-[#242731]">
+                        {credential.category[lang]}
+                      </div>
+                    </button>
+
+                    {/* Metadata Header */}
+                    <div className="px-2 pt-3.5 pb-2">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="font-semibold text-[#D4A853] truncate">
+                          {credential.issuer[lang]}
+                        </span>
+                        <span className="text-[11px] tabular-nums text-[#9D9FA8] shrink-0">
+                          {credential.year}
+                        </span>
+                      </div>
+
+                      <h3 className="font-editorial mt-1.5 text-xl font-semibold leading-snug text-[#F4F3EF] group-hover:text-[#D4A853] transition-colors">
+                        {credential.title[lang]}
+                      </h3>
+
+                      <p className="mt-2 text-xs leading-relaxed text-[#9D9FA8] line-clamp-3">
+                        {credential.description[lang]}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card Bottom: Identity Alignment & LinkedIn Direct Link */}
+                  <div className="mt-3 flex items-center justify-between border-t border-[#242731]/70 px-2 pt-3 text-[11px]">
+                    <span className="text-[#858894] truncate">{credential.issuedTo}</span>
+                    <a
+                      href={credential.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-semibold text-[#D4A853] hover:text-[#E8C478] transition-colors shrink-0"
+                    >
+                      <span>LinkedIn</span>
+                      <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </EditorialReveal>
+        ) : (
+          <>
+            {/* MOBILE UNIFIED SHOWCASE (< md) */}
+            <EditorialReveal delay={0.2} className="mt-6 md:hidden">
           <div
             role="region"
             aria-roledescription="carousel"
@@ -587,6 +716,8 @@ export function CredentialsCarousel({
             })}
           </div>
         </div>
+      </>
+    )}
       </div>
 
       {/* Fullscreen High-Resolution Lightbox Modal */}
