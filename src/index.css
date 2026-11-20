@@ -1,11 +1,27 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'DiwaniLetter';
+  src: url('/fonts/diwani-letter.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Diwani2';
+  src: url('/fonts/diwani-2.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-arabic: "IBM Plex Sans Arabic", "Plus Jakarta Sans", sans-serif;
   --font-signature: "Pinyon Script", cursive;
-  --font-signature-ar: "Aref Ruqaa", serif;
+  --font-signature-ar: "DiwaniLetter", "Diwani2", serif;
 
   --color-obsidian: #070709;
   --color-surface: #101115;
@@ -290,8 +306,8 @@ html[dir="rtl"] .font-editorial {
   transform: translate3d(0, 0, 0);
 }
 
-/* Luxury RST Central Matte-Obsidian Executive Metal Card */
-.rst-biz-card {
+/* Luxury RST Central Print Card — Velvet Matte Stock with Gold Foil Stamping & Spot UV */
+.rst-print-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -300,11 +316,11 @@ html[dir="rtl"] .font-editorial {
   max-width: 420px;
   aspect-ratio: 1.586 / 1;
   border-radius: 16px;
-  background: radial-gradient(circle at 18% 22%, #181B26 0%, #0C0D13 54%, #07070A 100%);
-  border: 1px solid rgba(212, 168, 83, 0.34);
+  background: radial-gradient(circle at 50% 48%, #11131C 0%, #08090D 68%, #050608 100%);
+  border: 1px solid rgba(212, 168, 83, 0.22);
   box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.95),
-    inset 0 1px 0 rgba(232, 196, 120, 0.22),
-    inset 0 0 28px rgba(0, 0, 0, 0.65);
+    inset 0 1px 0 rgba(232, 196, 120, 0.16),
+    inset 0 0 32px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   padding: 22px 24px;
   text-decoration: none;
@@ -313,21 +329,27 @@ html[dir="rtl"] .font-editorial {
     box-shadow 420ms ease;
 }
 
-.rst-biz-card::before {
+.rst-print-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 22% 18%, rgba(212, 168, 83, 0.12), transparent 56%);
-  opacity: 0.65;
+  background: radial-gradient(circle at 25% 20%, rgba(212, 168, 83, 0.08), transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+  opacity: 0.8;
   pointer-events: none;
 }
 
-.rst-biz-card:hover,
-.rst-biz-card:focus-visible {
-  border-color: rgba(232, 196, 120, 0.65);
+.rst-print-card:hover,
+.rst-print-card:focus-visible {
+  border-color: rgba(232, 196, 120, 0.55);
   box-shadow: 0 32px 70px -18px rgba(0, 0, 0, 0.98),
-    0 0 36px -12px rgba(212, 168, 83, 0.35),
-    inset 0 1px 0 rgba(232, 196, 120, 0.42);
+    0 0 36px -12px rgba(212, 168, 83, 0.3),
+    inset 0 1px 0 rgba(232, 196, 120, 0.35);
+}
+
+.rst-gold-foil {
+  filter: drop-shadow(0 4px 14px rgba(212, 168, 83, 0.35));
+  transition: filter 400ms ease, transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -341,7 +363,7 @@ html[dir="rtl"] .font-editorial {
   .tilt-surface,
   .portrait-arc-box,
   .portrait-social-signature,
-  .rst-biz-card {
+  .rst-print-card {
     transition: none;
     animation: none;
   }

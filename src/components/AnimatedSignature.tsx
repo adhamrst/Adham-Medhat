@@ -87,17 +87,17 @@ export function AnimatedSignature({
           {/* Connected Arabic Calligraphy with Stroke Draw Animation */}
           <text
             x="270"
-            y="54"
+            y="52"
             direction="rtl"
             unicodeBidi="embed"
             textAnchor="start"
             className="font-signature-ar select-none cursor-pointer"
             style={{
-              fontFamily: "'Aref Ruqaa', serif",
+              fontFamily: "'DiwaniLetter', 'Diwani2', serif",
               fontSize: '52px',
-              fontWeight: 700,
+              fontWeight: 400,
               stroke: 'url(#sigGoldAr)',
-              strokeWidth: '1.2px',
+              strokeWidth: '0.85px',
               fill: '#D4A853',
               strokeDasharray: 450,
               strokeDashoffset: 450,
@@ -111,7 +111,7 @@ export function AnimatedSignature({
           <motion.path
             d="M 275 68 Q 145 88 28 64 Q 18 62 10 66"
             stroke="url(#sigGoldAr)"
-            strokeWidth="1.9"
+            strokeWidth="1.6"
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -122,7 +122,7 @@ export function AnimatedSignature({
           <motion.circle
             cx="7"
             cy="67.5"
-            r="2.2"
+            r="2"
             fill="#E8C478"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
