@@ -1366,11 +1366,11 @@ export const SOCIAL_LINKS: SocialLinkItem[] = [
   },
   {
     id: 'whatsapp',
-    name: 'WhatsApp · RST Bot',
-    handle: '@adhamrst · +1 202-978-0356',
+    name: 'WhatsApp · RST Central',
+    handle: '+1 202-978-0356',
     role: {
-      en: 'Personal Handle @adhamrst · Brand US Concierge Bot',
-      ar: 'الهاندل الشخصي @adhamrst · وبوت واتساب RST Central',
+      en: 'Official RST Central Executive Line',
+      ar: 'الخط التنفيذي المباشر لـ RST Central',
     },
     url: 'https://wa.me/12029780356?text=Hello%20RST%20Central%20%2F%20Adham%20Medhat%2C%20I%20visited%20adham.rstcentral.com.',
   },
@@ -1400,8 +1400,8 @@ export const UI_COPY = {
   },
   hero: {
     kicker: {
-      en: 'Medical Student, Horus University · Founder, RST Central',
-      ar: 'طالب طب بشري بجامعة حورس · مؤسس RST Central',
+      en: 'Based in Egypt · Available Globally · Medical Student & Founder',
+      ar: 'مصر · متاح للمشاريع عالمياً · طالب طب بشري ومؤسس RST Central',
     },
     displayName: {
       en: 'Adham Medhat',
@@ -1550,16 +1550,16 @@ export const UI_COPY = {
       ar: 'هاندل واحد موحّد للتواصل الشخصي، وبوت رسمي لطلبات الأعمال.',
     },
     lead: {
-      en: 'Reach Adham personally using @adhamrst on WhatsApp, Telegram, LinkedIn, Instagram, and YouTube. For RST Central orders and brand inquiries, message the official US WhatsApp Concierge.',
-      ar: 'للتواصل الشخصي استخدم الهاندل الموحد @adhamrst على واتساب وتيليجرام ولينكد إن وإنستجرام ويوتيوب. ولطلبات RST Central والمشاريع التجارية يمكنك مراسلة البوت الرسمي للبراند مباشرة.',
+      en: 'Reach Adham directly via Telegram, LinkedIn, and social channels @adhamrst. For RST Central orders and executive inquiries, contact the official direct desk.',
+      ar: 'للتواصل المباشر مع أدهم استخدم تيليجرام ولينكد إن @adhamrst. ولطلبات ومشاريع RST Central يمكنك مراسلة الخط المباشر المعتمد.',
     },
     composerHeading: {
-      en: 'RST Central Business Concierge',
-      ar: 'بوت الأعمال الرسمي · RST Central',
+      en: 'RST Central Executive Line',
+      ar: 'الخط التنفيذي المباشر · RST Central',
     },
     composerSubnote: {
-      en: 'Official US Brand WhatsApp Bot: +1 (202) 978-0356 · Personal handle @adhamrst active on WhatsApp & Telegram',
-      ar: 'بوت البراند الأمريكي الرسمي: ‎+1 (202) 978-0356 · والهاندل @adhamrst متاح على واتساب وتيليجرام',
+      en: 'Official Direct Line: +1 (202) 978-0356 · Personal direct messaging via Telegram @adhamrst',
+      ar: 'الخط المباشر المعتمد: ‎+1 (202) 978-0356 · وللتواصل الشخصي المباشر عبر تيليجرام @adhamrst',
     },
     composerTopicLabel: { en: 'Inquiry Topic', ar: 'موضوع التواصل' },
     composerMessageLabel: { en: 'Your message', ar: 'رسالتك' },
@@ -1571,10 +1571,10 @@ export const UI_COPY = {
       en: 'Please enter a brief message before preparing your concierge link.',
       ar: 'يرجى كتابة رسالة مختصرة قبل تجهيز رابط المحادثة.',
     },
-    composerSubmit: { en: 'Message RST Central Bot', ar: 'إرسال إلى بوت RST Central' },
+    composerSubmit: { en: 'Open WhatsApp Chat', ar: 'فتح المحادثة على واتساب' },
     telegramDirect: {
-      en: 'Personal DMs: @adhamrst on WhatsApp & Telegram',
-      ar: 'التواصل الشخصي: @adhamrst على واتساب وتيليجرام',
+      en: 'Personal Direct: @adhamrst on Telegram',
+      ar: 'التواصل الشخصي المباشر: @adhamrst على تيليجرام',
     },
     copyHandle: { en: 'Copy @adhamrst', ar: 'نسخ @adhamrst' },
     copiedHandle: { en: 'Copied @adhamrst', ar: 'تم النسخ' },
@@ -1585,8 +1585,8 @@ export const UI_COPY = {
       ar: 'أدهم مدحت (أدهم أحمد مدحت). الموقع الرسمي والهوية الرقمية.',
     },
     affiliations: {
-      en: 'Horus University Faculty of Medicine · Founder of RST Central',
-      ar: 'كلية الطب البشري بجامعة حورس · مؤسس RST Central',
+      en: 'Based in Egypt · Available Globally · Horus University · Founder, RST Central',
+      ar: 'مصر · متاح للمشاريع عالمياً · جامعة حورس · مؤسس منصة RST Central',
     },
     backToTop: { en: 'Back to top', ar: 'العودة للأعلى' },
   },

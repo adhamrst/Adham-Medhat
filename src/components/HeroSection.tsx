@@ -351,13 +351,13 @@ export function HeroSection({
                     </span>
                   </a>
 
-                  {/* Layer 4 (Innermost): WhatsApp · RST Bot */}
+                  {/* Layer 4 (Innermost): WhatsApp · RST Central Direct Line */}
                   <a
                     href="https://wa.me/12029780356?text=Hello%20RST%20Central%20%2F%20Adham%20Medhat%2C%20I%20visited%20adham.rstcentral.com."
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="WhatsApp · @adhamrst · RST Bot"
-                    aria-label="WhatsApp (@adhamrst · RST Central Bot)"
+                    title="WhatsApp · RST Central Line (+1 202-978-0356)"
+                    aria-label="WhatsApp (RST Central Direct Line)"
                     className="portrait-arc-box portrait-arc-4 focus-visible:outline-none"
                   >
                     <span className="portrait-arc-icon">
@@ -389,17 +389,9 @@ export function HeroSection({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.42, ease: EDITORIAL_EASE }}
-              className="mt-3.5 flex items-center justify-between px-1.5"
+              className="mt-3.5 flex items-center px-2"
             >
               <AnimatedSignature lang={lang} />
-              <div className="hidden sm:flex flex-col items-end text-right">
-                <span className="font-editorial text-sm font-semibold tracking-tight text-[#F4F3EF]">
-                  @adhamrst
-                </span>
-                <span className="text-[10px] tracking-wider text-[#D4A853]">
-                  {lang === 'ar' ? 'جامعة حورس · RST' : 'Horus Univ · RST'}
-                </span>
-              </div>
             </motion.div>
           </motion.div>
         </div>

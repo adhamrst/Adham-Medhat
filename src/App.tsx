@@ -36,8 +36,15 @@ function detectInitialOwnerMode(): boolean {
   return params.get('studio') === '1' || window.location.hash === '#studio';
 }
 
+function detectInitialLanguage(): Language {
+  if (typeof window === 'undefined') return 'en';
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('lang') === 'ar') return 'ar';
+  return 'en';
+}
+
 export default function App() {
-  const [lang, setLang] = useState<Language>('en');
+  const [lang, setLang] = useState<Language>(() => detectInitialLanguage());
   const [vcardSaved, setVcardSaved] = useState(false);
   const [isAmbientPlaying, setIsAmbientPlaying] = useState(false);
   const [pastHero, setPastHero] = useState(false);

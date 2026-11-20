@@ -73,7 +73,7 @@
 * `src/data/profileData.ts` — Unified bilingual dataset (Full Credentials portfolio, Ventures, Pillars, Copy).
 * `src/components/CredentialsCarousel.tsx` — Dual Grid / 3D Slider display engine with Lightbox and 6-discipline filter bar.
 * `src/components/HeroSection.tsx` — Editorial hero with magnetic CTAs, 3D tilt portrait effects, clean unoccluded studio portrait, and social fan.
-* `src/components/AnimatedSignature.tsx` — Live SVG handwritten gold signature draw with interactive replay and Pinyon Script typography.
+* `src/components/AnimatedSignature.tsx` — Bilingual live SVG handwritten gold signature (Aref Ruqaa in Arabic, Pinyon Script in English) with viewport scroll trigger and automatic periodic loop.
 * `src/components/Navbar.tsx` — 3-zone Top Bar Contract, audio controller, language switcher.
 * `src/components/VenturesSection.tsx` — RST Central flagship interactive spotlight.
 * `src/components/SocialHubSection.tsx` — Unified `@adhamrst` connection hub & US concierge WhatsApp bot composer.

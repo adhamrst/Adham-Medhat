@@ -13,7 +13,6 @@ interface VenturesSectionProps {
 const DEFAULT_CARD_TILT: TiltResult = { rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 };
 
 export function VenturesSection({ lang }: VenturesSectionProps) {
-  const [cardRevealed, setCardRevealed] = useState(false);
   const [cardTilt, setCardTilt] = useState<TiltResult>(DEFAULT_CARD_TILT);
   const rstVenture = VENTURES.find((v) => v.size === 'featured') ?? VENTURES[0];
 
@@ -62,111 +61,98 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
         {/* Single Zero-Bloat Flagship Spread: Interactive RST Central Gold Business Card + Directly Indexable Brief */}
         <EditorialReveal delay={0.12}>
           <article className="mt-8 sm:mt-12 grid grid-cols-1 items-center gap-8 rounded-2xl border border-[#242731] bg-[#101115] p-6 sm:p-8 lg:grid-cols-12 lg:gap-12 lg:p-12">
-            {/* Interactive Obsidian & Gold Executive Business Card */}
+            {/* Interactive Luxury RST Central 3D Executive Metal Card */}
             <div
               onMouseMove={handleCardMove}
               onMouseLeave={handleCardLeave}
               className="flex flex-col items-center justify-center lg:col-span-5"
             >
-              <button
-                type="button"
+              <a
+                href="https://rstcentral.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 dir="ltr"
-                aria-pressed={cardRevealed}
                 aria-label={
                   lang === 'ar'
-                    ? 'بطاقة RST Central التفاعلية — مرّر الماوس أو اضغط لعرض الهوية الذهبية'
-                    : 'Interactive RST Central executive business card — hover or tap to reveal'
+                    ? 'بطاقة RST Central التنفيذية — اضغط لزيارة المنصة الرسمية'
+                    : 'RST Central executive card — tap to visit official website'
                 }
-                onClick={() => setCardRevealed((prev) => !prev)}
                 style={{
-                  transform: `perspective(900px) rotateX(${cardTilt.rotateX}deg) rotateY(${cardTilt.rotateY}deg)`,
+                  transform: `perspective(1000px) rotateX(${cardTilt.rotateX}deg) rotateY(${cardTilt.rotateY}deg)`,
                 }}
-                className={`rst-biz-card cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4A853] ${
-                  cardRevealed ? 'is-revealed' : ''
-                }`}
+                className="rst-biz-card group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4A853]"
               >
-                <span aria-hidden="true" className="rst-biz-border" />
-
+                {/* Dynamic Specular Metallic Light Reflection */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
-                    background: `radial-gradient(circle at ${cardTilt.glareX}% ${cardTilt.glareY}%, rgba(232, 196, 120, 0.22), transparent 58%)`,
+                    background: `radial-gradient(circle at ${cardTilt.glareX}% ${cardTilt.glareY}%, rgba(232, 196, 120, 0.28), transparent 58%)`,
                   }}
                 />
 
-                <div className="rst-biz-content">
-                  {PUBLIC_MEDIA_ASSETS.customRstLogoUrl ? (
-                    <div className="flex h-12 items-center justify-center px-4">
-                      <img
-                        src={PUBLIC_MEDIA_ASSETS.customRstLogoUrl}
-                        alt="RST Central official logo"
-                        referrerPolicy="no-referrer"
-                        className="max-h-11 w-auto object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <div className="rst-biz-logo-stage">
-                      {/* Solid Champagne-Gold RST Geometric Monogram */}
-                      <span className="rst-biz-mark" aria-hidden="true">
-                        <svg
-                          viewBox="0 0 88 36"
-                          className="h-9 w-[78px]"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          {/* Architectural R */}
-                          <path
-                            d="M4 32V4h13.5c5.2 0 8.5 3 8.5 7.7 0 3.7-2.1 6.3-5.6 7.2L26.8 32h-5.6l-5.7-12.2H9.2V32H4Zm5.2-16.5h7.8c2.6 0 4.1-1.3 4.1-3.6 0-2.3-1.5-3.6-4.1-3.6H9.2v7.2Z"
-                            fill="#D4A853"
-                          />
-                          {/* Architectural S */}
-                          <path
-                            d="M42.8 32.5c-6.3 0-10.3-2.9-10.7-7.7h5.1c.4 2.4 2.4 3.6 5.7 3.6 3.1 0 5-1.2 5-3.3 0-2-1.4-2.9-5.4-3.8l-2.4-.5c-4.9-1.1-7.4-3.3-7.4-7.4 0-4.9 4.1-8 10.1-8 5.9 0 9.8 2.9 10.2 7.3h-5c-.4-2.1-2.2-3.2-5.2-3.2-2.9 0-4.8 1.2-4.8 3.2 0 1.8 1.3 2.8 4.9 3.6l2.6.6c5.3 1.2 7.8 3.3 7.8 7.5 0 5-4.1 8.1-10.5 8.1Z"
-                            fill="#D4A853"
-                          />
-                          {/* Architectural T */}
-                          <path d="M68.2 32V8.4H59V4h23.6v4.4h-9.2V32h-5.2Z" fill="#D4A853" />
-                        </svg>
+                {/* Top Zone: Logo Brandmark & Contactless Executive NFC Chip */}
+                <div className="relative z-20 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <svg viewBox="0 0 88 36" className="h-7 w-auto fill-[#D4A853]" aria-hidden="true">
+                      <path d="M4 32V4h13.5c5.2 0 8.5 3 8.5 7.7 0 3.7-2.1 6.3-5.6 7.2L26.8 32h-5.6l-5.7-12.2H9.2V32H4Zm5.2-16.5h7.8c2.6 0 4.1-1.3 4.1-3.6 0-2.3-1.5-3.6-4.1-3.6H9.2v7.2Z" />
+                      <path d="M42.8 32.5c-6.3 0-10.3-2.9-10.7-7.7h5.1c.4 2.4 2.4 3.6 5.7 3.6 3.1 0 5-1.2 5-3.3 0-2-1.4-2.9-5.4-3.8l-2.4-.5c-4.9-1.1-7.4-3.3-7.4-7.4 0-4.9 4.1-8 10.1-8 5.9 0 9.8 2.9 10.2 7.3h-5c-.4-2.1-2.2-3.2-5.2-3.2-2.9 0-4.8 1.2-4.8 3.2 0 1.8 1.3 2.8 4.9 3.6l2.6.6c5.3 1.2 7.8 3.3 7.8 7.5 0 5-4.1 8.1-10.5 8.1Z" />
+                      <path d="M68.2 32V8.4H59V4h23.6v4.4h-9.2V32h-5.2Z" />
+                    </svg>
+                    <div className="flex flex-col text-start">
+                      <span className="font-sans text-[13px] font-bold tracking-[0.24em] text-[#F4F3EF] uppercase">
+                        CENTRAL
                       </span>
-
-                      {/* Engraved Hairline CENTRAL Wordmark Revealed on Sweep */}
-                      <span className="rst-biz-wordmark" aria-hidden="true">
-                        <svg
-                          viewBox="0 0 164 36"
-                          className="h-9 w-[152px]"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <text
-                            x="2"
-                            y="26"
-                            fill="none"
-                            stroke="#D4A853"
-                            strokeWidth="1.05"
-                            fontFamily="'Plus Jakarta Sans', sans-serif"
-                            fontWeight="600"
-                            fontSize="24"
-                            letterSpacing="4.5"
-                          >
-                            CENTRAL
-                          </text>
-                        </svg>
+                      <span className="text-[8.5px] font-semibold tracking-[0.26em] text-[#D4A853] uppercase">
+                        Venture Studio
                       </span>
-
-                      <span aria-hidden="true" className="rst-biz-trail" />
                     </div>
-                  )}
+                  </div>
 
-                  <span className="rst-biz-domain">rstcentral.com</span>
+                  <div className="flex items-center gap-1.5 rounded-full border border-[#D4A853]/35 bg-[#07070A]/70 px-2.5 py-1 backdrop-blur-sm">
+                    <svg viewBox="0 0 24 24" className="h-3 w-3 stroke-[#D4A853]" fill="none" strokeWidth="2" aria-hidden="true">
+                      <path d="M8.5 16.5a5 5 0 0 1 0-9" strokeLinecap="round" />
+                      <path d="M12 19a8.5 8.5 0 0 0 0-14" strokeLinecap="round" />
+                      <path d="M15.5 21.5a12 12 0 0 0 0-19" strokeLinecap="round" />
+                    </svg>
+                    <span className="text-[9px] font-bold tracking-wider text-[#D4A853]">NFC</span>
+                  </div>
                 </div>
 
-                <span className="rst-biz-bottom-caption">FOUNDER · ADHAM MEDHAT</span>
-              </button>
+                {/* Middle Zone: Precision Hairline Divider with Architectural Disciplines */}
+                <div className="relative z-20 my-auto py-2">
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4A853]/40 to-transparent" />
+                  <div className="mt-2.5 flex items-center justify-between text-[8px] sm:text-[8.5px] font-medium tracking-[0.24em] text-[#9D9FA8] uppercase">
+                    <span>DIGITAL FABRICATION</span>
+                    <span className="text-[#D4A853]">·</span>
+                    <span>E-COMMERCE</span>
+                    <span className="text-[#D4A853]">·</span>
+                    <span>STUDIO LABS</span>
+                  </div>
+                </div>
 
-              <p className="mt-3 text-center text-[11px] text-[#7D808D]">
+                {/* Bottom Zone: Founder Title & Domain Jump */}
+                <div className="relative z-20 flex items-end justify-between border-t border-[#242731]/80 pt-3">
+                  <div className="text-start">
+                    <p className="text-xs font-semibold tracking-wider text-[#F4F3EF] uppercase">
+                      ADHAM MEDHAT
+                    </p>
+                    <p className="text-[9.5px] font-medium tracking-wide text-[#D4A853]">
+                      FOUNDER & CREATIVE DIRECTOR
+                    </p>
+                  </div>
+
+                  <div className="inline-flex items-center gap-1 text-xs font-semibold text-[#D4A853] transition-colors group-hover:text-[#E8C478]">
+                    <span>rstcentral.com</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </div>
+                </div>
+              </a>
+
+              <p className="mt-3 text-center text-xs text-[#858894]">
                 {lang === 'ar'
-                  ? 'مرّر المؤشر أو اضغط على البطاقة لاستعراض شعار RST Central'
-                  : 'Hover or tap the card to inspect the RST Central crest'}
+                  ? 'البطاقة التنفيذية لشركة RST Central · اضغط لزيارة المنصة الرسمية'
+                  : 'Official Executive Card · Tap to open rstcentral.com'}
               </p>
             </div>
 
@@ -236,8 +222,8 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
                   <MessageCircle className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
                   <span>
                     {lang === 'ar'
-                      ? 'بوت طلبات RST Central'
-                      : 'RST Central WhatsApp Bot'}
+                      ? 'الخط المباشر لـ RST Central'
+                      : 'RST Central WhatsApp Line'}
                   </span>
                 </motion.a>
               </div>

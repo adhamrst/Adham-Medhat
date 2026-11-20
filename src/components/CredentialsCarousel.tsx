@@ -396,14 +396,14 @@ export function CredentialsCarousel({
                         setIsZoomed(false);
                       }}
                       aria-label={`${UI_COPY.credentials.inspectButton[lang]}: ${credential.title[lang]}`}
-                      className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-[#07080C] flex items-center justify-center p-2 cursor-pointer block text-start"
+                      className="relative aspect-[1.38/1] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#13151F] via-[#0B0C10] to-[#07070A] flex items-center justify-center p-2 sm:p-2.5 cursor-pointer block text-start"
                     >
                       <ResilientImage
                         src={credential.image}
                         alt={credential.imageAlt[lang]}
                         fallbackLabel={credential.title.en}
                         loading="lazy"
-                        className="h-full w-full object-contain rounded-lg transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-contain rounded-md shadow-[0_4px_20px_rgba(0,0,0,0.65)] ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.01]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#070709]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -484,13 +484,13 @@ export function CredentialsCarousel({
                   aria-label={`${UI_COPY.credentials.inspectButton[lang]}: ${activeCredential.title[lang]}`}
                   className="group block w-full text-start cursor-pointer"
                 >
-                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#07080C] flex items-center justify-center p-2">
+                  <div className="relative aspect-[1.38/1] w-full overflow-hidden bg-gradient-to-b from-[#13151F] via-[#0B0C10] to-[#07070A] flex items-center justify-center p-2 sm:p-2.5">
                     <ResilientImage
                       src={activeCredential.image}
                       alt={activeCredential.imageAlt[lang]}
                       fallbackLabel={activeCredential.title.en}
                       loading="eager"
-                      className="h-full w-full object-contain rounded-md"
+                      className="h-full w-full object-contain rounded-md shadow-[0_4px_20px_rgba(0,0,0,0.65)] ring-1 ring-white/10"
                     />
                     <div className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-md border border-[#242731] bg-[#070709]/85 px-2.5 py-1.5 text-xs font-medium text-[#F4F3EF] backdrop-blur-sm">
                       <Maximize2 className="h-3.5 w-3.5 text-[#D4A853]" aria-hidden="true" />
@@ -613,13 +613,13 @@ export function CredentialsCarousel({
                       }
                       className="group block w-full text-start cursor-pointer focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#D4A853]"
                     >
-                      <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#07080C] flex items-center justify-center p-2.5">
+                      <div className="relative aspect-[1.38/1] w-full overflow-hidden bg-gradient-to-b from-[#13151F] via-[#0B0C10] to-[#07070A] flex items-center justify-center p-2 sm:p-2.5">
                         <ResilientImage
                           src={credential.image}
                           alt={credential.imageAlt[lang]}
                           fallbackLabel={credential.title.en}
                           loading={index === 0 ? 'eager' : 'lazy'}
-                          className="h-full w-full object-contain rounded-md transition-transform duration-500 group-hover:scale-[1.02]"
+                          className="h-full w-full object-contain rounded-md shadow-[0_4px_20px_rgba(0,0,0,0.65)] ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.01]"
                         />
                         {isFront && (
                           <div className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-md border border-[#242731] bg-[#070709]/85 px-2.5 py-1.5 text-xs font-medium text-[#F4F3EF] backdrop-blur-sm">
