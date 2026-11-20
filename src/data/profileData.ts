@@ -254,32 +254,66 @@ export const CREDENTIALS: CredentialItem[] = [
     id: 'micro-mba',
     categoryId: 'business',
     title: {
-      en: 'Micro MBA in Strategic Management',
-      ar: 'مايكرو MBA في الإدارة الاستراتيجية للأعمال',
+      en: 'Micro MBA Program (90 Training Hours)',
+      ar: 'برنامج مايكرو MBA التنفيذي (90 ساعة تدريبية)',
     },
-    category: { en: 'Executive Business Credential', ar: 'اعتماد تنفيذي في إدارة الأعمال' },
-    issuer: { en: 'Horus University (جامعة حورس)', ar: 'جامعة حورس' },
-    year: '2025',
-    issuedTo: 'Issued to: Adham Ahmed (Adham Medhat)',
-    image: ASSETS.certMicroMba,
+    category: { en: 'Accredited Executive Program', ar: 'برنامج تنفيذي معتمد من المجلس الأعلى للجامعات' },
+    issuer: { en: 'Horus University · ETC Center', ar: 'جامعة حورس · مركز ريادة الأعمال والتدريب' },
+    year: '2026',
+    issuedTo: 'Issued to: Adham Ahmed Medhat Elsayed Ali · أدهم أحمد مدحت',
+    image: ASSETS.certificates.microMba,
     imageAlt: {
-      en: 'Horus University Executive Micro MBA Diploma awarded to Adham Ahmed (Adham Medhat)',
-      ar: 'شهادة Micro MBA من جامعة حورس باسم أدهم أحمد (أدهم مدحت)',
+      en: 'Horus University ETC Micro MBA Program official certificate awarded to Adham Ahmed Medhat Elsayed Ali',
+      ar: 'شهادة برنامج مايكرو MBA المعتمدة من مركز ريادة الأعمال والتدريب بجامعة حورس لأدهم أحمد مدحت',
     },
     description: {
-      en: 'Intensive executive program covering corporate strategy, marketing systems, financial analysis, organizational leadership, and scalable venture execution.',
-      ar: 'برنامج تنفيذي مكثف يغطي الاستراتيجية المؤسسية، أنظمة التسويق، التحليل المالي، القيادة التنظيمية، وبناء خطط نمو الشركات الناشئة.',
+      en: 'Comprehensive 90-hour executive business curriculum accredited by the Supreme Council of Universities. Encompasses 12 operational disciplines including Strategic Management, Financial Management, Operations & Supply Chain, Digital Transformation, Integrated Business Applications (24h), and a Capstone Business Pitch Project.',
+      ar: 'برنامج تنفيذي متكامل بواقع 90 ساعة تدريبية معتمد من المجلس الأعلى للجامعات عبر مركز ETC بجامعة حورس. يشمل 12 مساراً تشغيلياً منها الإدارة الاستراتيجية، التحليل المالي، سلاسل الإمداد، التحول الرقمي، تطبيقات الأعمال المتكاملة (24 ساعة)، ومشروع التخرج التنافسي (Business Pitch).',
     },
     highlights: {
       en: [
-        'Strategic Management & Competitive Positioning',
-        'Marketing Architecture & Brand Equity',
-        'Financial Literacy & Venture Unit Economics',
+        '90 Training Hours Accredited by Supreme Council of Universities',
+        'Signed by University President Prof. Dr. El-Said Abdel-Hady',
+        'Capstone Business Pitch & Integrated Business Applications',
       ],
       ar: [
-        'الإدارة الاستراتيجية وبناء الميزة التنافسية',
-        'هندسة التسويق وقيمة العلامة التجارية',
-        'التحليل المالي واقتصاديات المشاريع',
+        '90 ساعة تدريبية معتمدة من المجلس الأعلى للجامعات',
+        'بتوقيع رئيس جامعة حورس أ.د. السعيد عبد الهادي',
+        'مشروع التخرج التنافسي وتطبيقات الأعمال المتكاملة',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
+  {
+    id: 'micro-mba-transcript',
+    categoryId: 'business',
+    title: {
+      en: 'Micro MBA Academic Transcript (12 Specialized Disciplines)',
+      ar: 'السجل الأكاديمي لمسارات مايكرو MBA (12 تخصصاً إدارياً)',
+    },
+    category: { en: 'Official Academic Transcript', ar: 'السجل الأكاديمي والبيان الرسمي المعتمد' },
+    issuer: { en: 'Horus University · ETC Center', ar: 'جامعة حورس · مركز ريادة الأعمال والتدريب' },
+    year: '2026',
+    issuedTo: 'Issued to: Adham Ahmed Medhat Elsayed Ali',
+    image: ASSETS.certificates.microMbaTranscript,
+    imageAlt: {
+      en: 'Horus University Micro MBA official Academic Transcript detailing 90 training hours across 12 business modules',
+      ar: 'السجل الأكاديمي الرسمي لمايكرو MBA موضحاً تفاصيل 90 ساعة تدريبية موزعة على 12 مساراً',
+    },
+    description: {
+      en: 'Official academic record certifying granular completion of 90 credit-equivalent training hours across 12 disciplines: Strategic Management, Financial Management, Marketing Management, Project Management, Operations & Supply Chain, Digital Transformation, Innovation & Change, Leadership, and Integrated Business Applications.',
+      ar: 'بيان الدرجات والسجل الأكاديمي الرسمي الموثق لـ 90 ساعة تدريبية تغطي: الإدارة الاستراتيجية، الإدارة المالية، إدارة التسويق، إدارة المشاريع، سلاسل الإمداد، التحول الرقمي والتقنيات الناشئة، قيادة التغيير والابتكار، وتطبيقات الأعمال المتكاملة.',
+    },
+    highlights: {
+      en: [
+        'Granular Breakdown Across 12 Executive Modules',
+        'Digital Transformation & Emerging Technologies Focus',
+        'Official ETC Registrar Seal & Hologram Stamp',
+      ],
+      ar: [
+        'تفصيل دقيق لـ 12 وحدة تدريبية تنفيذية',
+        'التركيز على التحول الرقمي والتقنيات الناشئة',
+        'الختم الرسمي وشعار مركز ريادة الأعمال والتدريب',
       ],
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
@@ -832,6 +866,40 @@ export const CREDENTIALS: CredentialItem[] = [
     },
     linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
   },
+  {
+    id: 'elingenium-internship',
+    categoryId: 'design',
+    title: {
+      en: 'Summer Internship — Creative Agency Practice',
+      ar: 'التدريب الصيفي في الإبداع وتطوير العلامات التجارية',
+    },
+    category: { en: 'Creative Agency Internship', ar: 'تدريب عملي معتمد في وكالة إبداعية' },
+    issuer: { en: 'Elingenium Creative Agency', ar: 'وكالة إلينجينيوم الإبداعية (Elingenium)' },
+    year: '2025',
+    issuedTo: 'Issued to: Adham ahmed Medhat',
+    image: ASSETS.certificates.elingeniumInternship,
+    imageAlt: {
+      en: 'Elingenium Creative Agency Summer Internship Vol.3 certificate awarded to Adham ahmed Medhat',
+      ar: 'شهادة إتمام التدريب الصيفي في وكالة إلينجينيوم الإبداعية لأدهم أحمد مدحت',
+    },
+    description: {
+      en: 'Professional creative agency summer internship demonstrating exceptional dedication, cross-media campaign execution, visual brand design, and rapid creative problem solving.',
+      ar: 'برنامج تدريب صيفي احترافي في وكالة Elingenium الإبداعية لتطوير الحملات الإعلانية متعددة الوسائط، تصميم هويات العلامات التجارية، وحلول التواصل البصري الحديث.',
+    },
+    highlights: {
+      en: [
+        'Elingenium Summer Internship Vol.3 Completion',
+        'Visual Identity Systems & Brand Collateral Production',
+        'Signed by Co-Founders Mohamed & Eslam El Desoki (2025)',
+      ],
+      ar: [
+        'إتمام برنامج التدريب الصيفي المكثف Vol.3',
+        'إنتاج أصول الهويات البصرية ومواد الحملات الإعلانية',
+        'معتمدة من الشركاء المؤسسين محمد وإسلام الدسوقي (2025)',
+      ],
+    },
+    linkedinUrl: LINKEDIN_CERTIFICATIONS_URL,
+  },
 
   // --- Entrepreneurship & Ventures ---
   {
@@ -1359,10 +1427,10 @@ export const UI_COPY = {
     vcardSaved: { en: 'vCard Saved', ar: 'تم حفظ البطاقة' },
   },
   audio: {
-    play: { en: 'Ambient Sound', ar: 'موسيقى هادئة' },
-    playing: { en: 'Sound Playing', ar: 'الموسيقى تعمل' },
-    ariaPlay: { en: 'Play calm ambient music', ar: 'تشغيل موسيقى خلفية هادئة' },
-    ariaPause: { en: 'Mute ambient music', ar: 'إيقاف الموسيقى الهادئة' },
+    play: { en: 'Calm Jazz', ar: 'جاز هادئ' },
+    playing: { en: 'Jazz Playing', ar: 'الجاز يعمل' },
+    ariaPlay: { en: 'Play calm background jazz music', ar: 'تشغيل موسيقى جاز هادئة' },
+    ariaPause: { en: 'Mute background jazz music', ar: 'إيقاف موسيقى الجاز' },
   },
   hero: {
     kicker: {

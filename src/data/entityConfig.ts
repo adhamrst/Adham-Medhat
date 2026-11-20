@@ -17,7 +17,7 @@ export const PUBLIC_MEDIA_ASSETS = {
   portrait: '/images/adham-medhat-portrait.jpg',
   portraitWebp: '/images/adham-medhat-portrait.webp',
   ogCover: '/images/adham-medhat-og-cover.jpg',
-  certMicroMba: '/images/adham-medhat-micro-mba-horus-university.jpg',
+  certMicroMba: '/images/certificates/adham-medhat-micro-mba-horus-university.webp',
   certGraphicDesign: '/images/adham-medhat-graphic-design-certification.jpg',
   certMedical: '/images/adham-medhat-medical-studies-horus-university.jpg',
   ventureRst: '/images/rst-central-fabrication-venture.jpg',
@@ -31,6 +31,8 @@ export const PUBLIC_MEDIA_ASSETS = {
    * Verified High-Authority Certificates (Optimized WebP)
    */
   certificates: {
+    microMba: '/images/certificates/adham-medhat-micro-mba-horus-university.webp',
+    microMbaTranscript: '/images/certificates/adham-medhat-micro-mba-transcript-horus-university.webp',
     generativeAiMicrosoft: '/images/certificates/adham-medhat-generative-ai-career-essentials-microsoft.webp',
     digitalMarketingGoogle: '/images/certificates/adham-medhat-digital-marketing-google-iab.webp',
     globalBankingHsbc: '/images/certificates/adham-medhat-global-banking-markets-hsbc.webp',
@@ -51,6 +53,7 @@ export const PUBLIC_MEDIA_ASSETS = {
     aiCareerAsean: '/images/certificates/adham-medhat-ai-career-readiness-asean-foundation.webp',
     intermediateGermanAlison: '/images/certificates/adham-medhat-intermediate-german-alison-cpd.webp',
     medicalConference2ndHorus: '/images/certificates/adham-medhat-medical-conference-2nd-annual-horus-university.webp',
+    elingeniumInternship: '/images/certificates/adham-medhat-creative-agency-internship-elingenium.webp',
   },
 } as const;
 

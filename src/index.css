@@ -21,6 +21,7 @@
     color: #F4F3EF;
     font-family: var(--font-sans);
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   html[dir="rtl"] body {
@@ -128,6 +129,7 @@ html[dir="rtl"] .font-editorial {
 .portrait-arc-box:focus-visible {
   border-top-color: #E8C478;
   border-right-color: rgba(232, 196, 120, 0.75);
+  box-shadow: 0 0 24px rgba(212, 168, 83, 0.32), -8px 10px 30px rgba(0, 0, 0, 0.75);
 }
 
 .portrait-arc-box:hover::before,
@@ -141,17 +143,18 @@ html[dir="rtl"] .font-editorial {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(244, 243, 239, 0.85);
-  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
-    color 240ms ease,
-    filter 280ms ease;
+  color: rgba(244, 243, 239, 0.90);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  shape-rendering: geometricPrecision;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 200ms ease;
 }
 
 .portrait-arc-box:hover .portrait-arc-icon,
 .portrait-arc-box:focus-visible .portrait-arc-icon {
   color: #F4F3EF;
-  transform: scale(1.14);
-  filter: drop-shadow(0 0 8px rgba(212, 168, 83, 0.75));
+  transform: scale(1.08) translateZ(0);
 }
 
 .portrait-arc-1 {

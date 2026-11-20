@@ -53,12 +53,6 @@ export function Footer({ lang, onOwnerTrigger }: FooterProps) {
             >
               {lang === 'ar' ? 'جامعة حورس' : 'Horus University'}
             </a>
-            <a href="/sitemap.xml" className="transition-colors hover:text-[#D4A853]">
-              Sitemap
-            </a>
-            <a href="/llms.txt" className="transition-colors hover:text-[#D4A853]">
-              LLMs.txt
-            </a>
             <a
               href="/adham-medhat.vcf"
               download="adham-medhat.vcf"

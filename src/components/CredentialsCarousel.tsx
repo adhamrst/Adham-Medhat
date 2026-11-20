@@ -60,7 +60,7 @@ export function CredentialsCarousel({
   onOpenOwnerStudio,
 }: CredentialsCarouselProps) {
   const [selectedCategory, setSelectedCategory] = useState<CredentialCategoryId>('all');
-  const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('grid');
+  const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('carousel');
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
   const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(true);
