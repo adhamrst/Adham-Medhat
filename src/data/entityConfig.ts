@@ -22,10 +22,9 @@ export const PUBLIC_MEDIA_ASSETS = {
   ventureRst: '/images/rst-central-fabrication-venture.jpg',
   ventureDesign: '/images/adham-medhat-visual-identity-studio.jpg',
   /**
-   * Set to '/images/rst-central-logo.svg' once you upload your official RST Central SVG logo
-   * into `/public/images/`. Leave `null` to use the built-in gold architectural RST crest.
+   * Official RST Central Logo (downloaded from official portal)
    */
-  customRstLogoUrl: null as string | null,
+  customRstLogoUrl: '/images/rst-central-logo.png' as string | null,
 } as const;
 
 /**
