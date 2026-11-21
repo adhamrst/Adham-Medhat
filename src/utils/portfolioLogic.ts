@@ -663,11 +663,14 @@ export const BASE_ENTITY_SAME_AS = [
   'https://www.wikidata.org/wiki/Q141600726',
   'https://www.crunchbase.com/person/adham-medhat',
   'https://www.signalhire.com/profiles/adham-ahmed/237556949',
+  'https://gravatar.com/adhamrst',
+  'https://theorg.com/org/rst-central/person/adham-medhat',
 ];
 
 export const BASE_ORGANIZATION_SAME_AS = [
   'https://rstcentral.com',
   'https://socials.rstcentral.com',
+  'https://theorg.com/org/rst-central',
   'https://www.wikidata.org/wiki/Q141600698',
   'https://www.crunchbase.com/organization/rst-central',
   'https://www.wikidata.org/wiki/Q141600763',

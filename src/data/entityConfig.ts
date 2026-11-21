@@ -72,4 +72,8 @@ export const ENTITY_AUTHORITY_PROFILES = {
   wikidataRstPrintsUrl: 'https://www.wikidata.org/wiki/Q141600763' as string,
   wikidataRstDesignsUrl: 'https://www.wikidata.org/wiki/Q141600774' as string,
   signalHirePersonUrl: 'https://www.signalhire.com/profiles/adham-ahmed/237556949' as string,
+  gravatarPersonUrl: 'https://gravatar.com/adhamrst' as string,
+  theOrgPersonUrl: 'https://theorg.com/org/rst-central/person/adham-medhat' as string,
+  theOrgOrgUrl: 'https://theorg.com/org/rst-central' as string,
+  aboutMePersonUrl: 'https://about.me/adhamrst' as string,
 } as const;

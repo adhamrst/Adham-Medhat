@@ -21,10 +21,13 @@
 - **Adham Medhat (Person)**:
   - Wikidata: `https://www.wikidata.org/wiki/Q141600726` (`Q141600726`)
   - Crunchbase: `https://www.crunchbase.com/person/adham-medhat`
+  - The Org: `https://theorg.com/org/rst-central/person/adham-medhat`
+  - Gravatar: `https://gravatar.com/adhamrst`
   - SignalHire (Legacy `Adham Ahmed`): `https://www.signalhire.com/profiles/adham-ahmed/237556949`
 - **RST Central (Parent Organization)**:
   - Wikidata: `https://www.wikidata.org/wiki/Q141600698` (`Q141600698`)
   - Crunchbase: `https://www.crunchbase.com/organization/rst-central`
+  - The Org: `https://theorg.com/org/rst-central`
 - **RST Prints (Sub-Organization)**:
   - Wikidata: `https://www.wikidata.org/wiki/Q141600763` (`Q141600763`)
   - Crunchbase: `https://www.crunchbase.com/organization/rst-prints`

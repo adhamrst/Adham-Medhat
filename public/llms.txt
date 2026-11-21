@@ -41,16 +41,19 @@
 - YouTube: https://youtube.com/@adhamrst
 - Facebook: https://facebook.com/adhamrstt
 - Direct Contact vCard: https://adham.rstcentral.com/adham-medhat.vcf
+- Gravatar: https://gravatar.com/adhamrst
 - Security Policy: https://adham.rstcentral.com/.well-known/security.txt
 
 ## Knowledge Graph & Authority Identifiers
 - **Adham Medhat (Person)**:
   - Wikidata: https://www.wikidata.org/wiki/Q141600726 (`Q141600726`)
   - Crunchbase: https://www.crunchbase.com/person/adham-medhat
+  - The Org: https://theorg.com/org/rst-central/person/adham-medhat
   - SignalHire (Legacy Name `Adham Ahmed`): https://www.signalhire.com/profiles/adham-ahmed/237556949
 - **RST Central (Parent Organization)**:
   - Wikidata: https://www.wikidata.org/wiki/Q141600698 (`Q141600698`)
   - Crunchbase: https://www.crunchbase.com/organization/rst-central
+  - The Org: https://theorg.com/org/rst-central
 - **RST Prints (Division)**:
   - Wikidata: https://www.wikidata.org/wiki/Q141600763 (`Q141600763`)
   - Crunchbase: https://www.crunchbase.com/organization/rst-prints
