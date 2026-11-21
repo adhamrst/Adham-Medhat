@@ -35,7 +35,13 @@ class AmbientSoundscapeEngine {
       const audio = new Audio(JAZZ_AUDIO_SRC);
       audio.loop = true;
       audio.preload = 'auto';
-      audio.volume = 0.001;
+      audio.setAttribute('playsinline', 'true');
+      (audio as unknown as { playsInline?: boolean }).playsInline = true;
+      try {
+        audio.volume = 0.001;
+      } catch {
+        // iOS volume hardware restriction
+      }
       this.audioElement = audio;
     }
     return this.audioElement;
@@ -129,15 +135,20 @@ class AmbientSoundscapeEngine {
 
   public async start(): Promise<boolean> {
     if (this.isPlaying) return true;
-    this.isPlaying = true;
 
     // First priority: Real Smooth Jazz Audio Loop
     const audio = this.initAudioElement();
     if (audio) {
       try {
-        audio.currentTime = 0;
-        audio.volume = 0.001;
+        try {
+          audio.volume = 0.001;
+        } catch {
+          // iOS volume hardware restriction
+        }
+
         await audio.play();
+
+        this.isPlaying = true;
         this.isUsingFile = true;
 
         if (this.fadeIntervalId !== null) {
@@ -150,9 +161,13 @@ class AmbientSoundscapeEngine {
             if (this.fadeIntervalId !== null) window.clearInterval(this.fadeIntervalId);
             return;
           }
-          if (this.audioElement.volume < this.targetVolume) {
-            this.audioElement.volume = Math.min(this.targetVolume, this.audioElement.volume + step);
-          } else {
+          try {
+            if (this.audioElement.volume < this.targetVolume) {
+              this.audioElement.volume = Math.min(this.targetVolume, this.audioElement.volume + step);
+            } else {
+              if (this.fadeIntervalId !== null) window.clearInterval(this.fadeIntervalId);
+            }
+          } catch {
             if (this.fadeIntervalId !== null) window.clearInterval(this.fadeIntervalId);
           }
         }, 60);
@@ -161,18 +176,27 @@ class AmbientSoundscapeEngine {
       } catch {
         // Fallback to Web Audio synthesizer if browser prevents media element
         this.isUsingFile = false;
+        this.isPlaying = false;
       }
     }
 
     // Fallback: Web Audio procedural chords
     const ctx = this.ensureContext();
-    if (ctx && ctx.state === 'suspended') {
+    if (!ctx) {
+      this.isPlaying = false;
+      return false;
+    }
+
+    if (ctx.state === 'suspended') {
       try {
         await ctx.resume();
       } catch {
+        this.isPlaying = false;
         return false;
       }
     }
+
+    this.isPlaying = true;
     this.startProceduralFallback();
     return true;
   }
@@ -193,11 +217,18 @@ class AmbientSoundscapeEngine {
           window.clearInterval(fadeDownId);
           return;
         }
-        if (fadeAudio.volume > step) {
-          fadeAudio.volume = Math.max(0, fadeAudio.volume - step);
-        } else {
-          fadeAudio.volume = 0;
-          fadeAudio.pause();
+        try {
+          if (fadeAudio.volume > step) {
+            fadeAudio.volume = Math.max(0, fadeAudio.volume - step);
+          } else {
+            fadeAudio.volume = 0;
+            fadeAudio.pause();
+            window.clearInterval(fadeDownId);
+          }
+        } catch {
+          try {
+            fadeAudio.pause();
+          } catch {}
           window.clearInterval(fadeDownId);
         }
       }, 50);

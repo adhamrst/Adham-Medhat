@@ -110,6 +110,17 @@ export default function App() {
     if (typeof window === 'undefined') return;
     if (sessionStorage.getItem('adham_ambient_muted') === 'true') return;
 
+    let isCleanedUp = false;
+
+    const cleanup = () => {
+      if (isCleanedUp) return;
+      isCleanedUp = true;
+      window.removeEventListener('click', triggerOnFirstInteraction);
+      window.removeEventListener('touchend', triggerOnFirstInteraction);
+      window.removeEventListener('pointerup', triggerOnFirstInteraction);
+      window.removeEventListener('keydown', triggerOnFirstInteraction);
+    };
+
     const triggerOnFirstInteraction = async () => {
       if (sessionStorage.getItem('adham_ambient_muted') === 'true') {
         cleanup();
@@ -120,20 +131,19 @@ export default function App() {
         const started = await ambientAudio.start();
         if (started) {
           setIsAmbientPlaying(true);
+          cleanup();
         }
+      } else {
+        setIsAmbientPlaying(true);
+        cleanup();
       }
-      cleanup();
     };
 
-    const cleanup = () => {
-      window.removeEventListener('pointerdown', triggerOnFirstInteraction);
-      window.removeEventListener('keydown', triggerOnFirstInteraction);
-      window.removeEventListener('touchstart', triggerOnFirstInteraction);
-    };
-
-    window.addEventListener('pointerdown', triggerOnFirstInteraction, { once: true, passive: true });
-    window.addEventListener('keydown', triggerOnFirstInteraction, { once: true, passive: true });
-    window.addEventListener('touchstart', triggerOnFirstInteraction, { once: true, passive: true });
+    // Mobile browsers (Safari/Chrome) accept completed gesture events (click, touchend, pointerup)
+    window.addEventListener('click', triggerOnFirstInteraction, { passive: true });
+    window.addEventListener('touchend', triggerOnFirstInteraction, { passive: true });
+    window.addEventListener('pointerup', triggerOnFirstInteraction, { passive: true });
+    window.addEventListener('keydown', triggerOnFirstInteraction, { passive: true });
 
     return cleanup;
   }, []);
