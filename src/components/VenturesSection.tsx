@@ -94,26 +94,26 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
                 {/* Spot UV Micro-Watermark (Gleams gently on hover) */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-6 top-4 z-20 flex justify-between text-[8px] font-semibold tracking-[0.28em] text-transparent transition-colors duration-400 group-hover:text-[#D4A853]/60 uppercase"
+                  className="pointer-events-none absolute inset-x-6 top-4.5 z-20 flex justify-between text-[8px] font-semibold tracking-[0.28em] text-transparent transition-colors duration-400 group-hover:text-[#D4A853]/60 uppercase"
                 >
                   <span>STUDIO LABS</span>
-                  <span>EST. 2024</span>
+                  <span>EST. 2020</span>
                 </div>
 
                 {/* Dead Center: Official RST Central Logo Stamped in Luxury Gold Foil */}
-                <div className="relative z-20 my-auto flex flex-col items-center justify-center py-6">
-                  <div className="relative flex items-center justify-center px-4 transition-transform duration-400 ease-out group-hover:scale-[1.03]">
+                <div className="absolute inset-0 z-20 flex items-center justify-center p-8 pointer-events-none">
+                  <div className="relative flex items-center justify-center transition-transform duration-400 ease-out group-hover:scale-[1.03]">
                     <img
                       src={PUBLIC_MEDIA_ASSETS.customRstLogoUrl || '/images/rst-central-logo.png'}
                       alt="RST Central Official Logo"
                       loading="lazy"
-                      className="rst-gold-foil max-h-14 sm:max-h-16 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(212,168,83,0.32)] transition-all duration-400 group-hover:drop-shadow-[0_6px_22px_rgba(232,196,120,0.52)]"
+                      className="rst-gold-foil max-h-9 sm:max-h-10 w-auto object-contain"
                     />
                   </div>
                 </div>
 
                 {/* Bottom Details: Smooth Luxury Reveal on Hover */}
-                <div className="relative z-20 flex items-end justify-between border-t border-transparent pt-2 transition-colors duration-400 group-hover:border-[#242731]/70">
+                <div className="absolute inset-x-6 bottom-4.5 z-20 flex items-end justify-between border-t border-transparent pt-2 transition-colors duration-400 group-hover:border-[#242731]/70">
                   {/* Founder Credit (Fades in smoothly on hover) */}
                   <div className="text-start opacity-0 transform translate-y-1.5 transition-all duration-400 ease-out group-hover:opacity-100 group-hover:translate-y-0">
                     <p className="text-[11px] font-semibold tracking-wider text-[#F4F3EF] uppercase">
