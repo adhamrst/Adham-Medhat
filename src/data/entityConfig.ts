@@ -57,14 +57,19 @@ export const PUBLIC_MEDIA_ASSETS = {
 } as const;
 
 /**
- * Google Knowledge Panel Authority Hooks (Crunchbase + Wikidata)
+ * Google Knowledge Panel Authority Hooks (Crunchbase + Wikidata + SignalHire)
  *
- * Paste your exact live Crunchbase and Wikidata URLs here (and in `index.html` sameAs)
- * to strengthen entity reconciliation across Google Knowledge Graph & AI search engines.
+ * Verified live Crunchbase, Wikidata Q-IDs, and legacy-name authority URLs
+ * matching `index.html` Schema.org JSON-LD `sameAs` for Google Knowledge Graph & AI search engines.
  */
 export const ENTITY_AUTHORITY_PROFILES = {
-  crunchbasePersonUrl: '' as string,
-  crunchbaseOrgUrl: '' as string,
-  wikidataPersonUrl: '' as string,
-  wikidataOrgUrl: '' as string,
+  crunchbasePersonUrl: 'https://www.crunchbase.com/person/adham-medhat' as string,
+  crunchbaseOrgUrl: 'https://www.crunchbase.com/organization/rst-central' as string,
+  crunchbaseRstPrintsUrl: 'https://www.crunchbase.com/organization/rst-prints' as string,
+  crunchbaseRstDesignsUrl: 'https://www.crunchbase.com/organization/rst-designs' as string,
+  wikidataPersonUrl: 'https://www.wikidata.org/wiki/Q141600726' as string,
+  wikidataOrgUrl: 'https://www.wikidata.org/wiki/Q141600698' as string,
+  wikidataRstPrintsUrl: 'https://www.wikidata.org/wiki/Q141600763' as string,
+  wikidataRstDesignsUrl: 'https://www.wikidata.org/wiki/Q141600774' as string,
+  signalHirePersonUrl: 'https://www.signalhire.com/profiles/adham-ahmed/237556949' as string,
 } as const;

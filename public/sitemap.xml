@@ -5,13 +5,18 @@
 >
   <url>
     <loc>https://adham.rstcentral.com/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://adham.rstcentral.com/images/adham-medhat-portrait.jpg</image:loc>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-portrait.webp</image:loc>
       <image:title>Adham Medhat (أدهم مدحت) — Official Editorial Portrait</image:title>
       <image:caption>Adham Medhat (Adham Ahmed Medhat), Medical Student at Horus University and Founder of RST Central</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/adham-medhat-portrait.jpg</image:loc>
+      <image:title>Adham Medhat (أدهم مدحت) — Official Studio Portrait</image:title>
+      <image:caption>High-resolution studio portrait of Adham Medhat (@adhamrst)</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://adham.rstcentral.com/images/adham-medhat-og-cover.jpg</image:loc>
@@ -19,14 +24,124 @@
       <image:caption>Official obsidian and champagne-gold editorial card for Adham Medhat (adham.rstcentral.com)</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://adham.rstcentral.com/images/adham-medhat-micro-mba-horus-university.jpg</image:loc>
-      <image:title>Adham Medhat — Micro MBA in Strategic Management (Horus University)</image:title>
-      <image:caption>Executive Micro MBA credential awarded by Horus University to Adham Ahmed (Adham Medhat)</image:caption>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-micro-mba-horus-university.webp</image:loc>
+      <image:title>Adham Medhat — Micro MBA Program (90h) at Horus University</image:title>
+      <image:caption>Executive Micro MBA certificate accredited by the Supreme Council of Universities awarded to Adham Ahmed Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-micro-mba-transcript-horus-university.webp</image:loc>
+      <image:title>Adham Medhat — Micro MBA Academic Transcript (12 Disciplines)</image:title>
+      <image:caption>Official 90-hour Micro MBA academic transcript across 12 management disciplines from Horus University ETC</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-digital-marketing-google-iab.webp</image:loc>
+      <image:title>Adham Medhat — Google &amp; IAB Europe Digital Marketing Certification</image:title>
+      <image:caption>Fundamentals of Digital Marketing certification awarded by Google and IAB Europe to Adham Ahmed Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-global-banking-markets-hsbc.webp</image:loc>
+      <image:title>Adham Medhat — HSBC Global Banking &amp; Markets Simulation</image:title>
+      <image:caption>HSBC and Forage Global Banking and Markets certificate awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-banking-financial-central-bank-egypt.webp</image:loc>
+      <image:title>Adham Medhat — Central Bank of Egypt (EBI) Banking Leadership</image:title>
+      <image:caption>Egyptian Banking Institute financial systems leadership credential awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-english-c1-advanced-efset.webp</image:loc>
+      <image:title>Adham Medhat — EF SET English C1 Advanced Certificate</image:title>
+      <image:caption>EF SET English C1 Advanced overall (68/100) and C2 Proficient Listening (76/100) certificate</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-selling-online-hp-life.webp</image:loc>
+      <image:title>Adham Medhat — HP LIFE Selling Online Certificate</image:title>
+      <image:caption>HP LIFE E-Commerce and Digital Sales Strategy credential awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-social-media-marketing-hp-life.webp</image:loc>
+      <image:title>Adham Medhat — HP LIFE Social Media Strategy Certificate</image:title>
+      <image:caption>HP LIFE Social Media Marketing and Paid Acquisition credential awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-generative-ai-career-essentials-microsoft.webp</image:loc>
+      <image:title>Adham Medhat — Microsoft &amp; LinkedIn Career Essentials in Generative AI</image:title>
+      <image:caption>Microsoft and LinkedIn Learning Generative AI credential awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-ai-career-readiness-asean-foundation.webp</image:loc>
+      <image:title>Adham Medhat — ASEAN Foundation &amp; LinkedIn AI Career Readiness</image:title>
+      <image:caption>AI Career Readiness and Applied Competencies certificate awarded to Adham Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-sql-database-assessment-hackerrank.webp</image:loc>
+      <image:title>Adham Medhat — HackerRank SQL Database Assessment</image:title>
+      <image:caption>HackerRank CTO-certified SQL database assessment awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-generative-ai-image-generation-google-cloud.webp</image:loc>
+      <image:title>Adham Medhat — Google Cloud Generative Image Models</image:title>
+      <image:caption>Google Cloud and Simplilearn Introduction to Image Generation certificate awarded to Adham Ahmed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-icdl-base-specialization-edraak.webp</image:loc>
+      <image:title>Adham Medhat — Edraak ICDL Base Specialization</image:title>
+      <image:caption>Edraak ICDL Base 4-track specialization credential awarded to Adham Ahmed Medhat</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://adham.rstcentral.com/images/adham-medhat-graphic-design-certification.jpg</image:loc>
       <image:title>Adham Medhat — Visual Identity &amp; Graphic Design Certification</image:title>
       <image:caption>Professional Graphic Design and Visual Identity certification for Adham Medhat (@adhamrst)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-adobe-premiere-video-editing-m3aarf.webp</image:loc>
+      <image:title>Adham Medhat — M3aarf Adobe Premiere Pro Video Editing</image:title>
+      <image:caption>Professional video editing and motion craft certificate awarded to Adham Ahmed Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-creative-agency-internship-elingenium.webp</image:loc>
+      <image:title>Adham Medhat — Elingenium Creative Agency Internship</image:title>
+      <image:caption>Elingenium Creative Agency Summer Internship Vol. 3 completion certificate awarded to Adham Ahmed Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-freelancing-kkux-hsoub.webp</image:loc>
+      <image:title>Adham Medhat — King Khalid University KKUx &amp; Hsoub Freelancing</image:title>
+      <image:caption>Joint KKUx and Hsoub Freelancing and Independent Venture Strategy certificate awarded to Adham Ahmed Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/rst-central-fabrication-venture.jpg</image:loc>
+      <image:title>RST Central — Digital Fabrication &amp; E-Commerce Venture</image:title>
+      <image:caption>RST Central manufacturing and digital asset operations founded by Adham Medhat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-medical-conference-organizer-horus-university.webp</image:loc>
+      <image:title>Adham Medhat — Horus University Medical Conference Organizer</image:title>
+      <image:caption>Certificate of organization for the 1st Annual Medical Student Conference at Horus University</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-medical-conference-honor-horus-university.webp</image:loc>
+      <image:title>Adham Medhat — Horus University Dean Letter of Commendation</image:title>
+      <image:caption>Official certificate of appreciation signed by Dean Prof. Maha Maher at Horus University Faculty of Medicine</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-medical-conference-attendance-horus-university.webp</image:loc>
+      <image:title>Adham Medhat — Horus University 1st Annual Medical Conference</image:title>
+      <image:caption>Scientific conference attendance credential at Horus University Faculty of Medicine</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-future-medicine-conference-mansoura-national-university.webp</image:loc>
+      <image:title>Adham Medhat — Mansoura National University Future of Medicine Conference</image:title>
+      <image:caption>2nd Annual Scientific Conference certificate from Mansoura National University Faculty of Medicine</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-medical-research-ethics-workshop-prof-shokeir.webp</image:loc>
+      <image:title>Adham Medhat — Medical Research Ethics Workshop with Prof. Ahmed Shokeir</image:title>
+      <image:caption>Research methodology and publication ethics workshop certificate lectured by Prof. Ahmed Shokeir</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://adham.rstcentral.com/images/certificates/adham-medhat-medical-conference-2nd-annual-horus-university.webp</image:loc>
+      <image:title>Adham Medhat — Horus University 2nd Annual Medical Conference (2026)</image:title>
+      <image:caption>The Future Physician 2nd Annual Student Medical Conference certificate at Horus University</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://adham.rstcentral.com/images/adham-medhat-medical-studies-horus-university.jpg</image:loc>

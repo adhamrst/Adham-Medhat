@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Check, Copy, Download, Globe, QrCode, UserRound, X } from 'lucide-react';
+import { Check, Copy, Download, Globe, QrCode, Share2, UserRound, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import QRCode from 'qrcode';
 import { Language, UI_COPY } from '../data/profileData';
@@ -49,11 +49,16 @@ export function QrPassModal({ isOpen, lang, onClose }: QrPassModalProps) {
 
   useEffect(() => {
     if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKey);
+    };
   }, [isOpen, onClose]);
 
   const handleDownloadPng = () => {
@@ -76,6 +81,27 @@ export function QrPassModal({ isOpen, lang, onClose }: QrPassModalProps) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     }
+  };
+
+  const handleNativeShare = async () => {
+    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+      try {
+        await navigator.share({
+          title: lang === 'ar' ? 'أدهم مدحت (@adhamrst)' : 'Adham Medhat (@adhamrst)',
+          text:
+            lang === 'ar'
+              ? 'الموقع الرسمي وبطاقة التواصل الرقمية لأدهم مدحت — جامعة حورس وRST Central.'
+              : 'Official digital contact pass and portfolio for Adham Medhat — Horus University & RST Central.',
+          url: OFFICIAL_URL,
+        });
+        return;
+      } catch (err) {
+        if (err instanceof DOMException && err.name === 'AbortError') {
+          return;
+        }
+      }
+    }
+    await handleCopyLink();
   };
 
   return (
@@ -194,27 +220,38 @@ export function QrPassModal({ isOpen, lang, onClose }: QrPassModalProps) {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-5 grid grid-cols-2 gap-2.5">
-                <button
-                  type="button"
-                  onClick={handleCopyLink}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#242731] bg-[#16181F] px-4 py-2.5 text-xs font-medium text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
-                >
-                  {copied ? (
-                    <Check className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
-                  ) : (
-                    <Copy className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
-                  )}
-                  <span>{copied ? UI_COPY.qrPass.copiedUrl[lang] : UI_COPY.qrPass.copyUrl[lang]}</span>
-                </button>
+              <div className="mt-5 space-y-2.5">
+                <div className="grid grid-cols-2 gap-2.5">
+                  <button
+                    type="button"
+                    onClick={handleCopyLink}
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#242731] bg-[#16181F] px-4 py-2.5 text-xs font-medium text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
+                  >
+                    {copied ? (
+                      <Check className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
+                    ) : (
+                      <Copy className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
+                    )}
+                    <span>{copied ? UI_COPY.qrPass.copiedUrl[lang] : UI_COPY.qrPass.copyUrl[lang]}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleDownloadPng}
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#D4A853] px-4 py-2.5 text-xs font-semibold text-[#070709] transition-colors hover:bg-[#E8C478] cursor-pointer"
+                  >
+                    <Download className="h-4 w-4" aria-hidden="true" />
+                    <span>{UI_COPY.qrPass.downloadPng[lang]}</span>
+                  </button>
+                </div>
 
                 <button
                   type="button"
-                  onClick={handleDownloadPng}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#D4A853] px-4 py-2.5 text-xs font-semibold text-[#070709] transition-colors hover:bg-[#E8C478] cursor-pointer"
+                  onClick={handleNativeShare}
+                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#242731] bg-[#0B0C10] px-4 py-2.5 text-xs font-medium text-[#D5D3CC] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
                 >
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  <span>{UI_COPY.qrPass.downloadPng[lang]}</span>
+                  <Share2 className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
+                  <span>{UI_COPY.qrPass.sharePass[lang]}</span>
                 </button>
               </div>
             </div>

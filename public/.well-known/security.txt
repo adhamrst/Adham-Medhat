@@ -1,0 +1,5 @@
+Contact: https://adham.rstcentral.com/#connect
+Contact: https://t.me/adhamrst
+Canonical: https://adham.rstcentral.com/.well-known/security.txt
+Preferred-Languages: en, ar
+Expires: 2027-12-31T23:59:59.000Z

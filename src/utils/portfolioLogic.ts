@@ -243,6 +243,143 @@ export function filterCredentialsByCategory<T extends { categoryId: string }>(
   return items.filter((item) => item.categoryId === categoryId);
 }
 
+/**
+ * Filters credentials using a case-insensitive substring query across bilingual fields.
+ */
+export function searchCredentials<
+  T extends {
+    id: string;
+    title: { en: string; ar: string };
+    issuer: { en: string; ar: string };
+    category: { en: string; ar: string };
+    description: { en: string; ar: string };
+    year: string;
+  },
+>(items: T[], query: string): T[] {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) {
+    return items;
+  }
+
+  return items.filter((item) => {
+    const haystack = [
+      item.id,
+      item.year,
+      item.title.en,
+      item.title.ar,
+      item.issuer.en,
+      item.issuer.ar,
+      item.category.en,
+      item.category.ar,
+      item.description.en,
+      item.description.ar,
+    ]
+      .join(' ')
+      .toLowerCase();
+
+    return haystack.includes(normalized);
+  });
+}
+
+const VALID_UPLOAD_CATEGORIES = new Set<UploadCredentialCategory>([
+  'business',
+  'medical',
+  'design',
+  'entrepreneurship',
+  'technology',
+]);
+
+function isLocalizedPair(value: unknown): value is { en: string; ar: string } {
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Record<string, unknown>;
+  return typeof record.en === 'string' && typeof record.ar === 'string';
+}
+
+function isSafeImageSource(src: string): boolean {
+  const trimmed = src.trim();
+  return (
+    trimmed.startsWith('https://') ||
+    trimmed.startsWith('/images/') ||
+    trimmed.startsWith('data:image/')
+  );
+}
+
+function sanitizeExternalHttpUrl(url: unknown, fallback: string): string {
+  if (typeof url !== 'string') return fallback;
+  const trimmed = url.trim();
+  if (/^https?:\/\/[^\s]+$/i.test(trimmed)) {
+    return trimmed;
+  }
+  return fallback;
+}
+
+/**
+ * Validates and sanitizes custom credentials parsed from localStorage to block XSS/malformed payloads.
+ */
+export function sanitizeStoredCredentials(
+  raw: unknown,
+  fallbackLinkedinUrl = 'https://linkedin.com/in/adhamrst/details/certifications/',
+): UploadedCredentialPayload[] {
+  if (!Array.isArray(raw)) return [];
+
+  const sanitized: UploadedCredentialPayload[] = [];
+
+  for (const entry of raw.slice(0, 50)) {
+    if (!entry || typeof entry !== 'object') continue;
+    const item = entry as Record<string, unknown>;
+
+    if (
+      typeof item.id !== 'string' ||
+      !item.id.trim() ||
+      typeof item.categoryId !== 'string' ||
+      !VALID_UPLOAD_CATEGORIES.has(item.categoryId as UploadCredentialCategory) ||
+      typeof item.year !== 'string' ||
+      !item.year.trim() ||
+      typeof item.issuedTo !== 'string' ||
+      !item.issuedTo.trim() ||
+      typeof item.image !== 'string' ||
+      !isSafeImageSource(item.image) ||
+      !isLocalizedPair(item.title) ||
+      !item.title.en.trim() ||
+      !item.title.ar.trim() ||
+      !isLocalizedPair(item.category) ||
+      !isLocalizedPair(item.issuer) ||
+      !item.issuer.en.trim() ||
+      !item.issuer.ar.trim() ||
+      !isLocalizedPair(item.imageAlt) ||
+      !isLocalizedPair(item.description)
+    ) {
+      continue;
+    }
+
+    const highlightsObj = item.highlights as Record<string, unknown> | undefined;
+    const highlightsEn = Array.isArray(highlightsObj?.en)
+      ? highlightsObj.en.filter((h): h is string => typeof h === 'string')
+      : [];
+    const highlightsAr = Array.isArray(highlightsObj?.ar)
+      ? highlightsObj.ar.filter((h): h is string => typeof h === 'string')
+      : [];
+
+    sanitized.push({
+      id: item.id.trim(),
+      categoryId: item.categoryId as UploadCredentialCategory,
+      title: { en: item.title.en.trim(), ar: item.title.ar.trim() },
+      category: { en: item.category.en.trim(), ar: item.category.ar.trim() },
+      issuer: { en: item.issuer.en.trim(), ar: item.issuer.ar.trim() },
+      year: item.year.trim(),
+      issuedTo: item.issuedTo.trim(),
+      image: item.image.trim(),
+      imageAlt: { en: item.imageAlt.en.trim(), ar: item.imageAlt.ar.trim() },
+      description: { en: item.description.en.trim(), ar: item.description.ar.trim() },
+      highlights: { en: highlightsEn, ar: highlightsAr },
+      linkedinUrl: sanitizeExternalHttpUrl(item.linkedinUrl, fallbackLinkedinUrl),
+      isUserUploaded: true,
+    });
+  }
+
+  return sanitized;
+}
+
 export type UploadCredentialCategory = 'business' | 'medical' | 'design' | 'entrepreneurship' | 'technology';
 
 export interface UploadCredentialInput {
@@ -523,6 +660,20 @@ export const BASE_ENTITY_SAME_AS = [
   'https://youtube.com/@adhamrst',
   'https://facebook.com/adhamrstt',
   'https://rstcentral.com',
+  'https://www.wikidata.org/wiki/Q141600726',
+  'https://www.crunchbase.com/person/adham-medhat',
+  'https://www.signalhire.com/profiles/adham-ahmed/237556949',
+];
+
+export const BASE_ORGANIZATION_SAME_AS = [
+  'https://rstcentral.com',
+  'https://socials.rstcentral.com',
+  'https://www.wikidata.org/wiki/Q141600698',
+  'https://www.crunchbase.com/organization/rst-central',
+  'https://www.wikidata.org/wiki/Q141600763',
+  'https://www.crunchbase.com/organization/rst-prints',
+  'https://www.wikidata.org/wiki/Q141600774',
+  'https://www.crunchbase.com/organization/rst-designs',
 ];
 
 /**
@@ -547,7 +698,7 @@ export function buildKnowledgePanelSameAs(authorityLinks: {
     personSet.add(authorityLinks.wikidataPerson.trim());
   }
 
-  const orgSet = new Set<string>(['https://rstcentral.com']);
+  const orgSet = new Set<string>(BASE_ORGANIZATION_SAME_AS);
   if (isValidHttps(authorityLinks.crunchbaseOrg)) {
     orgSet.add(authorityLinks.crunchbaseOrg.trim());
   }

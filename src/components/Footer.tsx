@@ -14,12 +14,12 @@ export function Footer({ lang, onOwnerTrigger }: FooterProps) {
 
   const handleCopyrightTap = () => {
     const now = Date.now();
-    if (now - tapCounterRef.current.lastTap > 1400) {
+    if (now - tapCounterRef.current.lastTap > 1600) {
       tapCounterRef.current = { count: 1, lastTap: now };
       return;
     }
     tapCounterRef.current = { count: tapCounterRef.current.count + 1, lastTap: now };
-    if (tapCounterRef.current.count >= 3) {
+    if (tapCounterRef.current.count >= 5) {
       tapCounterRef.current = { count: 0, lastTap: 0 };
       onOwnerTrigger();
     }

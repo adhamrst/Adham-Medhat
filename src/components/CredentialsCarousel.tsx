@@ -9,13 +9,16 @@ import {
 } from 'react';
 import {
   ArrowUpRight,
+  Check,
   ChevronLeft,
   ChevronRight,
   GalleryHorizontal,
   LayoutGrid,
+  Link2,
   Maximize2,
   Pause,
   Play,
+  Search,
   ShieldCheck,
   Trash2,
   X,
@@ -23,6 +26,7 @@ import {
   ZoomOut,
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import { SITE_ORIGIN } from '../data/entityConfig';
 import {
   CREDENTIAL_CATEGORIES,
   CredentialCategoryId,
@@ -37,6 +41,7 @@ import {
   filterCredentialsByCategory,
   getCarouselCardTransform,
   mergeCredentials,
+  searchCredentials,
   TiltResult,
 } from '../utils/portfolioLogic';
 import { EDITORIAL_EASE, EditorialReveal, LineMaskReveal } from './MotionPrimitives';
@@ -60,6 +65,7 @@ export function CredentialsCarousel({
   onOpenOwnerStudio,
 }: CredentialsCarouselProps) {
   const [selectedCategory, setSelectedCategory] = useState<CredentialCategoryId>('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('carousel');
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
@@ -68,18 +74,20 @@ export function CredentialsCarousel({
   const [tilt, setTilt] = useState<TiltResult>(DEFAULT_TILT);
   const [lightboxId, setLightboxId] = useState<string | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [copiedCertLink, setCopiedCertLink] = useState(false);
 
   const touchStartX = useRef<number | null>(null);
+  const hasAppliedDeepLink = useRef(false);
 
   const allCredentials = useMemo(
     () => mergeCredentials(CREDENTIALS, customCredentials),
     [customCredentials],
   );
 
-  const visibleCredentials = useMemo(
-    () => filterCredentialsByCategory(allCredentials, selectedCategory),
-    [allCredentials, selectedCategory],
-  );
+  const visibleCredentials = useMemo(() => {
+    const byCategory = filterCredentialsByCategory(allCredentials, selectedCategory);
+    return searchCredentials(byCategory, searchQuery);
+  }, [allCredentials, selectedCategory, searchQuery]);
 
   const total = visibleCredentials.length;
   const safeActiveIndex = total > 0 ? activeIndex % total : 0;
@@ -90,6 +98,29 @@ export function CredentialsCarousel({
     const idx = allCredentials.findIndex((c) => c.id === lightboxId);
     return idx >= 0 ? idx : null;
   }, [allCredentials, lightboxId]);
+
+  // Open lightbox automatically if ?cert=<id> deep-link is present on mount
+  useEffect(() => {
+    if (hasAppliedDeepLink.current || typeof window === 'undefined') return;
+    hasAppliedDeepLink.current = true;
+    const certParam = new URLSearchParams(window.location.search).get('cert')?.trim();
+    if (!certParam) return;
+    const matchedIdx = allCredentials.findIndex((c) => c.id === certParam);
+    if (matchedIdx >= 0) {
+      setLightboxId(allCredentials[matchedIdx].id);
+      setIsZoomed(false);
+    }
+  }, [allCredentials]);
+
+  // Lock body scroll while Lightbox is open
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [lightboxIndex]);
 
   // Reset to first card when owner previews a newly added certificate
   useEffect(() => {
@@ -197,9 +228,20 @@ export function CredentialsCarousel({
     setIsPausedByInteraction(false);
   };
 
-  const activeCredential: CredentialItem = visibleCredentials[safeActiveIndex] ?? allCredentials[0];
+  const activeCredential: CredentialItem | null = visibleCredentials[safeActiveIndex] ?? null;
   const lightboxCredential: CredentialItem | null =
     lightboxIndex !== null ? allCredentials[lightboxIndex] : null;
+
+  const handleCopyCertLink = async (certId: string) => {
+    const shareUrl = `${SITE_ORIGIN}/?cert=${encodeURIComponent(certId)}`;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+    } catch {
+      // Fallback gracefully
+    }
+    setCopiedCertLink(true);
+    window.setTimeout(() => setCopiedCertLink(false), 2000);
+  };
 
   return (
     <section
@@ -334,49 +376,106 @@ export function CredentialsCarousel({
           </EditorialReveal>
         </div>
 
-        {/* Filter Bar + Direct LinkedIn Link (Horizontally scrollable on mobile) */}
+        {/* Filter Bar + Search + Direct LinkedIn Link */}
         <EditorialReveal
           delay={0.18}
-          className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-y border-[#242731] py-3.5 sm:py-4"
+          className="mt-6 sm:mt-8 flex flex-col gap-3 border-y border-[#242731] py-3.5 sm:py-4"
         >
-          <div
-            role="group"
-            aria-label={lang === 'ar' ? 'تصفية الشهادات حسب المجال' : 'Filter credentials by discipline'}
-            className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-0.5"
-          >
-            {CREDENTIAL_CATEGORIES.map((category) => {
-              const isSelected = category.id === selectedCategory;
-              return (
-                <button
-                  key={category.id}
-                  type="button"
-                  onClick={() => handleCategoryChange(category.id)}
-                  aria-pressed={isSelected}
-                  className={`min-h-9 rounded-lg px-3.5 py-1.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                    isSelected
-                      ? 'bg-[#D4A853] text-[#070709] font-semibold'
-                      : 'bg-[#101115] text-[#9D9FA8] border border-[#242731] hover:border-[#3A3E4C] hover:text-[#F4F3EF]'
-                  }`}
-                >
-                  {category.label[lang]}
-                </button>
-              );
-            })}
-          </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div
+              role="group"
+              aria-label={lang === 'ar' ? 'تصفية الشهادات حسب المجال' : 'Filter credentials by discipline'}
+              className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-0.5"
+            >
+              {CREDENTIAL_CATEGORIES.map((category) => {
+                const isSelected = category.id === selectedCategory;
+                return (
+                  <button
+                    key={category.id}
+                    type="button"
+                    onClick={() => handleCategoryChange(category.id)}
+                    aria-pressed={isSelected}
+                    className={`min-h-9 rounded-lg px-3.5 py-1.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#D4A853] text-[#070709] font-semibold'
+                        : 'bg-[#101115] text-[#9D9FA8] border border-[#242731] hover:border-[#3A3E4C] hover:text-[#F4F3EF]'
+                    }`}
+                  >
+                    {category.label[lang]}
+                  </button>
+                );
+              })}
+            </div>
 
-          <a
-            href={LINKEDIN_CERTIFICATIONS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A853] transition-colors hover:text-[#E8C478] whitespace-nowrap shrink-0"
-          >
-            <span>{UI_COPY.credentials.viewAllLinkedin[lang]}</span>
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center shrink-0">
+              {/* Instant Credential Search */}
+              <div className="relative w-full sm:w-64">
+                <Search
+                  className="pointer-events-none absolute start-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#9D9FA8]"
+                  aria-hidden="true"
+                />
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setActiveIndex(0);
+                    setTilt(DEFAULT_TILT);
+                  }}
+                  placeholder={UI_COPY.credentials.searchPlaceholder[lang]}
+                  aria-label={UI_COPY.credentials.searchPlaceholder[lang]}
+                  className="h-9 w-full rounded-lg border border-[#242731] bg-[#101115] ps-8 pe-8 text-xs text-[#F4F3EF] placeholder:text-[#666977] focus:border-[#D4A853] focus:outline-none"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('');
+                      setActiveIndex(0);
+                    }}
+                    aria-label={UI_COPY.credentials.clearSearch[lang]}
+                    className="absolute end-2 top-1/2 -translate-y-1/2 inline-flex h-5 w-5 items-center justify-center rounded text-[#9D9FA8] hover:text-[#F4F3EF] cursor-pointer"
+                  >
+                    <X className="h-3.5 w-3.5" aria-hidden="true" />
+                  </button>
+                )}
+              </div>
+
+              <a
+                href={LINKEDIN_CERTIFICATIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A853] transition-colors hover:text-[#E8C478] whitespace-nowrap shrink-0"
+              >
+                <span>{UI_COPY.credentials.viewAllLinkedin[lang]}</span>
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </EditorialReveal>
 
-        {/* VIEW CONDITIONAL: GRID vs 3D CAROUSEL */}
-        {viewMode === 'grid' ? (
+        {/* VIEW CONDITIONAL: EMPTY STATE vs GRID vs 3D CAROUSEL */}
+        {total === 0 ? (
+          <EditorialReveal delay={0.2} className="mt-8">
+            <div className="flex flex-col items-center justify-center rounded-2xl border border-[#242731] bg-[#101115] px-6 py-16 text-center">
+              <Search className="h-8 w-8 text-[#D4A853]/80" aria-hidden="true" />
+              <p className="font-editorial mt-4 text-2xl font-semibold text-[#F4F3EF]">
+                {UI_COPY.credentials.emptyTitle[lang]}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('all');
+                  setSearchQuery('');
+                  setActiveIndex(0);
+                }}
+                className="mt-5 inline-flex min-h-10 items-center justify-center rounded-lg border border-[#D4A853]/60 bg-[#D4A853]/12 px-4 py-2 text-xs font-semibold text-[#D4A853] transition-colors hover:bg-[#D4A853] hover:text-[#070709] cursor-pointer"
+              >
+                {UI_COPY.credentials.emptyReset[lang]}
+              </button>
+            </div>
+          </EditorialReveal>
+        ) : viewMode === 'grid' ? (
           <EditorialReveal delay={0.2} className="mt-8">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {visibleCredentials.map((credential, idx) => (
@@ -455,7 +554,7 @@ export function CredentialsCarousel({
               ))}
             </div>
           </EditorialReveal>
-        ) : (
+        ) : activeCredential ? (
           <>
             {/* MOBILE UNIFIED SHOWCASE (< md) */}
             <EditorialReveal delay={0.2} className="mt-6 md:hidden">
@@ -722,7 +821,7 @@ export function CredentialsCarousel({
           </div>
         </div>
       </>
-    )}
+    ) : null}
       </div>
 
       {/* Fullscreen High-Resolution Lightbox Modal */}
@@ -769,6 +868,23 @@ export function CredentialsCarousel({
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => handleCopyCertLink(lightboxCredential.id)}
+                    className="inline-flex h-10 items-center gap-2 rounded-lg border border-[#242731] bg-[#14161D] px-3 text-xs font-medium text-[#F4F3EF] transition-colors hover:border-[#D4A853] cursor-pointer"
+                  >
+                    {copiedCertLink ? (
+                      <Check className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
+                    ) : (
+                      <Link2 className="h-4 w-4 text-[#D4A853]" aria-hidden="true" />
+                    )}
+                    <span className="hidden sm:inline">
+                      {copiedCertLink
+                        ? UI_COPY.credentials.copiedCertLink[lang]
+                        : UI_COPY.credentials.copyCertLink[lang]}
+                    </span>
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => setIsZoomed((z) => !z)}

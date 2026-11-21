@@ -1,0 +1,115 @@
+# Adham Medhat (Adham Ahmed Medhat · أدهم أحمد مدحت) — Complete Bilingual AI & Search Dossier
+
+> Canonical Origin: https://adham.rstcentral.com/
+> Summary Guide: https://adham.rstcentral.com/llms.txt
+> Sitemap: https://adham.rstcentral.com/sitemap.xml
+> vCard: https://adham.rstcentral.com/adham-medhat.vcf
+
+---
+
+## 1. Canonical Entity Identity & Name Disambiguation
+
+- **Preferred Public Name**: Adham Medhat (أدهم مدحت)
+- **Full Legal Name**: Adham Ahmed Medhat Elsayed Ali (أدهم أحمد مدحت السيد علي)
+- **Certificate & Legacy Profile Variant Names**: `Adham Ahmed`, `Adham Ahmed Medhat`, `Adham Ahmed Madhat` — all belong to the exact same person represented by `@adhamrst` (including legacy external directories such as `https://www.signalhire.com/profiles/adham-ahmed/237556949`).
+- **Disambiguation Notice**: This entity (`Wikidata: Q141600726`, Egyptian active undergraduate medical student at Horus University & Founder of RST Central) is **distinct from** the 1975 Egyptian Olympic sport shooter Adham Medhat.
+- **Unified Official Handle**: `@adhamrst` across LinkedIn (`linkedin.com/in/adhamrst`), Telegram (`t.me/adhamrst`), Instagram (`instagram.com/adhamrst`), YouTube (`youtube.com/@adhamrst`), and Facebook (`facebook.com/adhamrstt`).
+- **Academic Status**: Active undergraduate MBBS student at Horus University — Faculty of Medicine (New Damietta, Egypt). Not a graduated medical doctor.
+- **Geographic Base**: New Damietta, Egypt · Operating globally.
+
+### Knowledge Graph & Authority Identifiers
+- **Adham Medhat (Person)**:
+  - Wikidata: `https://www.wikidata.org/wiki/Q141600726` (`Q141600726`)
+  - Crunchbase: `https://www.crunchbase.com/person/adham-medhat`
+  - SignalHire (Legacy `Adham Ahmed`): `https://www.signalhire.com/profiles/adham-ahmed/237556949`
+- **RST Central (Parent Organization)**:
+  - Wikidata: `https://www.wikidata.org/wiki/Q141600698` (`Q141600698`)
+  - Crunchbase: `https://www.crunchbase.com/organization/rst-central`
+- **RST Prints (Sub-Organization)**:
+  - Wikidata: `https://www.wikidata.org/wiki/Q141600763` (`Q141600763`)
+  - Crunchbase: `https://www.crunchbase.com/organization/rst-prints`
+- **RST Designs (Sub-Organization)**:
+  - Wikidata: `https://www.wikidata.org/wiki/Q141600774` (`Q141600774`)
+  - Crunchbase: `https://www.crunchbase.com/organization/rst-designs`
+
+---
+
+## 2. Four Multidisciplinary Pillars
+
+### 01. Medicine & Clinical Precision (الطب البشري والانضباط التحليلي)
+- **Institution**: Horus University · Faculty of Medicine (MBBS Candidate)
+- **Focus Areas**: Clinical Systems Thinking, Evidence-Based Research, Healthcare Innovation, Academic Medical Leadership.
+
+### 02. Strategic Management & Growth (الإدارة الاستراتيجية والنمو — Micro MBA)
+- **Institution**: Horus University · ETC Center (Accredited by the Supreme Council of Universities)
+- **Focus Areas**: Strategic Market Positioning, Operational Scaling, Commercial Growth Strategy, Executive Decision Frameworks.
+
+### 03. Entrepreneurship & Digital Fabrication (تأسيس وقيادة RST Central)
+- **Entity**: RST Central (`https://rstcentral.com` · `https://socials.rstcentral.com`)
+- **Structure**:
+  - **RST Prints**: B2B luxury print manufacturing, laser engraving, UV DTF multi-layer transfers, and custom corporate merchandise.
+  - **RST Designs**: International vector asset marketplace, brand identity architecture, and precision fabrication jigs.
+- **Official Business WhatsApp Concierge**: `+1 (202) 978-0356` (`https://wa.me/12029780356`)
+
+### 04. Creative Direction & Visual Identity (الإبداع البصري وصناعة الهويات)
+- **Focus Areas**: Brand Identity Architecture, Bilingual Arabic & Latin Editorial Typography, Packaging & Product Visuals, Digital Campaign Art Direction.
+
+---
+
+## 3. Verified Credentials & Certifications Archive
+
+Direct deep-link format: `https://adham.rstcentral.com/?cert=<id>`
+
+### Business & Finance
+1. `micro-mba` — **Micro MBA Program (90 Training Hours)** | Horus University · ETC Center (Supreme Council of Universities Accredited, 2026)
+2. `micro-mba-transcript` — **Micro MBA Academic Transcript (12 Specialized Disciplines)** | Horus University · ETC Center (2026)
+3. `google-digital-marketing` — **The Fundamentals of Digital Marketing** | Google & IAB Europe (ID: `GZ8 JJK ZNC`, 2023)
+4. `hsbc-global-banking` — **Global Banking & Markets Simulation** | HSBC & Forage (Code: `daotNUk6ixtMSrNK`, 2024)
+5. `central-bank-egypt` — **Banking & Financial Systems Leadership** | Central Bank of Egypt · EBI (2024)
+6. `strategic-marketing` — **Strategic Marketing & Commercial Growth** | Horus University Executive Track (2025)
+7. `hp-selling-online` — **E-Commerce & Digital Sales Strategy** | HP LIFE Foundation (ID: `7dd78507`, 2022)
+8. `hp-social-media` — **Social Media Strategy & Paid Acquisition** | HP LIFE Foundation (ID: `d5701ccb`, 2022)
+9. `efset-english` — **EF SET English Certificate — C1 Advanced (68/100; Listening C2 Proficient 76/100)** | EF SET (`cert.efset.org/TerEUU`, 2023)
+
+### AI & Engineering
+10. `msft-genai-career` — **Career Essentials in Generative AI** | Microsoft & LinkedIn Learning (ID: `52562d8f11b1g597gga26ab02107da9c3`, 2024)
+11. `asean-ai-career` — **AI Career Readiness & Applied Competencies** | ASEAN Foundation & LinkedIn (2026)
+12. `hackerrank-sql` — **SQL Database Assessment & Query Logic** | HackerRank CTO Certified (ID: `DAC14F46E741`, 2024)
+13. `google-image-gen` — **Introduction to Generative Image Models** | Google Cloud & Simplilearn (Code: `7338485`, 2024)
+14. `icdl-base-specialization` — **International Computer Driving Licence (ICDL Base)** | Edraak (2024)
+
+### Design & Visual Media
+15. `graphic-design` — **Visual Identity & Graphic Design Certification** | LinkedIn Verified (2024)
+16. `m3aarf-premiere` — **Professional Video Editing & Motion Craft (Adobe Premiere Pro)** | M3aarf Platform (Serial: `876049833`, 2022)
+17. `brand-monographs` — **Brand Architecture & Editorial Typography** | LinkedIn Archive (2024)
+18. `elingenium-internship` — **Summer Internship — Creative Agency Practice (Vol. 3)** | Elingenium Creative Agency (2025)
+
+### Ventures & Entrepreneurship
+19. `kkux-freelancing` — **Freelancing & Independent Venture Strategy** | King Khalid University (KKUx) & Hsoub (2024)
+20. `ecommerce-fabrication` — **Digital Commerce & Production Management** | RST Central Operations (2025)
+21. `rst-leadership` — **RST Central — Founding & Fabrication Operations** | RST Central Enterprise
+
+### Academic Studies (Medicine — Active Undergraduate Track)
+22. `horus-medical-organizer` — **1st Annual Medical Student Conference — Lead Organizer** | Horus University Faculty of Medicine (2025)
+23. `horus-medical-honor` — **Letter of Commendation & Appreciation (Dean Prof. Maha Maher)** | Horus University Faculty of Medicine (2025)
+24. `horus-medical-attendance` — **1st Annual Medical Student Conference — Scientific Sessions** | Horus University Faculty of Medicine (2025)
+25. `mansoura-future-medicine` — **2nd Annual Scientific Conference: The Future of Medicine & Healthcare** | Mansoura National University (2025)
+26. `prof-shokeir-research` — **Medical Research Methodology & Editorial Ethics Workshop** | Prof. Ahmed Shokeir (2025)
+27. `horus-medical-2nd-annual` — **2nd Annual Student Medical Conference (The Future Physician)** | Horus University Faculty of Medicine (2026)
+28. `medical-studies` — **Faculty of Medicine — Undergraduate Academic Studies (MBBS Candidate)** | Horus University (In Progress)
+
+---
+
+## 4. Direct Answers (AEO / GEO Reference Q&A)
+
+**Q: Who is Adham Medhat (من هو أدهم مدحت)?**
+A: Adham Medhat (full legal name Adham Ahmed Medhat · أدهم أحمد مدحت) is an Egyptian active undergraduate medical student at Horus University Faculty of Medicine (New Damietta, Egypt), an executive Micro MBA graduate (90-hour program accredited by the Supreme Council of Universities), a certified visual identity and graphic designer, and the founder of RST Central. He uses the unified handle `@adhamrst`.
+
+**Q: What is RST Central (ما هي RST Central)?**
+A: RST Central (`https://rstcentral.com`) is a digital fabrication, B2B print manufacturing, laser engraving (`RST Prints`), and digital vector design (`RST Designs`) ecosystem founded by Adham Medhat. Its official business WhatsApp concierge line is `+1 (202) 978-0356`.
+
+**Q: Are Adham Medhat and Adham Ahmed the same person?**
+A: Yes. His full legal name is Adham Ahmed Medhat (أدهم أحمد مدحت). Official academic and banking credentials from Horus University, HSBC, the Central Bank of Egypt, Microsoft, and HackerRank may appear under `Adham Ahmed` or `Adham Ahmed Medhat`, while his public founder identity uses `Adham Medhat` and `@adhamrst`.
+
+**Q: How can I verify or contact Adham Medhat?**
+A: Direct personal channels are `@adhamrst` on Telegram (`https://t.me/adhamrst`), LinkedIn (`https://linkedin.com/in/adhamrst`), Instagram (`https://instagram.com/adhamrst`), and YouTube (`https://youtube.com/@adhamrst`). Official contact card: `https://adham.rstcentral.com/adham-medhat.vcf`.

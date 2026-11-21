@@ -5,6 +5,7 @@ import { PUBLIC_MEDIA_ASSETS } from '../data/entityConfig';
 import { Language, UI_COPY, VENTURES } from '../data/profileData';
 import { calculateTiltAngles, RST_BOT_WHATSAPP_DIGITS, TiltResult } from '../utils/portfolioLogic';
 import { EDITORIAL_EASE, EditorialReveal, LineMaskReveal } from './MotionPrimitives';
+import { ResilientImage } from './ResilientImage';
 
 interface VenturesSectionProps {
   lang: Language;
@@ -15,6 +16,7 @@ const DEFAULT_CARD_TILT: TiltResult = { rotateX: 0, rotateY: 0, glareX: 50, glar
 export function VenturesSection({ lang }: VenturesSectionProps) {
   const [cardTilt, setCardTilt] = useState<TiltResult>(DEFAULT_CARD_TILT);
   const rstVenture = VENTURES.find((v) => v.size === 'featured') ?? VENTURES[0];
+  const secondaryVentures = VENTURES.filter((v) => v.id !== rstVenture.id);
 
   const handleCardMove = (event: MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -213,6 +215,58 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
             </div>
           </article>
         </EditorialReveal>
+
+        {/* Secondary Disciplines Grid: Creative Design Practice & Medical Academic Pillar */}
+        {secondaryVentures.length > 0 && (
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+            {secondaryVentures.map((venture, idx) => (
+              <EditorialReveal key={venture.id} delay={0.16 + idx * 0.06}>
+                <article className="flex h-full flex-col justify-between rounded-2xl border border-[#242731] bg-[#101115] p-5 sm:p-7 transition-colors duration-200 hover:border-[#D4A853]/45">
+                  <div>
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-[#242731] bg-[#0B0C10]">
+                      <ResilientImage
+                        src={venture.image}
+                        alt={venture.imageAlt[lang]}
+                        fallbackLabel={venture.title.en}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+
+                    <p className="mt-5 text-xs font-medium text-[#D4A853]">
+                      {venture.eyebrow[lang]}
+                    </p>
+                    <h3 className="font-editorial mt-1.5 text-2xl sm:text-3xl font-semibold text-[#F4F3EF]">
+                      {venture.title[lang]}
+                    </h3>
+                    <p className="mt-1 text-xs sm:text-sm font-medium text-[#C8C7C1]">
+                      {venture.role[lang]}
+                    </p>
+                    <p className="mt-3 text-xs sm:text-sm leading-6 text-[#9D9FA8]">
+                      {venture.detailBody[lang]}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 border-t border-[#242731] pt-4">
+                    <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                      {venture.capabilities[lang].map((cap, capIdx) => (
+                        <li
+                          key={cap}
+                          className="flex items-baseline gap-2.5 text-xs text-[#E2DFD7]"
+                        >
+                          <span className="font-editorial text-xs font-semibold text-[#D4A853] tabular-nums">
+                            0{capIdx + 1}
+                          </span>
+                          <span>{cap}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </EditorialReveal>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

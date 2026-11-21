@@ -1383,6 +1383,68 @@ export const INQUIRY_TOPICS: Array<{ id: string; label: LocalizedText }> = [
   { id: 'general', label: { en: 'General & Speaking', ar: 'تواصل عام أو استشارات' } },
 ];
 
+export const ENTITY_FAQS: Array<{
+  id: string;
+  question: LocalizedText;
+  answer: LocalizedText;
+}> = [
+  {
+    id: 'who-is-adham-medhat',
+    question: {
+      en: 'Who is Adham Medhat (أدهم مدحت)?',
+      ar: 'من هو أدهم مدحت (أدهم أحمد مدحت)؟',
+    },
+    answer: {
+      en: 'Adham Medhat (full legal name Adham Ahmed Medhat, Arabic: أدهم أحمد مدحت) is an Egyptian active undergraduate medical student at Horus University (Faculty of Medicine, New Damietta, Egypt), an executive Micro MBA graduate, a certified graphic and visual identity designer, and the founder of RST Central. He operates across official social platforms under the unified handle @adhamrst.',
+      ar: 'أدهم مدحت (اسمه الكامل أدهم أحمد مدحت) هو طالب طب بشري مقيد بكلية الطب في جامعة حورس بدمياط الجديدة، حاصل على شهادة Micro MBA التنفيذية في الإدارة الاستراتيجية، ومصمم جرافيك وهويات بصرية معتمد، ومؤسس منصة RST Central للتصنيع الرقمي والتصميم. يظهر رسمياً على جميع المنصات بالمعرّف الموحد @adhamrst.',
+    },
+  },
+  {
+    id: 'what-is-rst-central',
+    question: {
+      en: 'What is RST Central and who founded it?',
+      ar: 'ما هي منصة RST Central ومن هو مؤسسها؟',
+    },
+    answer: {
+      en: 'RST Central (https://rstcentral.com) is a digital fabrication, precision manufacturing, and modern e-commerce venture founded by Adham Medhat. It operates as the unified umbrella for RST Prints (B2B luxury print manufacturing, laser engraving, and UV DTF transfers) and RST Designs (vector assets and brand systems). Official business inquiries are handled via the RST Central WhatsApp Concierge at +1 (202) 978-0356.',
+      ar: 'منصة RST Central (https://rstcentral.com) هي كيان ريادي للتصنيع الرقمي الدقيق والتجارة الإلكترونية أسسه أدهم مدحت، وتضم قطاعي RST Prints (لتصنيع المطبوعات الفاخرة والنقش بالليزر وتقنيات UV DTF) وRST Designs (للأصول الفيكتورية وأنظمة الهويات البصرية). يتم استقبال طلبات الأعمال عبر خط واتساب التنفيذي ‎+1 (202) 978-0356.',
+    },
+  },
+  {
+    id: 'education-and-credentials',
+    question: {
+      en: 'Where does Adham Medhat study and what credentials does he hold?',
+      ar: 'أين يدرس أدهم مدحت وما هي أبرز شهاداته واعتماداته؟',
+    },
+    answer: {
+      en: 'Adham Medhat is an active undergraduate medical student (MBBS track) at the Faculty of Medicine, Horus University in New Damietta, Egypt. He holds a 90-hour executive Micro MBA in Strategic Management accredited by the Supreme Council of Universities, alongside verified credentials from Microsoft, Google, HSBC, the Central Bank of Egypt (EBI), HackerRank, EF SET (C1 Advanced), and visual identity design certifications archived on adham.rstcentral.com and LinkedIn.',
+      ar: 'يدرس أدهم مدحت الطب البشري (طالب مقيد قيد الدراسة الجامعية) بكلية الطب في جامعة حورس بدمياط الجديدة. كما حصل على برنامج Micro MBA التنفيذي بواقع 90 ساعة معتمدة من المجلس الأعلى للجامعات، إلى جانب شهادات موثقة من Microsoft وGoogle وبنك HSBC والمعهد المصرفي للبنك المركزي المصري وHackerRank وEF SET (مستوى C1 Advanced) وتدريب وكالة Elingenium الإبداعية.',
+    },
+  },
+  {
+    id: 'name-disambiguation',
+    question: {
+      en: 'Are Adham Medhat and Adham Ahmed the same person?',
+      ar: 'هل أدهم مدحت هو نفسه أدهم أحمد المسجل في بعض الشهادات الرسمية؟',
+    },
+    answer: {
+      en: 'Yes. Adham Medhat’s full legal name is Adham Ahmed Medhat (أدهم أحمد مدحت). Several of his academic certificates, banking simulations, and Horus University credentials are issued under "Adham Ahmed" or "Adham Ahmed Medhat", while his public brand, founder identity, and official website (adham.rstcentral.com) use "Adham Medhat" and "@adhamrst".',
+      ar: 'نعم، هما نفس الشخص. الاسم القانوني الكامل هو أدهم أحمد مدحت (Adham Ahmed Medhat)، ولذلك تصدر بعض الشهادات الجامعية والمصرفية والتقنية باسم "Adham Ahmed" أو "Adham Ahmed Medhat"، بينما تُستخدم الهوية العامة "أدهم مدحت" والمعرّف الموحد "@adhamrst" عبر الموقع الرسمي والمنصات المهنية.',
+    },
+  },
+  {
+    id: 'official-contact',
+    question: {
+      en: 'How can I contact Adham Medhat officially?',
+      ar: 'كيف يمكن التواصل رسمياً مع أدهم مدحت أو حفظ بياناته؟',
+    },
+    answer: {
+      en: 'You can reach Adham Medhat personally via his unified handle @adhamrst on Telegram (t.me/adhamrst), LinkedIn (linkedin.com/in/adhamrst), Instagram (instagram.com/adhamrst), and YouTube (youtube.com/@adhamrst), or download his official vCard directly from https://adham.rstcentral.com/adham-medhat.vcf. For RST Central commercial orders, contact the official US WhatsApp Bot at +1 (202) 978-0356.',
+      ar: 'يمكن التواصل الشخصي المباشر عبر الهاندل الموحد @adhamrst على تيليجرام (t.me/adhamrst) ولينكد إن (linkedin.com/in/adhamrst) وإنستجرام ويوتيوب، أو تنزيل بطاقة الاتصال الرسمية مباشرة من https://adham.rstcentral.com/adham-medhat.vcf. وللطلبات التجارية الخاصة بـ RST Central يُرجى التواصل على رقم واتساب الأعمال ‎+1 (202) 978-0356.',
+    },
+  },
+];
+
 export const UI_COPY = {
   nav: {
     journey: { en: 'Journey', ar: 'المسار' },
@@ -1468,6 +1530,34 @@ export const UI_COPY = {
       en: 'Owner Publisher Studio',
       ar: 'استوديو المالك للنشر',
     },
+    lockOwnerMode: {
+      en: 'Lock Owner Mode',
+      ar: 'إغلاق وضع المالك',
+    },
+    searchPlaceholder: {
+      en: 'Search certificates, issuer, or year...',
+      ar: 'ابحث باسم الشهادة أو الجهة المانحة أو السنة...',
+    },
+    clearSearch: {
+      en: 'Clear search',
+      ar: 'مسح البحث',
+    },
+    emptyTitle: {
+      en: 'No credentials match your filter',
+      ar: 'لا توجد شهادات مطابقة لنتيجة البحث',
+    },
+    emptyReset: {
+      en: 'Reset filters',
+      ar: 'عرض كل الشهادات',
+    },
+    copyCertLink: {
+      en: 'Copy Link',
+      ar: 'نسخ رابط الشهادة',
+    },
+    copiedCertLink: {
+      en: 'Link Copied',
+      ar: 'تم نسخ الرابط',
+    },
     uploadModalTitle: {
       en: 'Owner Certificate & Entity Studio',
       ar: 'استوديو المالك — الشهادات و Knowledge Panel',
@@ -1531,7 +1621,19 @@ export const UI_COPY = {
     downloadPng: { en: 'Save QR Image', ar: 'حفظ صورة الـ QR' },
     copyUrl: { en: 'Copy Link', ar: 'نسخ الرابط' },
     copiedUrl: { en: 'Link Copied', ar: 'تم النسخ' },
+    sharePass: { en: 'Share Pass', ar: 'مشاركة البطاقة' },
     close: { en: 'Close QR Pass', ar: 'إغلاق بطاقة QR' },
+  },
+  faq: {
+    kicker: { en: 'Verified Entity Reference · AEO & GEO', ar: 'المرجع الرسمي والأسئلة الشائعة' },
+    heading: {
+      en: 'Direct answers for visitors, partners, and search engines.',
+      ar: 'إجابات مباشرة وموثقة عن الهوية والمسار الأكاديمي والمهني.',
+    },
+    lead: {
+      en: 'Authoritative entity clarifications covering Adham Medhat’s medical studies, executive credentials, RST Central operations, and official channels.',
+      ar: 'توضيحات رسمية موثقة تشمل الدراسة الطبية في جامعة حورس، الاعتمادات التنفيذية، منصة RST Central، وقنوات التواصل المعتمدة.',
+    },
   },
   ventures: {
     kicker: { en: 'Flagship Venture · Founder', ar: 'المشروع الرئيسي · المؤسس' },

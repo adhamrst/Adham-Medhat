@@ -5,6 +5,7 @@ import {
   Copy,
   FileCode2,
   Globe2,
+  Lock,
   Plus,
   ShieldCheck,
   Sparkles,
@@ -34,6 +35,7 @@ interface OwnerStudioModalProps {
   lang: Language;
   onClose: () => void;
   onPublishPreview: (credential: CredentialItem) => void;
+  onLockOwnerMode?: () => void;
 }
 
 const CLOUDINARY_SETTINGS_KEY = 'adham_owner_cloudinary_cfg_v1';
@@ -66,6 +68,7 @@ export function OwnerStudioModal({
   lang,
   onClose,
   onPublishPreview,
+  onLockOwnerMode,
 }: OwnerStudioModalProps) {
   const [activeTab, setActiveTab] = useState<'certificate' | 'knowledge'>('certificate');
 
@@ -119,11 +122,16 @@ export function OwnerStudioModal({
 
   useEffect(() => {
     if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, [isOpen, onClose]);
 
   const seoGeoPkg = useMemo(
@@ -355,14 +363,27 @@ export function OwnerStudioModal({
                   {UI_COPY.credentials.uploadModalNote[lang]}
                 </p>
               </div>
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label={UI_COPY.credentials.lightboxClose[lang]}
-                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#242731] text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
-              >
-                <X className="h-5 w-5" aria-hidden="true" />
-              </button>
+              <div className="flex items-center gap-2 shrink-0">
+                {onLockOwnerMode && (
+                  <button
+                    type="button"
+                    onClick={onLockOwnerMode}
+                    title={UI_COPY.credentials.lockOwnerMode[lang]}
+                    className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-[#242731] bg-[#0B0C10] px-3 text-xs font-medium text-[#9D9FA8] transition-colors hover:border-[#E57373]/70 hover:text-[#E57373] cursor-pointer"
+                  >
+                    <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span className="hidden sm:inline">{UI_COPY.credentials.lockOwnerMode[lang]}</span>
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={onClose}
+                  aria-label={UI_COPY.credentials.lightboxClose[lang]}
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#242731] text-[#F4F3EF] transition-colors hover:border-[#D4A853] hover:text-[#D4A853] cursor-pointer"
+                >
+                  <X className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </div>
             </div>
 
             {/* Studio Tabs */}
@@ -450,25 +471,37 @@ export function OwnerStudioModal({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                  <div>
-                    <label htmlFor="owner-cert-category" className="block text-xs font-medium text-[#9D9FA8]">
-                      {UI_COPY.credentials.uploadCategoryLabel[lang]}
-                    </label>
-                    <select
-                      id="owner-cert-category"
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value as UploadCredentialCategory)}
-                      className="mt-1.5 h-11 w-full rounded-xl border border-[#242731] bg-[#0B0C10] px-3 text-sm text-[#F4F3EF] focus:border-[#D4A853] focus:outline-none"
-                    >
-                      {CREDENTIAL_CATEGORIES.filter((c) => c.id !== 'all').map((cat) => (
-                        <option key={cat.id} value={cat.id}>
+                <div>
+                  <span className="block text-xs font-medium text-[#9D9FA8]">
+                    {UI_COPY.credentials.uploadCategoryLabel[lang]}
+                  </span>
+                  <div
+                    role="group"
+                    aria-label={UI_COPY.credentials.uploadCategoryLabel[lang]}
+                    className="mt-2 flex flex-wrap gap-2"
+                  >
+                    {CREDENTIAL_CATEGORIES.filter((c) => c.id !== 'all').map((cat) => {
+                      const isSelected = category === cat.id;
+                      return (
+                        <button
+                          key={cat.id}
+                          type="button"
+                          onClick={() => setCategory(cat.id as UploadCredentialCategory)}
+                          aria-pressed={isSelected}
+                          className={`min-h-9 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors whitespace-nowrap cursor-pointer ${
+                            isSelected
+                              ? 'border-[#D4A853] bg-[#D4A853] text-[#070709] font-semibold'
+                              : 'border-[#242731] bg-[#0B0C10] text-[#9D9FA8] hover:border-[#3A3E4C] hover:text-[#F4F3EF]'
+                          }`}
+                        >
                           {cat.label[lang]}
-                        </option>
-                      ))}
-                    </select>
+                        </button>
+                      );
+                    })}
                   </div>
+                </div>
 
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div>
                     <label htmlFor="owner-cert-year" className="block text-xs font-medium text-[#9D9FA8]">
                       {UI_COPY.credentials.uploadYearLabel[lang]}

@@ -13,6 +13,8 @@ import {
   mergeCredentials,
   optimizeCloudinaryUrl,
   RST_BOT_WHATSAPP_DIGITS,
+  sanitizeStoredCredentials,
+  searchCredentials,
   slugifySeoToken,
 } from './portfolioLogic';
 
@@ -167,4 +169,65 @@ test('buildKnowledgePanelSameAs merges valid Crunchbase and Wikidata links safel
   assert.ok(res.personSameAs.includes('https://www.crunchbase.com/person/adham-medhat'));
   assert.ok(res.personSameAs.includes('https://www.wikidata.org/wiki/Q123456'));
   assert.ok(res.organizationSameAs.includes('https://www.crunchbase.com/organization/rst-central'));
+});
+
+test('sanitizeStoredCredentials filters unsafe URLs and malformed objects while retaining valid items', () => {
+  const validItem = createUploadedCredential({
+    title: 'Clinical Research Ethics',
+    issuer: 'Horus University',
+    year: '2026',
+    categoryId: 'medical',
+    imageDataUrl: 'https://res.cloudinary.com/demo/image/upload/cert.webp',
+    linkedinUrl: 'javascript:alert(1)',
+  }).credential;
+
+  const unsafeImageItem = {
+    ...validItem,
+    id: 'bad-image',
+    image: 'javascript:alert(document.cookie)',
+  };
+
+  const malformedItem = { id: 'broken' };
+
+  const sanitized = sanitizeStoredCredentials([
+    validItem,
+    unsafeImageItem,
+    malformedItem,
+    null,
+    'invalid',
+  ]);
+
+  assert.equal(sanitized.length, 1);
+  assert.equal(sanitized[0].title.en, 'Clinical Research Ethics');
+  assert.equal(
+    sanitized[0].linkedinUrl,
+    'https://linkedin.com/in/adhamrst/details/certifications/',
+  );
+});
+
+test('searchCredentials matches English and Arabic queries across credential metadata', () => {
+  const sample = [
+    {
+      id: 'micro-mba',
+      title: { en: 'Micro MBA Program', ar: 'برنامج مايكرو MBA' },
+      issuer: { en: 'Horus University', ar: 'جامعة حورس' },
+      category: { en: 'Executive Program', ar: 'برنامج تنفيذي' },
+      description: { en: 'Strategic management curriculum', ar: 'منهج الإدارة الاستراتيجية' },
+      year: '2026',
+    },
+    {
+      id: 'hsbc-banking',
+      title: { en: 'Global Banking & Markets', ar: 'أسواق المال والمصارف' },
+      issuer: { en: 'HSBC & Forage', ar: 'بنك HSBC' },
+      category: { en: 'Finance', ar: 'تمويل' },
+      description: { en: 'Debt financing simulation', ar: 'محاكاة تمويل الديون' },
+      year: '2024',
+    },
+  ];
+
+  assert.equal(searchCredentials(sample, '').length, 2);
+  assert.equal(searchCredentials(sample, 'hsbc').length, 1);
+  assert.equal(searchCredentials(sample, 'جامعة حورس')[0].id, 'micro-mba');
+  assert.equal(searchCredentials(sample, '2024')[0].id, 'hsbc-banking');
+  assert.equal(searchCredentials(sample, 'nonexistent').length, 0);
 });

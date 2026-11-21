@@ -1,22 +1,41 @@
-import { useCallback, useEffect, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import { Check, Volume2 } from 'lucide-react';
 import { AnimatePresence, motion, MotionConfig, useScroll, useSpring } from 'motion/react';
 import { CredentialsCarousel } from './components/CredentialsCarousel';
+import { EntityFaqSection } from './components/EntityFaqSection';
 import { FastScrollThumb } from './components/FastScrollThumb';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { JourneySection } from './components/JourneySection';
 import { EDITORIAL_EASE } from './components/MotionPrimitives';
 import { Navbar } from './components/Navbar';
-import { OwnerStudioModal } from './components/OwnerStudioModal';
-import { QrPassModal } from './components/QrPassModal';
 import { SocialHubSection } from './components/SocialHubSection';
 import { VenturesSection } from './components/VenturesSection';
 import { CredentialItem, Language, UI_COPY } from './data/profileData';
 import { ambientAudio } from './utils/ambientAudio';
-import { buildVCardString } from './utils/portfolioLogic';
+import { buildVCardString, sanitizeStoredCredentials } from './utils/portfolioLogic';
+
+const QrPassModal = lazy(() =>
+  import('./components/QrPassModal').then((module) => ({ default: module.QrPassModal })),
+);
+const OwnerStudioModal = lazy(() =>
+  import('./components/OwnerStudioModal').then((module) => ({
+    default: module.OwnerStudioModal,
+  })),
+);
 
 const UPLOADED_CERTS_STORAGE_KEY = 'adham_uploaded_credentials_v1';
+const PREFERRED_LANG_STORAGE_KEY = 'adham_preferred_lang_v1';
+
+const SEO_PAGE_TITLES: Record<Language, string> = {
+  en: 'Adham Medhat (أدهم مدحت) — Medical Student, Founder & Creative Director',
+  ar: 'أدهم مدحت (Adham Medhat) — طالب طب بشري، مؤسس RST Central ومصمم هويات بصرية',
+};
+
+const SEO_PAGE_DESCRIPTIONS: Record<Language, string> = {
+  en: 'Official personal website of Adham Medhat (Adham Ahmed Medhat · أدهم مدحت) — Medical Student at Horus University, Founder of RST Central, Micro MBA holder, and Graphic Designer.',
+  ar: 'الموقع الرسمي لأدهم مدحت (أدهم أحمد مدحت) — طالب طب بشري بجامعة حورس، مؤسس منصة RST Central، حاصل على Micro MBA، ومصمم جرافيك وهويات بصرية.',
+};
 
 function loadStoredCredentials(): CredentialItem[] {
   if (typeof window === 'undefined') return [];
@@ -24,7 +43,7 @@ function loadStoredCredentials(): CredentialItem[] {
     const raw = window.localStorage.getItem(UPLOADED_CERTS_STORAGE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as CredentialItem[]) : [];
+    return sanitizeStoredCredentials(parsed);
   } catch {
     return [];
   }
@@ -39,7 +58,14 @@ function detectInitialOwnerMode(): boolean {
 function detectInitialLanguage(): Language {
   if (typeof window === 'undefined') return 'en';
   const params = new URLSearchParams(window.location.search);
-  if (params.get('lang') === 'ar') return 'ar';
+  const queryLang = params.get('lang');
+  if (queryLang === 'ar' || queryLang === 'en') return queryLang;
+  try {
+    const storedLang = window.localStorage.getItem(PREFERRED_LANG_STORAGE_KEY);
+    if (storedLang === 'ar' || storedLang === 'en') return storedLang;
+  } catch {
+    // Ignore storage access errors
+  }
   return 'en';
 }
 
@@ -49,8 +75,12 @@ export default function App() {
   const [isAmbientPlaying, setIsAmbientPlaying] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [isQrOpen, setIsQrOpen] = useState(false);
+  const [hasLoadedQrModal, setHasLoadedQrModal] = useState(false);
   const [isOwnerMode, setIsOwnerMode] = useState<boolean>(() => detectInitialOwnerMode());
   const [isOwnerStudioOpen, setIsOwnerStudioOpen] = useState<boolean>(() =>
+    detectInitialOwnerMode(),
+  );
+  const [hasLoadedOwnerModal, setHasLoadedOwnerModal] = useState<boolean>(() =>
     detectInitialOwnerMode(),
   );
   const [customCredentials, setCustomCredentials] = useState<CredentialItem[]>(() =>
@@ -67,7 +97,34 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.title = SEO_PAGE_TITLES[lang];
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', SEO_PAGE_DESCRIPTIONS[lang]);
+    }
+    try {
+      window.localStorage.setItem(PREFERRED_LANG_STORAGE_KEY, lang);
+    } catch {
+      // Ignore storage quota errors
+    }
   }, [lang]);
+
+  const handleLanguageChange = useCallback((nextLang: Language) => {
+    setLang(nextLang);
+    if (typeof window !== 'undefined') {
+      try {
+        const url = new URL(window.location.href);
+        if (nextLang === 'ar') {
+          url.searchParams.set('lang', 'ar');
+        } else {
+          url.searchParams.delete('lang');
+        }
+        window.history.replaceState(null, '', url.toString());
+      } catch {
+        // Ignore History API errors
+      }
+    }
+  }, []);
 
   useEffect(() => {
     try {
@@ -83,6 +140,7 @@ export default function App() {
       if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === 'u') {
         event.preventDefault();
         setIsOwnerMode(true);
+        setHasLoadedOwnerModal(true);
         setIsOwnerStudioOpen(true);
       }
     };
@@ -183,7 +241,18 @@ export default function App() {
 
   const handleUnlockOwnerStudio = useCallback(() => {
     setIsOwnerMode(true);
+    setHasLoadedOwnerModal(true);
     setIsOwnerStudioOpen(true);
+  }, []);
+
+  const handleLockOwnerMode = useCallback(() => {
+    setIsOwnerStudioOpen(false);
+    setIsOwnerMode(false);
+  }, []);
+
+  const handleOpenQrPass = useCallback(() => {
+    setHasLoadedQrModal(true);
+    setIsQrOpen(true);
   }, []);
 
   const handlePublishPreview = useCallback((credential: CredentialItem) => {
@@ -209,12 +278,12 @@ export default function App() {
         <main>
           <HeroSection
             lang={lang}
-            onLanguageChange={setLang}
+            onLanguageChange={handleLanguageChange}
             vcardSaved={vcardSaved}
             onDownloadVCard={handleDownloadVCard}
             isAmbientPlaying={isAmbientPlaying}
             onToggleAmbient={handleToggleAmbient}
-            onOpenQrPass={() => setIsQrOpen(true)}
+            onOpenQrPass={handleOpenQrPass}
           />
           <JourneySection lang={lang} />
           <CredentialsCarousel
@@ -222,23 +291,36 @@ export default function App() {
             customCredentials={customCredentials}
             onRemoveCustomCredential={handleRemoveCustomCredential}
             isOwnerMode={isOwnerMode}
-            onOpenOwnerStudio={() => setIsOwnerStudioOpen(true)}
+            onOpenOwnerStudio={() => {
+              setHasLoadedOwnerModal(true);
+              setIsOwnerStudioOpen(true);
+            }}
           />
           <VenturesSection lang={lang} />
           <SocialHubSection lang={lang} />
+          <EntityFaqSection lang={lang} />
         </main>
         <Footer lang={lang} onOwnerTrigger={handleUnlockOwnerStudio} />
 
-        {/* Interactive Scannable QR Contact Pass Modal */}
-        <QrPassModal isOpen={isQrOpen} lang={lang} onClose={() => setIsQrOpen(false)} />
+        {/* Interactive Scannable QR Contact Pass Modal (Lazy-loaded) */}
+        <Suspense fallback={null}>
+          {hasLoadedQrModal && (
+            <QrPassModal isOpen={isQrOpen} lang={lang} onClose={() => setIsQrOpen(false)} />
+          )}
+        </Suspense>
 
-        {/* Private Owner-Only Publisher Studio (Hidden from public visitors) */}
-        <OwnerStudioModal
-          isOpen={isOwnerStudioOpen}
-          lang={lang}
-          onClose={() => setIsOwnerStudioOpen(false)}
-          onPublishPreview={handlePublishPreview}
-        />
+        {/* Private Owner-Only Publisher Studio (Hidden from public visitors, Lazy-loaded) */}
+        <Suspense fallback={null}>
+          {hasLoadedOwnerModal && (
+            <OwnerStudioModal
+              isOpen={isOwnerStudioOpen}
+              lang={lang}
+              onClose={() => setIsOwnerStudioOpen(false)}
+              onPublishPreview={handlePublishPreview}
+              onLockOwnerMode={handleLockOwnerMode}
+            />
+          )}
+        </Suspense>
 
         {/* Minimal persistent compact mute control visible only after scrolling past hero */}
         <AnimatePresence>

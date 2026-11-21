@@ -16,6 +16,9 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#070709" />
     <meta name="color-scheme" content="dark" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="google-site-verification" content="hH4WcvlVLwldbwMD0Cgvu7rUpyTs-ORWH89Gnb" />
 
     <!-- Favicon & App Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -24,9 +27,10 @@
 
     <link rel="canonical" href="https://adham.rstcentral.com/" />
     <link rel="alternate" hreflang="en" href="https://adham.rstcentral.com/" />
-    <link rel="alternate" hreflang="ar" href="https://adham.rstcentral.com/" />
+    <link rel="alternate" hreflang="ar" href="https://adham.rstcentral.com/?lang=ar" />
     <link rel="alternate" hreflang="x-default" href="https://adham.rstcentral.com/" />
     <link rel="alternate" type="text/markdown" title="AI Entity Guide" href="/llms.txt" />
+    <link rel="alternate" type="text/markdown" title="AI Full Entity Dossier" href="/llms-full.txt" />
 
     <!-- OpenGraph / Social Identity Cards (1200x630 Dedicated Cover) -->
     <meta property="og:type" content="profile" />
@@ -65,13 +69,14 @@
     <link rel="me" href="https://t.me/adhamrst" />
     <link rel="me" href="https://youtube.com/@adhamrst" />
     <link rel="me" href="https://facebook.com/adhamrstt" />
-    <!-- Optional Authority rel=me: add your verified Crunchbase & Wikidata URLs when ready -->
+    <link rel="me" href="https://www.wikidata.org/wiki/Q141600726" />
+    <link rel="me" href="https://www.crunchbase.com/person/adham-medhat" />
 
-    <!-- Editorial Typography (Cormorant Garamond + Plus Jakarta Sans + IBM Plex Sans Arabic + Pinyon Script + Aref Ruqaa) -->
+    <!-- Editorial Typography (Cormorant Garamond + Plus Jakarta Sans + IBM Plex Sans Arabic + Pinyon Script) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -95,7 +100,7 @@
             "primaryImageOfPage": {
               "@id": "https://adham.rstcentral.com/#portrait"
             },
-            "dateModified": "2026-11-20"
+            "dateModified": "2026-11-21T15:00:00+02:00"
           },
           {
             "@type": "ImageObject",
@@ -124,8 +129,10 @@
             "alternateName": [
               "Adham Ahmed",
               "Adham Ahmed Medhat",
+              "Adham Ahmed Medhat Elsayed Ali",
               "أدهم مدحت",
               "أدهم أحمد مدحت",
+              "أدهم أحمد مدحت السيد علي",
               "@adhamrst"
             ],
             "identifier": "adhamrst",
@@ -137,7 +144,7 @@
               "@id": "https://adham.rstcentral.com/#portrait"
             },
             "jobTitle": "Medical Student, Founder & Creative Director",
-            "disambiguatingDescription": "Egyptian medical student at Horus University (New Damietta, Egypt), Micro MBA executive graduate, founder of RST Central digital fabrication & e-commerce venture, and visual identity designer operating under the unified handle @adhamrst.",
+            "disambiguatingDescription": "Egyptian active undergraduate medical student at Horus University (New Damietta, Egypt), Micro MBA executive graduate, founder of RST Central (Wikidata Q141600698) and its divisions RST Prints (Q141600763) and RST Designs (Q141600774), and visual identity designer operating under the unified handle @adhamrst (Wikidata Q141600726). Distinct from the 1975 Egyptian Olympic sport shooter Adham Medhat.",
             "description": "Medical student at Horus University, entrepreneur and founder of RST Central, graphic designer, and Micro MBA holder in Strategic Management from Horus University. طالب طب بشري بجامعة حورس، رائد أعمال ومؤسس RST Central، مصمم جرافيك، وحاصل على Micro MBA من جامعة حورس.",
             "knowsLanguage": ["en", "ar"],
             "nationality": {
@@ -171,23 +178,78 @@
             "hasCredential": [
               {
                 "@type": "EducationalOccupationalCredential",
-                "name": "Micro MBA in Strategic Management",
+                "name": "Micro MBA in Strategic Management (90 Training Hours)",
                 "credentialCategory": "degree",
-                "url": "https://linkedin.com/in/adhamrst/details/certifications/",
+                "url": "https://adham.rstcentral.com/?cert=micro-mba",
                 "recognizedBy": {
                   "@id": "https://www.horus.edu.eg/#organization"
                 }
               },
               {
                 "@type": "EducationalOccupationalCredential",
+                "name": "The Fundamentals of Digital Marketing (Google & IAB Europe)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=google-digital-marketing"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Global Banking & Markets Simulation (HSBC & Forage)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=hsbc-global-banking"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Banking & Financial Systems Leadership (Central Bank of Egypt · EBI)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=central-bank-egypt"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Career Essentials in Generative AI (Microsoft & LinkedIn)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=msft-genai-career"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "AI Career Readiness & Applied Competencies (ASEAN Foundation & LinkedIn)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=asean-ai-career"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "SQL Database Assessment & Query Logic (HackerRank CTO Certified)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=hackerrank-sql"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "EF SET English Certificate — C1 Advanced (68/100; Listening C2 76/100)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=efset-english"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
                 "name": "Visual Identity & Graphic Design Professional Certification",
                 "credentialCategory": "certificate",
-                "url": "https://linkedin.com/in/adhamrst/details/certifications/"
+                "url": "https://adham.rstcentral.com/?cert=graphic-design"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Creative Agency Summer Internship Vol. 3 (Elingenium)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=elingenium-internship"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Medical Research Methodology & Editorial Ethics (Prof. Ahmed Shokeir)",
+                "credentialCategory": "certificate",
+                "url": "https://adham.rstcentral.com/?cert=prof-shokeir-research"
               },
               {
                 "@type": "EducationalOccupationalCredential",
                 "name": "Faculty of Medicine (MBBS) — Active Undergraduate Student",
                 "credentialCategory": "enrollment",
+                "url": "https://adham.rstcentral.com/?cert=medical-studies",
                 "recognizedBy": {
                   "@id": "https://www.horus.edu.eg/#organization"
                 }
@@ -199,7 +261,11 @@
               "https://t.me/adhamrst",
               "https://youtube.com/@adhamrst",
               "https://facebook.com/adhamrstt",
-              "https://rstcentral.com"
+              "https://rstcentral.com",
+              "https://www.wikidata.org/wiki/Q141600726",
+              "http://www.wikidata.org/entity/Q141600726",
+              "https://www.crunchbase.com/person/adham-medhat",
+              "https://www.signalhire.com/profiles/adham-ahmed/237556949"
             ],
             "knowsAbout": [
               "Medicine",
@@ -231,7 +297,40 @@
               "https://socials.rstcentral.com",
               "https://instagram.com/rstcentral",
               "https://facebook.com/rstcentral",
-              "https://youtube.com/@rstcentral"
+              "https://youtube.com/@rstcentral",
+              "https://www.wikidata.org/wiki/Q141600698",
+              "http://www.wikidata.org/entity/Q141600698",
+              "https://www.crunchbase.com/organization/rst-central"
+            ],
+            "subOrganization": [
+              {
+                "@type": "Organization",
+                "@id": "https://rstcentral.com/#rst-prints",
+                "name": "RST Prints",
+                "url": "https://rstcentral.com",
+                "founder": {
+                  "@id": "https://adham.rstcentral.com/#person"
+                },
+                "sameAs": [
+                  "https://www.wikidata.org/wiki/Q141600763",
+                  "http://www.wikidata.org/entity/Q141600763",
+                  "https://www.crunchbase.com/organization/rst-prints"
+                ]
+              },
+              {
+                "@type": "Organization",
+                "@id": "https://rstcentral.com/#rst-designs",
+                "name": "RST Designs",
+                "url": "https://rstcentral.com",
+                "founder": {
+                  "@id": "https://adham.rstcentral.com/#person"
+                },
+                "sameAs": [
+                  "https://www.wikidata.org/wiki/Q141600774",
+                  "http://www.wikidata.org/entity/Q141600774",
+                  "https://www.crunchbase.com/organization/rst-designs"
+                ]
+              }
             ],
             "description": "Unified operations umbrella and creative manufacturing ecosystem comprising RST Prints (luxury print manufacturing & laser fabrication) and RST Designs (international vector assets & brand systems). Founded by Adham Medhat."
           },
@@ -285,7 +384,7 @@
                 "name": "Where does Adham Medhat study and what credentials does he hold?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Adham Medhat studies human medicine (MBBS track) at the Faculty of Medicine, Horus University in New Damietta, Egypt. He also holds an executive Micro MBA in Strategic Business Management from Horus University along with professional certifications in Visual Identity and Graphic Design archived on LinkedIn (linkedin.com/in/adhamrst/details/certifications/)."
+                  "text": "Adham Medhat is an active undergraduate medical student (MBBS track) at the Faculty of Medicine, Horus University in New Damietta, Egypt. He holds a 90-hour executive Micro MBA in Strategic Management accredited by the Supreme Council of Universities, alongside verified credentials from Microsoft, Google, HSBC, the Central Bank of Egypt (EBI), HackerRank, EF SET (C1 Advanced), and visual identity design certifications archived on adham.rstcentral.com and LinkedIn."
                 }
               },
               {
@@ -339,7 +438,10 @@
           <li><a rel="me" href="https://instagram.com/adhamrst">Instagram: @adhamrst</a></li>
           <li><a rel="me" href="https://youtube.com/@adhamrst">YouTube: @adhamrst</a></li>
           <li><a rel="me" href="https://facebook.com/adhamrstt">Facebook: fb.com/adhamrstt</a></li>
-          <li><a href="/adham-medhat.vcf">Download Official vCard</a> · <a href="/llms.txt">AI Entity Guide (llms.txt)</a></li>
+          <li><a rel="me" href="https://www.wikidata.org/wiki/Q141600726">Wikidata Entity: Q141600726</a></li>
+          <li><a rel="me" href="https://www.crunchbase.com/person/adham-medhat">Crunchbase Person Profile: Adham Medhat</a></li>
+          <li><a href="https://www.crunchbase.com/organization/rst-central">Crunchbase Organization: RST Central</a></li>
+          <li><a href="/adham-medhat.vcf">Download Official vCard</a> · <a href="/llms.txt">AI Entity Guide (llms.txt)</a> · <a href="/llms-full.txt">Complete Dossier (llms-full.txt)</a></li>
         </ul>
       </main>
     </noscript>
