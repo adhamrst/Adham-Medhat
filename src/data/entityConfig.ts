@@ -22,6 +22,13 @@ export const PUBLIC_MEDIA_ASSETS = {
   certMedical: '/images/adham-medhat-medical-studies-horus-university.jpg',
   ventureRst: '/images/rst-central-fabrication-venture.jpg',
   ventureDesign: '/images/adham-medhat-visual-identity-studio.jpg',
+  curated: {
+    keynoteSpeaker: '/images/adham-medhat-keynote-speaker.jpg',
+    clinicalOncologyResearcher: '/images/adham-medhat-clinical-oncology-researcher.jpg',
+    academicCredentialHonor: '/images/adham-medhat-academic-credential-honor.jpg',
+    techneSummit: '/images/adham-medhat-techne-summit.jpg',
+    founderProfile: '/images/adham-medhat-founder-profile.jpg',
+  },
   /**
    * Official RST Central Logo (downloaded from official portal)
    */
