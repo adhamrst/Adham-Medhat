@@ -24,7 +24,7 @@ export const PUBLIC_MEDIA_ASSETS = {
   ventureDesign: '/images/adham-medhat-visual-identity-studio.jpg',
   curated: {
     keynoteSpeaker: '/images/adham-medhat-keynote-speaker.jpg',
-    clinicalOncologyResearcher: '/images/adham-medhat-clinical-oncology-researcher.jpg',
+    ventureOperationsWorkshop: '/images/adham-medhat-venture-operations-workshop.jpg',
     academicCredentialHonor: '/images/adham-medhat-academic-credential-honor.jpg',
     techneSummit: '/images/adham-medhat-techne-summit.jpg',
     founderProfile: '/images/adham-medhat-founder-profile.jpg',
