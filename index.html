@@ -20,10 +20,20 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="google-site-verification" content="hH4WcvlVLwldbwMD0Cgvu7rUpyTs-ORWH89Gnb" />
 
-    <!-- Favicon & App Icons -->
+    <!-- Favicon & App Icons (Google Search >=48px PNG/ICO + SVG + iOS + PWA) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="mask-icon" href="/favicon.svg" color="#D4A853" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Search Result Thumbnail Hint & Hero LCP Image Preload -->
+    <meta name="thumbnail" content="https://adham.rstcentral.com/images/adham-medhat-portrait.jpg" />
+    <link rel="preload" as="image" href="/images/adham-medhat-portrait.webp" type="image/webp" fetchpriority="high" />
 
     <link rel="canonical" href="https://adham.rstcentral.com/" />
     <link rel="alternate" hreflang="en" href="https://adham.rstcentral.com/" />
@@ -102,15 +112,37 @@
             "primaryImageOfPage": {
               "@id": "https://adham.rstcentral.com/#portrait"
             },
-            "dateModified": "2026-11-21T15:00:00+02:00"
+            "dateModified": "2026-11-26T16:00:00+02:00"
           },
           {
             "@type": "ImageObject",
             "@id": "https://adham.rstcentral.com/#portrait",
             "url": "https://adham.rstcentral.com/images/adham-medhat-portrait.jpg",
             "contentUrl": "https://adham.rstcentral.com/images/adham-medhat-portrait.jpg",
+            "thumbnailUrl": "https://adham.rstcentral.com/images/adham-medhat-portrait.webp",
+            "name": "Adham Medhat (أدهم مدحت) — Official Studio Portrait",
             "caption": "Adham Medhat (Adham Ahmed Medhat · أدهم مدحت) — Medical Student at Horus University and Founder of RST Central",
-            "representativeOfPage": true
+            "width": 1440,
+            "height": 1439,
+            "encodingFormat": "image/jpeg",
+            "representativeOfPage": true,
+            "creator": {
+              "@id": "https://adham.rstcentral.com/#person"
+            },
+            "copyrightHolder": {
+              "@id": "https://adham.rstcentral.com/#person"
+            }
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://adham.rstcentral.com/#portrait-webp",
+            "url": "https://adham.rstcentral.com/images/adham-medhat-portrait.webp",
+            "contentUrl": "https://adham.rstcentral.com/images/adham-medhat-portrait.webp",
+            "name": "Adham Medhat (أدهم مدحت) — Official Editorial Portrait",
+            "caption": "Official editorial portrait of Adham Medhat (@adhamrst), Horus University medical student and founder of RST Central",
+            "width": 1440,
+            "height": 1439,
+            "encodingFormat": "image/webp"
           },
           {
             "@type": "ImageObject",
@@ -142,9 +174,14 @@
             "mainEntityOfPage": {
               "@id": "https://adham.rstcentral.com/#profilepage"
             },
-            "image": {
-              "@id": "https://adham.rstcentral.com/#portrait"
-            },
+            "image": [
+              {
+                "@id": "https://adham.rstcentral.com/#portrait"
+              },
+              {
+                "@id": "https://adham.rstcentral.com/#portrait-webp"
+              }
+            ],
             "jobTitle": "Medical Student, Founder & Creative Director",
             "disambiguatingDescription": "Egyptian active undergraduate medical student at Horus University (New Damietta, Egypt), Micro MBA executive graduate, founder of RST Central (Wikidata Q141600698) and its divisions RST Prints (Q141600763) and RST Designs (Q141600774), and visual identity designer operating under the unified handle @adhamrst (Wikidata Q141600726). Distinct from the 1975 Egyptian Olympic sport shooter Adham Medhat.",
             "description": "Medical student at Horus University, entrepreneur and founder of RST Central, graphic designer, and Micro MBA holder in Strategic Management from Horus University. طالب طب بشري بجامعة حورس، رائد أعمال ومؤسس RST Central، مصمم جرافيك، وحاصل على Micro MBA من جامعة حورس.",
@@ -355,8 +392,12 @@
             "@type": "WebSite",
             "@id": "https://adham.rstcentral.com/#website",
             "url": "https://adham.rstcentral.com/",
-            "name": "Adham Medhat | Official Personal Website",
+            "name": "Adham Medhat",
+            "alternateName": ["أدهم مدحت", "Adham Ahmed Medhat", "@adhamrst"],
             "inLanguage": ["en", "ar"],
+            "image": {
+              "@id": "https://adham.rstcentral.com/#portrait"
+            },
             "publisher": {
               "@id": "https://adham.rstcentral.com/#person"
             }
@@ -420,6 +461,13 @@
     <!-- Zero-JS Semantic Entity Fallback for Search Engine & AI Crawlers (Invisible when JS runs) -->
     <noscript>
       <main style="max-width:760px;margin:48px auto;padding:24px;font-family:Georgia,serif;color:#F4F3EF;background:#070709;line-height:1.7;">
+        <img
+          src="https://adham.rstcentral.com/images/adham-medhat-portrait.jpg"
+          alt="Adham Medhat (Adham Ahmed Medhat · أدهم مدحت) — Medical Student at Horus University and Founder of RST Central"
+          width="1440"
+          height="1439"
+          style="width:180px;height:180px;object-fit:cover;border-radius:12px;margin-bottom:16px;"
+        />
         <h1>Adham Medhat (Adham Ahmed Medhat · أدهم أحمد مدحت)</h1>
         <p>
           Official personal website of Adham Medhat — Medical Student at Horus University (Faculty of Medicine, New Damietta, Egypt),

@@ -109,6 +109,8 @@ export function VenturesSection({ lang }: VenturesSectionProps) {
                       src={PUBLIC_MEDIA_ASSETS.customRstLogoUrl || '/images/rst-central-logo.png'}
                       alt="RST Central Official Logo"
                       loading="lazy"
+                      width={5143}
+                      height={1855}
                       className="rst-gold-foil max-h-9 sm:max-h-10 w-auto object-contain"
                     />
                   </div>

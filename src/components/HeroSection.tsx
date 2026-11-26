@@ -273,6 +273,8 @@ export function HeroSection({
                   fallbackLabel="Adham Medhat"
                   loading="eager"
                   fetchPriority="high"
+                  width={1440}
+                  height={1439}
                   className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
 

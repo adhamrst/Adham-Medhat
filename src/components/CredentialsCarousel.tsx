@@ -379,13 +379,13 @@ export function CredentialsCarousel({
         {/* Filter Bar + Search + Direct LinkedIn Link */}
         <EditorialReveal
           delay={0.18}
-          className="mt-6 sm:mt-8 flex flex-col gap-3 border-y border-[#242731] py-3.5 sm:py-4"
+          className="mt-6 sm:mt-8 border-y border-[#242731] py-3.5 sm:py-4"
         >
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <search className="flex flex-col gap-3">
             <div
               role="group"
               aria-label={lang === 'ar' ? 'تصفية الشهادات حسب المجال' : 'Filter credentials by discipline'}
-              className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-0.5"
+              className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-0.5 md:flex-wrap md:overflow-visible"
             >
               {CREDENTIAL_CATEGORIES.map((category) => {
                 const isSelected = category.id === selectedCategory;
@@ -407,9 +407,9 @@ export function CredentialsCarousel({
               })}
             </div>
 
-            <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center shrink-0">
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
               {/* Instant Credential Search */}
-              <div className="relative w-full sm:w-64">
+              <div className="relative w-full sm:w-80">
                 <Search
                   className="pointer-events-none absolute start-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#9D9FA8]"
                   aria-hidden="true"
@@ -451,7 +451,7 @@ export function CredentialsCarousel({
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
               </a>
             </div>
-          </div>
+          </search>
         </EditorialReveal>
 
         {/* VIEW CONDITIONAL: EMPTY STATE vs GRID vs 3D CAROUSEL */}

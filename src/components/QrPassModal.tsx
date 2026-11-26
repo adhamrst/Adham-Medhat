@@ -202,6 +202,8 @@ export function QrPassModal({ isOpen, lang, onClose }: QrPassModalProps) {
                           ? 'QR code for https://adham.rstcentral.com/'
                           : 'QR code for Adham Medhat vCard contact'
                       }
+                      width={440}
+                      height={440}
                       className="h-52 w-52 sm:h-56 sm:w-56 object-contain"
                     />
                   ) : (

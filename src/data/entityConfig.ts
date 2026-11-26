@@ -75,5 +75,4 @@ export const ENTITY_AUTHORITY_PROFILES = {
   gravatarPersonUrl: 'https://gravatar.com/adhamrst' as string,
   theOrgPersonUrl: 'https://theorg.com/org/rst-central/person/adham-medhat' as string,
   theOrgOrgUrl: 'https://theorg.com/org/rst-central' as string,
-  aboutMePersonUrl: 'https://about.me/adhamrst' as string,
 } as const;
